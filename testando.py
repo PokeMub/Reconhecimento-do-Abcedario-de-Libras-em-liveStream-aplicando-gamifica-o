@@ -2113,14 +2113,6 @@ class MyWindow(QWidget):
                     self.imgSeta.adjustSize()
                     self.imgSeta.move(int(self.x/3), int(self.y/2.8))
 
-                    #QApplication.processEvents()
-                    #letra = 'proximo2'
-                    #troca_opc = 2
-
-                    #self.imgSeta.move(int(-100), int(-100))
-
-                    
-                    
                     
                 if menu_opc2 == 3 and entrar_opc == 1:
                     QApplication.processEvents()
@@ -2128,7 +2120,7 @@ class MyWindow(QWidget):
                         letra = 'a'
                         cont1 = 1
                     
-                        
+
                         #print("entrei opc 3") 
                         self.imgSeta.move(int(-100), int(-100))
 
@@ -2978,8 +2970,33 @@ class MyWindow(QWidget):
                         self.labelLetZ.move(int(self.x/1.8), int(self.y/4.2))
 
                     if menu_opc2_soletra == 27:
+                        self.movieZ.stop()
+                        self.labelZ.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetZ.adjustSize()
+                        self.labelExcLetZ.move(int(self.x/1.15), int(-1000))
+
+                        self.imgZ1.adjustSize()
+                        self.imgZ1.move(int(self.x/2), int(-1000))
+
+                        self.imgZ2.adjustSize()
+                        self.imgZ2.move(int(self.x/2), int(-1000))
+
+                        self.imgZ3.adjustSize()
+                        self.imgZ3.move(int(self.x/2), int(-1000))
+
+                        self.imgZ4.adjustSize()
+                        self.imgZ4.move(int(self.x/2), int(-1000))
+
+                        self.labelLetZ.adjustSize()
+                        self.labelLetZ.move(int(self.x/1.8), int(-1000))
                         print('entrou sair')                  
-                        letra = 'sair'
+                        menu_opc2 = 1
+                        entrar_opc = 0
+                        letra = 'proximo'
+                        menu_opc2_soletra = 0
+                        cont1 = 0
+
                     
                     
                 if menu_opc2 == 4 and entrar_opc != 1:   
@@ -2993,8 +3010,6 @@ class MyWindow(QWidget):
                     troca_opc = 2
                     print("entrei opc 4") 
                     self.imgSeta.move(int(-100), int(-100))
-
-
 
 
                 if menu_opc2 == 5 and entrar_opc != 1:   
@@ -3070,6 +3085,7 @@ class Worker1(QThread):
     def run(self):
         contador = 0
         contador_troca_opc = 0
+        reducao = 1
         global menu_opc1 , menu_opc2 , dentro_menu_opc2, entrar_opc , troca_opc, visualizarLetra,menu_opc2_soletra, letra
         letra_Momento = 'Iniciando'
         mp_drawing = mp.solutions.drawing_utils
@@ -3121,182 +3137,184 @@ class Worker1(QThread):
                                 contar = 0
                                 x = 0
                             
-
+                        
                             # global menu_opc1
                             # menu_opc1 = 3
                             # print(letra)
-                             ###################################################################################
-                            # Ponto 4 do dedao
-                            dedao_x_4 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].x * image_width
-                            dedao_y_4 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].y * image_height
-                            dedao_4 = (int(dedao_x_4), int(dedao_y_4))
-                            # print(dedao_4)
 
-                            ######################################################################################
-                            # Ponto 3 do dedao
-                            dedao_x_3 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_IP].x * image_width
-                            dedao_y_3 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_IP].y * image_height
-                            dedao_3 = (int(dedao_x_3), int(dedao_y_3))
-                            dedao_3_ = (int(dedao_x_3) + int(dedao_y_3))
-                            # print(dedao_3)
+                            if reducao == 1:
+                                ###################################################################################
+                                # Ponto 4 do dedao
+                                dedao_x_4 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].x * image_width
+                                dedao_y_4 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].y * image_height
+                                dedao_4 = (int(dedao_x_4), int(dedao_y_4))
+                                # print(dedao_4)
 
-                            ######################################################################################
-                            # Ponto 2 do dedao
-                            dedao_x_2 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_MCP].x * image_width
-                            dedao_y_2 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_MCP].y * image_height
-                            dedao_2 = (int(dedao_x_2), int(dedao_y_2))
-                            # print(dedao_2)
+                                ######################################################################################
+                                # Ponto 3 do dedao
+                                dedao_x_3 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_IP].x * image_width
+                                dedao_y_3 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_IP].y * image_height
+                                dedao_3 = (int(dedao_x_3), int(dedao_y_3))
+                                dedao_3_ = (int(dedao_x_3) + int(dedao_y_3))
+                                # print(dedao_3)
 
-                            ######################################################################################
-                            # Ponto 1 do dedao
-                            dedao_x_1 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_CMC].x * image_width
-                            dedao_y_1 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_CMC].y * image_height
-                            dedao_1 = (int(dedao_x_1), int(dedao_y_1))
-                            # print(dedao_1)
+                                ######################################################################################
+                                # Ponto 2 do dedao
+                                dedao_x_2 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_MCP].x * image_width
+                                dedao_y_2 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_MCP].y * image_height
+                                dedao_2 = (int(dedao_x_2), int(dedao_y_2))
+                                # print(dedao_2)
 
-                            ######################################################################################
-                            # Ponto 0 mão
-                            mao_x_0 = hand_landmarks.landmark[mp_hands.HandLandmark.WRIST].x * image_width
-                            mao_y_0 = hand_landmarks.landmark[mp_hands.HandLandmark.WRIST].y * image_height
-                            mao_0 = (int(mao_x_0), int(mao_y_0))
-                            # print(mao_0)
+                                ######################################################################################
+                                # Ponto 1 do dedao
+                                dedao_x_1 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_CMC].x * image_width
+                                dedao_y_1 = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_CMC].y * image_height
+                                dedao_1 = (int(dedao_x_1), int(dedao_y_1))
+                                # print(dedao_1)
 
-                            ######################################################################################
-                            # Ponto 8 indicador
-                            indicador_x_8 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width
-                            indicador_y_8 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height
-                            indicador_8 = (int(indicador_x_8), int(indicador_y_8))
-                            # print(indicador_8)
+                                ######################################################################################
+                                # Ponto 0 mão
+                                mao_x_0 = hand_landmarks.landmark[mp_hands.HandLandmark.WRIST].x * image_width
+                                mao_y_0 = hand_landmarks.landmark[mp_hands.HandLandmark.WRIST].y * image_height
+                                mao_0 = (int(mao_x_0), int(mao_y_0))
+                                # print(mao_0)
 
-                            ######################################################################################
-                            # Ponto 7 indicador
-                            indicador_x_7 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_DIP].x * image_width
-                            indicador_y_7 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_DIP].y * image_height
-                            indicador_7 = (int(indicador_x_7), int(indicador_y_7))
-                            indicador_7_ = (int(indicador_x_7) + int(indicador_y_7))
-                            # print(indicador_7)
+                                ######################################################################################
+                                # Ponto 8 indicador
+                                indicador_x_8 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image_width
+                                indicador_y_8 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image_height
+                                indicador_8 = (int(indicador_x_8), int(indicador_y_8))
+                                # print(indicador_8)
 
-                            ######################################################################################
-                            # Ponto 6 indicador
-                            indicador_x_6 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_PIP].x * image_width
-                            indicador_y_6 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_PIP].y * image_height
-                            indicador_6 = (int(indicador_x_6), int(indicador_y_6))
-                            # print(indicador_6)
+                                ######################################################################################
+                                # Ponto 7 indicador
+                                indicador_x_7 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_DIP].x * image_width
+                                indicador_y_7 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_DIP].y * image_height
+                                indicador_7 = (int(indicador_x_7), int(indicador_y_7))
+                                indicador_7_ = (int(indicador_x_7) + int(indicador_y_7))
+                                # print(indicador_7)
 
-                            ######################################################################################
-                            # Ponto 5 indicador
-                            indicador_x_5 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_MCP].x * image_width
-                            indicador_y_5 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_MCP].y * image_height
-                            indicador_5 = (int(indicador_x_5), int(indicador_y_5))
-                            # print(indicador_5)
+                                ######################################################################################
+                                # Ponto 6 indicador
+                                indicador_x_6 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_PIP].x * image_width
+                                indicador_y_6 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_PIP].y * image_height
+                                indicador_6 = (int(indicador_x_6), int(indicador_y_6))
+                                # print(indicador_6)
 
-                            ######################################################################################
-                            # Ponto 12 Medio
-                            indicador_x_12 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].x * image_width
-                            indicador_y_12 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].y * image_height
-                            indicador_12 = (int(indicador_x_12), int(indicador_y_12))
-                            # print(indicador_12)
+                                ######################################################################################
+                                # Ponto 5 indicador
+                                indicador_x_5 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_MCP].x * image_width
+                                indicador_y_5 = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_MCP].y * image_height
+                                indicador_5 = (int(indicador_x_5), int(indicador_y_5))
+                                # print(indicador_5)
 
-                            ######################################################################################
-                            # Ponto 11 Medio
-                            indicador_x_11 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_DIP].x * image_width
-                            indicador_y_11 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_DIP].y * image_height
-                            indicador_11 = (int(indicador_x_11), int(indicador_y_11))
-                            # print(indicador_11)
+                                ######################################################################################
+                                # Ponto 12 Medio
+                                indicador_x_12 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].x * image_width
+                                indicador_y_12 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].y * image_height
+                                indicador_12 = (int(indicador_x_12), int(indicador_y_12))
+                                # print(indicador_12)
 
-                            ######################################################################################
-                            # Ponto 10 Medio
-                            indicador_x_10 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_PIP].x * image_width
-                            indicador_y_10 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_PIP].y * image_height
-                            indicador_10 = (int(indicador_x_10), int(indicador_y_10))
-                            # print(indicador_10)
+                                ######################################################################################
+                                # Ponto 11 Medio
+                                indicador_x_11 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_DIP].x * image_width
+                                indicador_y_11 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_DIP].y * image_height
+                                indicador_11 = (int(indicador_x_11), int(indicador_y_11))
+                                # print(indicador_11)
 
-                            ######################################################################################
-                            # Ponto 9 Medio
-                            indicador_x_9 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_MCP].x * image_width
-                            indicador_y_9 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_MCP].y * image_height
-                            indicador_9 = (int(indicador_x_9), int(indicador_y_9))
-                            # print(indicador_9)
+                                ######################################################################################
+                                # Ponto 10 Medio
+                                indicador_x_10 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_PIP].x * image_width
+                                indicador_y_10 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_PIP].y * image_height
+                                indicador_10 = (int(indicador_x_10), int(indicador_y_10))
+                                # print(indicador_10)
 
-                            ######################################################################################
-                            # Ponto 16 anelar
-                            indicador_x_16 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP].x * image_width
-                            indicador_y_16 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP].y * image_height
-                            indicador_z_16 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP].z
-                            # print(indicador_z_16)
-                            indicador_16 = (int(indicador_x_16), int(indicador_y_16))
-                            # print(indicador_16)
+                                ######################################################################################
+                                # Ponto 9 Medio
+                                indicador_x_9 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_MCP].x * image_width
+                                indicador_y_9 = hand_landmarks.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_MCP].y * image_height
+                                indicador_9 = (int(indicador_x_9), int(indicador_y_9))
+                                # print(indicador_9)
 
-                            ######################################################################################
-                            # Ponto 15 anelar
-                            indicador_x_15 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_DIP].x * image_width
-                            indicador_y_15 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_DIP].y * image_height
-                            indicador_15 = (int(indicador_x_15), int(indicador_y_15))
-                            # print(indicador_15)
+                                ######################################################################################
+                                # Ponto 16 anelar
+                                indicador_x_16 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP].x * image_width
+                                indicador_y_16 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP].y * image_height
+                                indicador_z_16 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_TIP].z
+                                # print(indicador_z_16)
+                                indicador_16 = (int(indicador_x_16), int(indicador_y_16))
+                                # print(indicador_16)
 
-                            ######################################################################################
-                            # Ponto 14 anelar
-                            indicador_x_14 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_PIP].x * image_width
-                            indicador_y_14 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_PIP].y * image_height
-                            indicador_14 = (int(indicador_x_14), int(indicador_y_14))
-                            # print(indicador_14)
+                                ######################################################################################
+                                # Ponto 15 anelar
+                                indicador_x_15 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_DIP].x * image_width
+                                indicador_y_15 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_DIP].y * image_height
+                                indicador_15 = (int(indicador_x_15), int(indicador_y_15))
+                                # print(indicador_15)
 
-                            ######################################################################################
-                            # Ponto 13 anelar
-                            indicador_x_13 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_MCP].x * image_width
-                            indicador_y_13 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_MCP].y * image_height
-                            indicador_13 = (int(indicador_x_13), int(indicador_y_13))
-                            # print(indicador_13)
+                                ######################################################################################
+                                # Ponto 14 anelar
+                                indicador_x_14 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_PIP].x * image_width
+                                indicador_y_14 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_PIP].y * image_height
+                                indicador_14 = (int(indicador_x_14), int(indicador_y_14))
+                                # print(indicador_14)
 
-                            ######################################################################################
-                            # Ponto 20 Mindinho
-                            indicador_x_20 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP].x * image_width
-                            indicador_y_20 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP].y * image_height
-                            indicador_20 = (int(indicador_x_20), int(indicador_y_20))
-                            # print(indicador_20)
+                                ######################################################################################
+                                # Ponto 13 anelar
+                                indicador_x_13 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_MCP].x * image_width
+                                indicador_y_13 = hand_landmarks.landmark[mp_hands.HandLandmark.RING_FINGER_MCP].y * image_height
+                                indicador_13 = (int(indicador_x_13), int(indicador_y_13))
+                                # print(indicador_13)
 
-                            ######################################################################################
-                            # Ponto 19 Mindinho
-                            indicador_x_19 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_DIP].x * image_width
-                            indicador_y_19 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_DIP].y * image_height
-                            indicador_19 = (int(indicador_x_19), int(indicador_y_19))
-                            # print(indicador_19)
+                                ######################################################################################
+                                # Ponto 20 Mindinho
+                                indicador_x_20 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP].x * image_width
+                                indicador_y_20 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_TIP].y * image_height
+                                indicador_20 = (int(indicador_x_20), int(indicador_y_20))
+                                # print(indicador_20)
 
-                            ######################################################################################
-                            # Ponto 18 Mindinho
-                            indicador_x_18 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_PIP].x * image_width
-                            indicador_y_18 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_PIP].y * image_height
-                            indicador_18 = (int(indicador_x_18), int(indicador_y_18))
-                            # print(indicador_18)
+                                ######################################################################################
+                                # Ponto 19 Mindinho
+                                indicador_x_19 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_DIP].x * image_width
+                                indicador_y_19 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_DIP].y * image_height
+                                indicador_19 = (int(indicador_x_19), int(indicador_y_19))
+                                # print(indicador_19)
 
-                            ######################################################################################
-                            # Ponto 17 Mindinho
-                            indicador_x_17 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_MCP].x * image_width
-                            indicador_y_17 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_MCP].y * image_height
-                            indicador_17 = (int(indicador_x_17), int(indicador_y_17))
-                            # print(indicador_17)
+                                ######################################################################################
+                                # Ponto 18 Mindinho
+                                indicador_x_18 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_PIP].x * image_width
+                                indicador_y_18 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_PIP].y * image_height
+                                indicador_18 = (int(indicador_x_18), int(indicador_y_18))
+                                # print(indicador_18)
 
-                            distancia_8_4 = int(np.sqrt((indicador_x_8 - dedao_x_4)
-                                                        ** 2+(indicador_y_8 - dedao_y_4)**2))
+                                ######################################################################################
+                                # Ponto 17 Mindinho
+                                indicador_x_17 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_MCP].x * image_width
+                                indicador_y_17 = hand_landmarks.landmark[mp_hands.HandLandmark.PINKY_MCP].y * image_height
+                                indicador_17 = (int(indicador_x_17), int(indicador_y_17))
+                                # print(indicador_17)
 
-                            distancia_7_3 = int(np.sqrt((indicador_x_7 - dedao_x_3)
-                                                        ** 2+(indicador_y_7 - dedao_y_3)**2))
+                                distancia_8_4 = int(np.sqrt((indicador_x_8 - dedao_x_4)
+                                                            ** 2+(indicador_y_8 - dedao_y_4)**2))
 
-                            distancia_6_2 = int(np.sqrt((indicador_x_6 - dedao_x_2)
-                                                        ** 2+(indicador_y_6 - dedao_y_2)**2))
+                                distancia_7_3 = int(np.sqrt((indicador_x_7 - dedao_x_3)
+                                                            ** 2+(indicador_y_7 - dedao_y_3)**2))
 
-                            distancia_5_1 = int(np.sqrt((indicador_x_5 - dedao_x_1)
-                                                        ** 2+(indicador_y_5 - dedao_y_1)**2))
+                                distancia_6_2 = int(np.sqrt((indicador_x_6 - dedao_x_2)
+                                                            ** 2+(indicador_y_6 - dedao_y_2)**2))
 
-                            distancia_12_0 = int(np.sqrt((indicador_x_12 - mao_x_0)
-                                                        ** 2+(indicador_y_12 - mao_y_0)**2))
+                                distancia_5_1 = int(np.sqrt((indicador_x_5 - dedao_x_1)
+                                                            ** 2+(indicador_y_5 - dedao_y_1)**2))
 
-                            distancia_16_0 = int(np.sqrt((indicador_x_16 - mao_x_0)
-                                                        ** 2+(indicador_y_16 - mao_y_0)**2))
+                                distancia_12_0 = int(np.sqrt((indicador_x_12 - mao_x_0)
+                                                            ** 2+(indicador_y_12 - mao_y_0)**2))
 
-                            distancia_20_0 = int(np.sqrt((indicador_x_20 - mao_x_0)
-                                                        ** 2+(indicador_y_20 - mao_y_0)**2))
+                                distancia_16_0 = int(np.sqrt((indicador_x_16 - mao_x_0)
+                                                            ** 2+(indicador_y_16 - mao_y_0)**2))
 
+                                distancia_20_0 = int(np.sqrt((indicador_x_20 - mao_x_0)
+                                                            ** 2+(indicador_y_20 - mao_y_0)**2))
+                        
                             if letra_Momento == 'a':
                                 
                                 COLOR = (0, 255, 0)
@@ -3337,6 +3355,7 @@ class Worker1(QThread):
                                     # global menu_opc1
                                     #menu_opc1 = 1  
                                     menu_opc2_soletra  = 2  
+                                    time.sleep(2)
                                                                 
                                 contador = 0
                                 
@@ -3413,6 +3432,7 @@ class Worker1(QThread):
                                     #letra_Momento = 'nenhuma'
                                     letra = 'next'
                                     menu_opc2_soletra  = 3 
+                                    time.sleep(2)
                                     #menu_opc1 = 2
 
                                 contador = 0
@@ -3500,8 +3520,13 @@ class Worker1(QThread):
                                     print("Letra c")
                                     print("vc Acertou")
 
-                                    letra_Momento = 'nenhuma'
-                                    menu_opc1 = 3
+                                    # letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 3
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 4 
+                                    time.sleep(2)
+                                    #menu_opc1 = 2
+
                                 contador = 0
                                
                                 #########################################################################
@@ -3530,8 +3555,6 @@ class Worker1(QThread):
                                         (0, 0, 0), 2, cv2.LINE_AA)
                                 cv2.circle(image, indicador_16, 4, (0, 0, 0), 2, cv2.LINE_AA)
                                 ###################################################################
-
-  
                             elif letra_Momento == 'd':
 
                                 COLOR = (0, 0, 0)
@@ -3597,8 +3620,12 @@ class Worker1(QThread):
                                 if contador >= 5:
                                     print("Letra D")
                                     print("vc Acertou")
-                                    menu_opc1 = 4
-                                    letra_Momento = 'nenhuma'
+                                    #menu_opc1 = 4
+                                    #letra_Momento = 'nenhuma'
+
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 5 
+                                    time.sleep(2)
 
                                 contador = 0
                                 #########################################################################
@@ -3639,8 +3666,7 @@ class Worker1(QThread):
                                 cv2.circle(image, indicador_20, 4,
                                             (0, 0, 0), 2, cv2.LINE_AA)
                                 cv2.circle(image, indicador_16, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                
+                                ###################################################################                              
                             elif letra_Momento == 'e':
 
                                 COLOR = (0, 0, 0)
@@ -3688,8 +3714,11 @@ class Worker1(QThread):
                                 if contador >= 6:
                                     print("Letra E")
                                     print("vc Acertou")
-                                    menu_opc1 = 5
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 5
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 6 
+                                    time.sleep(2)
                                 contador = 0
                                 #########################################################################
                                 cv2.line(image, (dedao_4), (indicador_16),
@@ -3762,8 +3791,11 @@ class Worker1(QThread):
                                 if contador >= 4:
                                     print("Letra F")
                                     print("vc Acertou")
-                                    menu_opc1 = 6
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 6
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 7 
+                                    time.sleep(2)
 
                                 contador = 0
 
@@ -3841,8 +3873,11 @@ class Worker1(QThread):
                                 if contador >= 5:
                                     print("Letra G")
                                     print("vc Acertou")
-                                    menu_opc1 = 7
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 7
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 8 
+                                    time.sleep(2)
 
                                 contador = 0
 
@@ -3921,8 +3956,11 @@ class Worker1(QThread):
                                 if contador >= 5:
                                     print("Letra H")
                                     print("vc Acertou")
-                                    menu_opc1 = 8
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 8
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 9 
+                                    time.sleep(2)
 
                                 contador = 0
 
@@ -3991,8 +4029,11 @@ class Worker1(QThread):
                                 if contador >= 5:
                                     print("Letra I")
                                     print("vc Acertou")
-                                    menu_opc1 = 9
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 9
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 10 
+                                    time.sleep(2)
 
                                 contador = 0
 
@@ -4074,8 +4115,11 @@ class Worker1(QThread):
                                 if contador >= 6:
                                     print("Letra J")
                                     print("vc Acertou")
-                                    menu_opc1 = 10
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 10
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 11
+                                    time.sleep(2)
 
                                 contador = 0
 
@@ -4164,8 +4208,11 @@ class Worker1(QThread):
                                 if contador >= 6:
                                     print("Letra K")
                                     print("vc Acertou")
-                                    menu_opc1 = 11
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 11
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 12 
+                                    time.sleep(2)
                                 contador = 0
 
                                 cv2.line(image, (indicador_6), (dedao_4),
@@ -4230,8 +4277,11 @@ class Worker1(QThread):
                                 if contador >= 4:
                                     print("Letra L")
                                     print("vc Acertou")
-                                    menu_opc1 = 12
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 12
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 13 
+                                    time.sleep(2)
                                 contador = 0
                                
                                 #########################################################################
@@ -4290,8 +4340,11 @@ class Worker1(QThread):
                                 if contador >= 4:
                                     print("Letra M")
                                     print("vc Acertou")
-                                    menu_opc1 = 13
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 13
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 14 
+                                    time.sleep(2)
                                 contador = 0
 
                                 cv2.line(image, (dedao_4), (indicador_20),
@@ -4355,8 +4408,11 @@ class Worker1(QThread):
                                 if contador >= 4:
                                     print("Letra N")
                                     print("vc Acertou")
-                                    menu_opc1 = 14
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 14
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 15
+                                    time.sleep(2)
                                 contador = 0
 
                                 cv2.line(image, (dedao_4), (indicador_20),
@@ -4432,8 +4488,11 @@ class Worker1(QThread):
                                 if contador >= 4:
                                     print("Letra O")
                                     print("vc Acertou")
-                                    menu_opc1 = 15
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 15
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 16
+                                    time.sleep(2)
 
                                 contador = 0
                                 
@@ -4493,8 +4552,11 @@ class Worker1(QThread):
                                 if contador >= 3:
                                     print("Letra P")
                                     print("vc Acertou")
-                                    menu_opc1 = 16
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 16
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 17
+                                    time.sleep(2)
                                 contador = 0
 
                                 ###################################################################
@@ -4548,8 +4610,11 @@ class Worker1(QThread):
                                 if contador >= 4:
                                     print("Letra Q")
                                     print("vc Acertou")
-                                    menu_opc1 = 17
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 17
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 18
+                                    time.sleep(2)
                                 contador = 0
 
                                 #########################################################################
@@ -4624,8 +4689,11 @@ class Worker1(QThread):
                                 if contador >= 5:
                                     print("Letra R")
                                     print("vc Acertou")
-                                    menu_opc1 = 18
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 18
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 19 
+                                    time.sleep(2)
                                 contador = 0
 
                                 #########################################################################
@@ -4703,8 +4771,11 @@ class Worker1(QThread):
                                 if contador >= 6:
                                     print("Letra S")
                                     print("vc Acertou")
-                                    menu_opc1 = 19
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 19
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 20
+                                    time.sleep(2)
                                 contador = 0
                                 #########################################################################
                                 cv2.line(image, (dedao_4), (indicador_16),
@@ -4775,8 +4846,11 @@ class Worker1(QThread):
                                 if contador >= 4:
                                     print("Letra T")
                                     print("vc Acertou")
-                                    menu_opc1 = 20
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 20
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 21 
+                                    time.sleep(2)
                                 contador = 0
 
                                 #########################################################################
@@ -4841,8 +4915,11 @@ class Worker1(QThread):
                                 if contador >= 4:
                                     print("Letra U")
                                     print("vc Acertou")
-                                    menu_opc1 = 21
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 21
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 22
+                                    time.sleep(2)
 
                                 contador = 0
 
@@ -4908,8 +4985,11 @@ class Worker1(QThread):
                                 if contador >= 4:
                                     print("Letra V")
                                     print("vc Acertou")
-                                    menu_opc1 = 22
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 22
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 23 
+                                    time.sleep(2)
 
                                 contador = 0
 
@@ -4977,8 +5057,11 @@ class Worker1(QThread):
                                 if contador >= 5:
                                     print("Letra W")
                                     print("vc Acertou")
-                                    menu_opc1 = 23
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 23
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 24
+                                    time.sleep(2)
                                 contador = 0
                                 if con == 2:
 
@@ -5087,8 +5170,11 @@ class Worker1(QThread):
                                 if contador >= 8:
                                     print("Letra X")
                                     print("vc Acertou")
-                                    menu_opc1 = 24
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 24
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 25
+                                    time.sleep(2)
                                 contador = 0
                                 if con == 2:
                                     ladinho = 0
@@ -5137,7 +5223,7 @@ class Worker1(QThread):
                                         (0, 0, 0), 2, cv2.LINE_AA)
                                 cv2.circle(image, indicador_16, 4, (0, 0, 0), 2, cv2.LINE_AA)
                                 ###################################################################
-
+                            
                             elif letra_Momento == 'y':
                                 COLOR = (0, 0, 0)
                                 COLOR2 = (0, 0, 0)
@@ -5176,8 +5262,11 @@ class Worker1(QThread):
                                 if contador >= 5:
                                     print("Letra Y")
                                     print("vc Acertou")
-                                    menu_opc1 = 25
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 25
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 26
+                                    time.sleep(2)
                                 contador = 0
                                 if con == 2:
                                     subir = 0
@@ -5207,8 +5296,7 @@ class Worker1(QThread):
                                 cv2.circle(image, indicador_8, 4,
                                         (0, 0, 0), 2, cv2.LINE_AA)
                                 cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-
+                                ###################################################################                              
                             elif letra_Momento == 'z':
                                 COLOR = (0, 0, 0)
                                 COLOR2 = (0, 0, 0)
@@ -5262,8 +5350,11 @@ class Worker1(QThread):
                                 if contador >= 5:
                                     print("Letra Z")
                                     print("vc Acertou")
-                                    menu_opc1 = 26
-                                    letra_Momento = 'nenhuma'
+                                    # menu_opc1 = 26
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 27
+                                    time.sleep(2)
                                 contador = 0
                                 #########################################################################
                                 cv2.line(image, (dedao_4), (indicador_16),
@@ -5288,7 +5379,7 @@ class Worker1(QThread):
                                         COLOR5, 2, cv2.LINE_AA)
                                 cv2.circle(image, indicador_20, 4,
                                         (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)                               
                             elif letra_Momento == 'proximo':
                                 COLOR = (0, 255, 0)
                                 COLOR2 = (0, 0, 0)
