@@ -26,6 +26,7 @@ menu_opc2 = 0
 entrar_opc = 0
 troca_opc = 0
 dentro_menu_opc2 = 0
+menu_opc2_soletra = 0
 class MyWindow(QWidget):
     def __init__(self):
         super(MyWindow, self).__init__()
@@ -1173,10 +1174,11 @@ class MyWindow(QWidget):
         ############################################################################################################################
     #Metodo para ação do botão
     def btLogar_presionado(self):
-        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra
+        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra
         nomeJogador = self.nomeJogador.text()
         print(nomeJogador)
         trav = 0
+        cont1 = 0
         while True:
             # QApplication.processEvents()
             if menu_opc1 == 0 :
@@ -2106,23 +2108,880 @@ class MyWindow(QWidget):
                     self.imgSeta.adjustSize()
                     self.imgSeta.move(int(self.x/3), int(self.y/4))
 
-
-
                 if menu_opc2 == 3 and entrar_opc != 1:   
-                    QApplication.processEvents()
-                    # print("teste3")
+                    QApplication.processEvents()                 
                     self.imgSeta.adjustSize()
                     self.imgSeta.move(int(self.x/3), int(self.y/2.8))
+
+                    #QApplication.processEvents()
+                    #letra = 'proximo2'
+                    #troca_opc = 2
+
+                    #self.imgSeta.move(int(-100), int(-100))
+
+                    
+                    
                     
                 if menu_opc2 == 3 and entrar_opc == 1:
                     QApplication.processEvents()
-                    letra = 'proximo2'
+                    if cont1 == 0:
+                        letra = 'a'
+                        cont1 = 1
+                    
+                        
+                        #print("entrei opc 3") 
+                        self.imgSeta.move(int(-100), int(-100))
+
+                        self.op1MenuVisualizarAlfabeto.adjustSize()
+                        self.op1MenuVisualizarAlfabeto.move(int(-100), int(-100))
+
+                        self.op1MenuPraticarAlfabeto.adjustSize()
+                        self.op1MenuPraticarAlfabeto.move(int(-100), int(-100))
+
+                        self.op1MenuJogar.adjustSize()
+                        self.op1MenuJogar.move(int(-100), int(-100))
+
+                        self.op1MenuRecompensas.adjustSize()
+                        self.op1MenuRecompensas.move(int(-100), int(-100))
+
+                        self.imgMenu.adjustSize()
+                        self.imgMenu.move(int(self.x /3.3), int(-2000))
+
+                        ######################################################################################
+                        self.labelA.setGeometry(QtCore.QRect(int(self.x/1.2), int(self.y/3.5), 600, 600))
+                        self.movieA.start()
+
+                        self.labelExcLetA.adjustSize()
+                        self.labelExcLetA.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgA.adjustSize()
+                        self.imgA.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetA.adjustSize()
+                        self.labelLetA.move(int(self.x/1.8), int(self.y/4.2))
+
+                        self.botaoProx.adjustSize()
+                        self.botaoProx.setGeometry(20, 20, int(200), 40) 
+                        self.botaoProx.move(int(self.x/1.07), int(self.y/1.03))
                     troca_opc = 2
-                    print("entrei opc 3") 
-                    self.imgSeta.move(int(-100), int(-100))
+                    if menu_opc2_soletra == 2:
+                        print('entrou b')
+                        letra = 'b'
+                        ## Remover tela antiga antigos
+                        self.movieA.stop()
+                        self.labelA.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetA.adjustSize()
+                        self.labelExcLetA.move(int(self.x/1.15), int(-1000))
+
+                        self.imgA.adjustSize()
+                        self.imgA.move(int(self.x/2), int(-1000))
+
+                        self.labelLetA.adjustSize()
+                        self.labelLetA.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelB.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieB.start()
+
+                        self.labelExcLetB.adjustSize()
+                        self.labelExcLetB.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgB.adjustSize()
+                        self.imgB.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetB.adjustSize()
+                        self.labelLetB.move(int(self.x/1.8), int(self.y/4.2))
+                
+                    if menu_opc2_soletra == 3:
+                        print('entrou c')                  
+                        letra = 'c'
+                          ## Remover tela antiga antigos
+                        self.movieB.stop()
+                        self.labelB.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetB.adjustSize()
+                        self.labelExcLetB.move(int(self.x/1.15), int(-1000))
+
+                        self.imgB.adjustSize()
+                        self.imgB.move(int(self.x/2), int(-1000))
+
+                        self.labelLetB.adjustSize()
+                        self.labelLetB.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelC.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieC.start()
+
+                        self.labelExcLetC.adjustSize()
+                        self.labelExcLetC.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgC.adjustSize()
+                        self.imgC.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetC.adjustSize()
+                        self.labelLetC.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 4:
+                        print('entrou d')                  
+                        letra = 'd'
+                        self.movieC.stop()
+                        self.labelC.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetC.adjustSize()
+                        self.labelExcLetC.move(int(self.x/1.15), int(-1000))
+
+                        self.imgC.adjustSize()
+                        self.imgC.move(int(self.x/2), int(-1000))
+
+                        self.labelLetC.adjustSize()
+                        self.labelLetC.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelD.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieD.start()
+
+                        self.labelExcLetD.adjustSize()
+                        self.labelExcLetD.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgD.adjustSize()
+                        self.imgD.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetD.adjustSize()
+                        self.labelLetD.move(int(self.x/1.8), int(self.y/4.2))
+
+                    if menu_opc2_soletra == 5:
+                        print('entrou e')                  
+                        letra = 'e'
+                        self.movieD.stop()
+                        self.labelD.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetD.adjustSize()
+                        self.labelExcLetD.move(int(self.x/1.15), int(-1000))
+
+                        self.imgD.adjustSize()
+                        self.imgD.move(int(self.x/2), int(-1000))
+
+                        self.labelLetD.adjustSize()
+                        self.labelLetD.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelE.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieE.start()
+
+                        self.labelExcLetE.adjustSize()
+                        self.labelExcLetE.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgE.adjustSize()
+                        self.imgE.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetE.adjustSize()
+                        self.labelLetE.move(int(self.x/1.8), int(self.y/4.2))
 
 
+                    if menu_opc2_soletra == 6:
+                        print('entrou f')                  
+                        letra = 'f'
+                        self.movieE.stop()
+                        self.labelE.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
 
+                        self.labelExcLetE.adjustSize()
+                        self.labelExcLetE.move(int(self.x/1.15), int(-1000))
+
+                        self.imgE.adjustSize()
+                        self.imgE.move(int(self.x/2), int(-1000))
+
+                        self.labelLetE.adjustSize()
+                        self.labelLetE.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelF.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieF.start()
+
+                        self.labelExcLetF.adjustSize()
+                        self.labelExcLetF.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgF.adjustSize()
+                        self.imgF.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetF.adjustSize()
+                        self.labelLetF.move(int(self.x/1.8), int(self.y/4.2))
+
+                    if menu_opc2_soletra == 7:
+                        print('entrou g')                  
+                        letra = 'g'
+                        self.movieF.stop()
+                        self.labelF.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetF.adjustSize()
+                        self.labelExcLetF.move(int(self.x/1.15), int(-1000))
+
+                        self.imgF.adjustSize()
+                        self.imgF.move(int(self.x/2), int(-1000))
+
+                        self.labelLetF.adjustSize()
+                        self.labelLetF.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelG.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieG.start()
+
+                        self.labelExcLetG.adjustSize()
+                        self.labelExcLetG.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgG.adjustSize()
+                        self.imgG.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetG.adjustSize()
+                        self.labelLetG.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 8:
+                        print('entrou h')                  
+                        letra = 'h'
+                        self.movieG.stop()
+                        self.labelG.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetG.adjustSize()
+                        self.labelExcLetG.move(int(self.x/1.15), int(-1000))
+
+                        self.imgG.adjustSize()
+                        self.imgG.move(int(self.x/2), int(-1000))
+
+                        self.labelLetG.adjustSize()
+                        self.labelLetG.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelH.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieH.start()
+
+                        self.labelExcLetH.adjustSize()
+                        self.labelExcLetH.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgH1.adjustSize()
+                        self.imgH1.move(int(self.x/3), int(self.y/3.5))
+
+                        self.imgH2.adjustSize()
+                        self.imgH2.move(int(self.x/2), int(self.y/3.5))
+
+                        self.imgH3.adjustSize()
+                        self.imgH3.move(int(self.x/1.5), int(self.y/3.5))
+
+                        self.labelLetH.adjustSize()
+                        self.labelLetH.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 9:
+                        print('entrou i')                  
+                        letra = 'i'
+                        self.movieH.stop()
+                        self.labelH.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetH.adjustSize()
+                        self.labelExcLetH.move(int(self.x/1.15), int(-1000))
+
+                        self.imgH1.adjustSize()
+                        self.imgH1.move(int(self.x/2), int(-1000))
+
+                        self.imgH2.adjustSize()
+                        self.imgH2.move(int(self.x/2), int(-1000))
+
+                        self.imgH3.adjustSize()
+                        self.imgH3.move(int(self.x/2), int(-1000))
+
+                        self.labelLetH.adjustSize()
+                        self.labelLetH.move(int(self.x/1.8), int(-1000))
+
+                        ###################################################################################################
+
+                        self.labelI.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieI.start()
+
+                        self.labelExcLetI.adjustSize()
+                        self.labelExcLetI.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgI1.adjustSize()
+                        self.imgI1.move(int(self.x/3.2), int(self.y/3.5))
+
+                        self.imgI2.adjustSize()
+                        self.imgI2.move(int(self.x/2.25), int(self.y/3.5))
+
+                        self.imgI3.adjustSize()
+                        self.imgI3.move(int(self.x/1.74), int(self.y/3.5))
+
+                        self.imgI4.adjustSize()
+                        self.imgI4.move(int(self.x/1.42), int(self.y/3.5))
+
+                        self.labelLetI.adjustSize()
+                        self.labelLetI.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 10:
+                        print('entrou j')                  
+                        letra = 'j'
+                        self.movieI.stop()
+                        self.labelI.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetI.adjustSize()
+                        self.labelExcLetI.move(int(self.x/1.15), int(-1000))
+
+                        self.imgI1.adjustSize()
+                        self.imgI1.move(int(self.x/2), int(-1000))
+
+                        self.imgI2.adjustSize()
+                        self.imgI2.move(int(self.x/2), int(-1000))
+
+                        self.imgI3.adjustSize()
+                        self.imgI3.move(int(self.x/2), int(-1000))
+
+                        self.imgI4.adjustSize()
+                        self.imgI4.move(int(self.x/2), int(-1000))
+
+                        self.labelLetI.adjustSize()
+                        self.labelLetI.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelJ.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieJ.start()
+
+                        self.labelExcLetJ.adjustSize()
+                        self.labelExcLetJ.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgJ1.adjustSize()
+                        self.imgJ1.move(int(self.x/3), int(self.y/3.5))
+
+                        self.imgJ2.adjustSize()
+                        self.imgJ2.move(int(self.x/2), int(self.y/3.5))
+
+                        self.imgJ3.adjustSize()
+                        self.imgJ3.move(int(self.x/1.5), int(self.y/3.5))
+
+                        self.labelLetJ.adjustSize()
+                        self.labelLetJ.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 11:
+                        print('entrou k')                  
+                        letra = 'k'
+                        self.movieJ.stop()
+                        self.labelJ.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetJ.adjustSize()
+                        self.labelExcLetJ.move(int(self.x/1.15), int(-1000))
+
+                        self.imgJ1.adjustSize()
+                        self.imgJ1.move(int(self.x/2), int(-1000))
+
+                        self.imgJ2.adjustSize()
+                        self.imgJ2.move(int(self.x/2), int(-1000))
+
+                        self.imgJ3.adjustSize()
+                        self.imgJ3.move(int(self.x/2), int(-1000))
+
+                        self.labelLetJ.adjustSize()
+                        self.labelLetJ.move(int(self.x/1.8), int(-1000))
+
+                        ###################################################################################################
+
+                        self.labelK.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieK.start()
+
+                        self.labelExcLetK.adjustSize()
+                        self.labelExcLetK.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgK1.adjustSize()
+                        self.imgK1.move(int(self.x/3), int(self.y/3.5))
+
+                        self.imgK2.adjustSize()
+                        self.imgK2.move(int(self.x/2), int(self.y/3.5))
+
+                        self.imgK3.adjustSize()
+                        self.imgK3.move(int(self.x/1.5), int(self.y/3.5))
+
+                        self.labelLetK.adjustSize()
+                        self.labelLetK.move(int(self.x/1.8), int(self.y/4.2))
+                    #####################################################################
+                    
+                    if menu_opc2_soletra == 12:
+                        print('entrou l')                  
+                        letra = 'l'
+                        self.movieK.stop()
+                        self.labelK.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetK.adjustSize()
+                        self.labelExcLetK.move(int(self.x/1.15), int(-1000))
+
+                        # self.imgK1.adjustSize()
+                        # self.imgK1.move(int(self.x/2), int(-1000))
+
+                        # self.imgK2.adjustSize()
+                        # self.imgK2.move(int(self.x/2), int(-1000))
+
+                        self.imgK1.adjustSize()
+                        self.imgK1.move(int(self.x/2), int(-1000))
+
+                        self.imgK2.adjustSize()
+                        self.imgK2.move(int(self.x/2), int(-1000))
+
+                        self.imgK3.adjustSize()
+                        self.imgK3.move(int(self.x/2), int(-1000))
+
+                        self.labelLetK.adjustSize()
+                        self.labelLetK.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelL.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieL.start()
+
+                        self.labelExcLetL.adjustSize()
+                        self.labelExcLetL.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgL.adjustSize()
+                        self.imgL.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetL.adjustSize()
+                        self.labelLetL.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 13:
+                        print('entrou m')                  
+                        letra = 'm'
+                        self.movieL.stop()
+                        self.labelL.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetL.adjustSize()
+                        self.labelExcLetL.move(int(self.x/1.15), int(-1000))
+
+                        self.imgL.adjustSize()
+                        self.imgL.move(int(self.x/2), int(-1000))
+
+                        self.labelLetL.adjustSize()
+                        self.labelLetL.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelM.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieM.start()
+
+                        self.labelExcLetM.adjustSize()
+                        self.labelExcLetM.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgM.adjustSize()
+                        self.imgM.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetM.adjustSize()
+                        self.labelLetM.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 14:
+                        print('entrou n')                  
+                        letra = 'n'
+                        self.movieM.stop()
+                        self.labelM.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetM.adjustSize()
+                        self.labelExcLetM.move(int(self.x/1.15), int(-1000))
+
+                        self.imgM.adjustSize()
+                        self.imgM.move(int(self.x/2), int(-1000))
+
+                        self.labelLetM.adjustSize()
+                        self.labelLetM.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelN.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieN.start()
+
+                        self.labelExcLetN.adjustSize()
+                        self.labelExcLetN.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgN.adjustSize()
+                        self.imgN.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetN.adjustSize()
+                        self.labelLetN.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 15:
+                        print('entrou o')                  
+                        letra = 'o'
+                        self.movieN.stop()
+                        self.labelN.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetN.adjustSize()
+                        self.labelExcLetN.move(int(self.x/1.15), int(-1000))
+
+                        self.imgN.adjustSize()
+                        self.imgN.move(int(self.x/2), int(-1000))
+
+                        self.labelLetN.adjustSize()
+                        self.labelLetN.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelO.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieO.start()
+
+                        self.labelExcLetO.adjustSize()
+                        self.labelExcLetO.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgO.adjustSize()
+                        self.imgO.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetO.adjustSize()
+                        self.labelLetO.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 16:
+                        print('entrou p')                  
+                        letra = 'p'
+                        self.movieO.stop()
+                        self.labelO.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetO.adjustSize()
+                        self.labelExcLetO.move(int(self.x/1.15), int(-1000))
+
+                        self.imgO.adjustSize()
+                        self.imgO.move(int(self.x/2), int(-1000))
+
+                        self.labelLetO.adjustSize()
+                        self.labelLetO.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelP.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieP.start()
+
+                        self.labelExcLetP.adjustSize()
+                        self.labelExcLetP.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgP.adjustSize()
+                        self.imgP.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetP.adjustSize()
+                        self.labelLetP.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 17:
+                        print('entrou q')                  
+                        letra = 'q'
+                        self.movieP.stop()
+                        self.labelP.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetP.adjustSize()
+                        self.labelExcLetP.move(int(self.x/1.15), int(-1000))
+
+                        self.imgP.adjustSize()
+                        self.imgP.move(int(self.x/2), int(-1000))
+
+                        self.labelLetP.adjustSize()
+                        self.labelLetP.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelQ.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieQ.start()
+
+                        self.labelExcLetQ.adjustSize()
+                        self.labelExcLetQ.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgQ.adjustSize()
+                        self.imgQ.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetQ.adjustSize()
+                        self.labelLetQ.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 18:
+                        print('entrou r')                  
+                        letra = 'r'
+                        self.movieQ.stop()
+                        self.labelQ.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetQ.adjustSize()
+                        self.labelExcLetQ.move(int(self.x/1.15), int(-1000))
+
+                        self.imgQ.adjustSize()
+                        self.imgQ.move(int(self.x/2), int(-1000))
+
+                        self.labelLetQ.adjustSize()
+                        self.labelLetQ.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelR.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieR.start()
+
+                        self.labelExcLetR.adjustSize()
+                        self.labelExcLetR.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgR.adjustSize()
+                        self.imgR.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetR.adjustSize()
+                        self.labelLetR.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 19:
+                        print('entrou s')                  
+                        letra = 's'
+                        self.movieR.stop()
+                        self.labelR.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetR.adjustSize()
+                        self.labelExcLetR.move(int(self.x/1.15), int(-1000))
+
+                        self.imgR.adjustSize()
+                        self.imgR.move(int(self.x/2), int(-1000))
+
+                        self.labelLetR.adjustSize()
+                        self.labelLetR.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelS.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieS.start()
+
+                        self.labelExcLetS.adjustSize()
+                        self.labelExcLetS.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgS.adjustSize()
+                        self.imgS.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetS.adjustSize()
+                        self.labelLetS.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 20:
+                        print('entrou t')                  
+                        letra = 't'
+                        self.movieS.stop()
+                        self.labelS.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetS.adjustSize()
+                        self.labelExcLetS.move(int(self.x/1.15), int(-1000))
+
+                        self.imgS.adjustSize()
+                        self.imgS.move(int(self.x/2), int(-1000))
+
+                        self.labelLetS.adjustSize()
+                        self.labelLetS.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelT.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieT.start()
+
+                        self.labelExcLetT.adjustSize()
+                        self.labelExcLetT.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgT.adjustSize()
+                        self.imgT.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetT.adjustSize()
+                        self.labelLetT.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 21:
+                        print('entrou u')                  
+                        letra = 'u'
+                        self.movieT.stop()
+                        self.labelT.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetT.adjustSize()
+                        self.labelExcLetT.move(int(self.x/1.15), int(-1000))
+
+                        self.imgT.adjustSize()
+                        self.imgT.move(int(self.x/2), int(-1000))
+
+                        self.labelLetT.adjustSize()
+                        self.labelLetT.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelU.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieU.start()
+
+                        self.labelExcLetU.adjustSize()
+                        self.labelExcLetU.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgU.adjustSize()
+                        self.imgU.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetU.adjustSize()
+                        self.labelLetU.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 22:
+                        print('entrou v')                  
+                        letra = 'v'
+                        self.movieU.stop()
+                        self.labelU.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetU.adjustSize()
+                        self.labelExcLetU.move(int(self.x/1.15), int(-1000))
+
+                        self.imgU.adjustSize()
+                        self.imgU.move(int(self.x/2), int(-1000))
+
+                        self.labelLetU.adjustSize()
+                        self.labelLetU.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelV.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieV.start()
+
+                        self.labelExcLetV.adjustSize()
+                        self.labelExcLetV.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgV.adjustSize()
+                        self.imgV.move(int(self.x/2), int(self.y/3.5))
+
+                        self.labelLetV.adjustSize()
+                        self.labelLetV.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 23:
+                        print('entrou w')                  
+                        letra = 'w'
+                        self.movieV.stop()
+                        self.labelV.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetV.adjustSize()
+                        self.labelExcLetV.move(int(self.x/1.15), int(-1000))
+
+                        self.imgV.adjustSize()
+                        self.imgV.move(int(self.x/2), int(-1000))
+
+                        self.labelLetV.adjustSize()
+                        self.labelLetV.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelW.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieW.start()
+
+                        self.labelExcLetW.adjustSize()
+                        self.labelExcLetW.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgW1.adjustSize()
+                        self.imgW1.move(int(self.x/3), int(self.y/3.5))
+
+                        self.imgW2.adjustSize()
+                        self.imgW2.move(int(self.x/2), int(self.y/3.5))
+
+                        self.imgW3.adjustSize()
+                        self.imgW3.move(int(self.x/1.5), int(self.y/3.5))
+
+                        self.labelLetW.adjustSize()
+                        self.labelLetW.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 24:
+                        print('entrou x')                  
+                        letra = 'x'
+                        self.movieW.stop()
+                        self.labelW.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetW.adjustSize()
+                        self.labelExcLetW.move(int(self.x/1.15), int(-1000))
+
+                        self.imgW1.adjustSize()
+                        self.imgW1.move(int(self.x/2), int(-1000))
+
+                        self.imgW2.adjustSize()
+                        self.imgW2.move(int(self.x/2), int(-1000))
+
+                        self.imgW3.adjustSize()
+                        self.imgW3.move(int(self.x/2), int(-1000))
+
+                        self.labelLetW.adjustSize()
+                        self.labelLetW.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+                        ###################################################################################################
+
+                        self.labelX.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieX.start()
+
+                        self.labelExcLetX.adjustSize()
+                        self.labelExcLetX.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgX3.adjustSize()
+                        self.imgX3.move(int(self.x/3), int(self.y/3.5))
+
+                        self.imgX2.adjustSize()
+                        self.imgX2.move(int(self.x/2), int(self.y/3.5))
+
+                        self.imgX1.adjustSize()
+                        self.imgX1.move(int(self.x/1.5), int(self.y/3.5))
+
+                        self.labelLetX.adjustSize()
+                        self.labelLetX.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 25:
+                        print('entrou y')                  
+                        letra = 'y'
+                        self.movieX.stop()
+                        self.labelX.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetX.adjustSize()
+                        self.labelExcLetX.move(int(self.x/1.15), int(-1000))
+
+                        self.imgX1.adjustSize()
+                        self.imgX1.move(int(self.x/2), int(-1000))
+
+                        self.imgX2.adjustSize()
+                        self.imgX2.move(int(self.x/2), int(-1000))
+
+                        self.imgX3.adjustSize()
+                        self.imgX3.move(int(self.x/2), int(-1000))
+
+                        self.labelLetX.adjustSize()
+                        self.labelLetX.move(int(self.x/1.8), int(-1000))
+                        ###################################################################################################
+
+                        self.labelY.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieY.start()
+
+                        self.labelExcLetY.adjustSize()
+                        self.labelExcLetY.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgY1.adjustSize()
+                        self.imgY1.move(int(self.x/3), int(self.y/3.5))
+
+                        self.imgY2.adjustSize()
+                        self.imgY2.move(int(self.x/2), int(self.y/3.5))
+
+                        self.imgY3.adjustSize()
+                        self.imgY3.move(int(self.x/1.5), int(self.y/3.5))
+
+                        self.labelLetY.adjustSize()
+                        self.labelLetY.move(int(self.x/1.8), int(self.y/4.2))
+                    
+                    if menu_opc2_soletra == 26:
+                        print('entrou z')                  
+                        letra = 'z'
+                        self.movieY.stop()
+                        self.labelY.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                        self.labelExcLetY.adjustSize()
+                        self.labelExcLetY.move(int(self.x/1.15), int(-1000))
+
+                        self.imgY1.adjustSize()
+                        self.imgY1.move(int(self.x/2), int(-1000))
+
+                        self.imgY2.adjustSize()
+                        self.imgY2.move(int(self.x/2), int(-1000))
+
+                        self.imgY3.adjustSize()
+                        self.imgY3.move(int(self.x/2), int(-1000))
+
+                        self.labelLetY.adjustSize()
+                        self.labelLetY.move(int(self.x/1.8), int(-1000))
+
+                        ###################################################################################################
+
+                        self.labelZ.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                        self.movieZ.start()
+
+                        self.labelExcLetZ.adjustSize()
+                        self.labelExcLetZ.move(int(self.x/1.15), int(self.y/4.2))
+
+                        self.imgZ1.adjustSize()
+                        self.imgZ1.move(int(self.x/1.7), int(self.y/3.5))
+
+                        self.imgZ2.adjustSize()
+                        self.imgZ2.move(int(self.x/2.25), int(self.y/3.5))
+
+                        self.imgZ4.adjustSize()
+                        self.imgZ4.move(int(self.x/2.25), int(self.y/1.65))
+
+                        self.imgZ3.adjustSize()
+                        self.imgZ3.move(int(self.x/1.7), int(self.y/1.65))
+
+                        self.labelLetZ.adjustSize()
+                        self.labelLetZ.move(int(self.x/1.8), int(self.y/4.2))
+
+                    if menu_opc2_soletra == 27:
+                        print('entrou sair')                  
+                        letra = 'sair'
+                    
+                    
                 if menu_opc2 == 4 and entrar_opc != 1:   
                     QApplication.processEvents()
                     self.imgSeta.adjustSize()
@@ -2211,7 +3070,7 @@ class Worker1(QThread):
     def run(self):
         contador = 0
         contador_troca_opc = 0
-        global menu_opc1 , menu_opc2 , dentro_menu_opc2, entrar_opc , troca_opc, visualizarLetra
+        global menu_opc1 , menu_opc2 , dentro_menu_opc2, entrar_opc , troca_opc, visualizarLetra,menu_opc2_soletra, letra
         letra_Momento = 'Iniciando'
         mp_drawing = mp.solutions.drawing_utils
         mp_drawing_styles = mp.solutions.drawing_styles
@@ -2239,8 +3098,20 @@ class Worker1(QThread):
                         image_height, image_width, _ = image.shape
                         annotated_image = image.copy()
                         for hand_landmarks in results.multi_hand_landmarks:
-
+                            print(menu_opc2_soletra)
+                            #print('letra momento: ' + letra_Momento)
+                            #print('letra: ' + letra)
                             if letra_Momento != letra:
+                                #if letra_Momento == 'next':
+                                #    vira = 0
+                                #    virar = 0
+                                #    subir = 0
+                                #    con = 0
+                                #    ladinho = 0
+                                #    contar = 0
+                                #    x = 0
+                                #else:
+                                    
                                 letra_Momento = letra
                                 vira = 0
                                 virar = 0
@@ -2461,10 +3332,12 @@ class Worker1(QThread):
                                 if contador >= 5:
                                     print("Letra A")
                                     print("vc Acertou")
-                                    letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    #letra_Momento = 'next'
                                     # global menu_opc1
-                                    menu_opc1 = 1
-                                                                   
+                                    #menu_opc1 = 1  
+                                    menu_opc2_soletra  = 2  
+                                                                
                                 contador = 0
                                 
                                 #########################################################################
@@ -2536,9 +3409,11 @@ class Worker1(QThread):
                                 if contador >= 5:
                                     print("Letra B")
                                     print("vc Acertou")
-                                    letra_Momento = 'nenhuma'
-                                    letra_Momento = 'nenhuma'
-                                    menu_opc1 = 2
+                                    #letra_Momento = 'nenhuma'
+                                    #letra_Momento = 'nenhuma'
+                                    letra = 'next'
+                                    menu_opc2_soletra  = 3 
+                                    #menu_opc1 = 2
 
                                 contador = 0
                                
@@ -4446,7 +5321,7 @@ class Worker1(QThread):
                                     contador = 1 + contador
                                 
                                 if contador >= 5:
-                                    print("Letra A")
+                                    print("Proximo")
                                     print("vc Acertou")
                                     letra_Momento = 'nenhuma'
                                     # global menu_opc1
