@@ -17,6 +17,7 @@ from PyQt5.QtGui import QMovie
 import sys
 from PIL import Image 
 # https://www.youtube.com/watch?v=2RVVC9rrDco&ab_channel=Andr%C3%A9LuizFran%C3%A7aBatista
+#teste
 nomeJogador = 0
 visualizarLetra = 1
 letra = 'vazio'
