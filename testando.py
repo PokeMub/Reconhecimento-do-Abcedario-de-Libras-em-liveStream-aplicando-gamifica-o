@@ -32,6 +32,7 @@ entrar_opc = 0
 troca_opc = 0
 dentro_menu_opc2 = 0
 menu_opc2_soletra = 0
+voltarMenu = 'continuar'
 class MyWindow(QWidget):
     def __init__(self):
         super(MyWindow, self).__init__()
@@ -136,7 +137,7 @@ class MyWindow(QWidget):
         self.tabelaRanks = QLabel(string_ordenada, self)
         self.tabelaRanks.setFont(QFont('Arial Black', 18))
         self.tabelaRanks.adjustSize()
-        self.tabelaRanks.move(-500, -500)
+        self.tabelaRanks.move(-5000, -5000)
         ###########################################################################################################################
         ## Segunda tela
 
@@ -1210,7 +1211,7 @@ class MyWindow(QWidget):
         ############################################################################################################################
     #Metodo para ação do botão
     def btLogar_presionado(self):
-        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra
+        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu
         nomeJogador = self.nomeJogador.text()
         print(nomeJogador)
         trav = 0
@@ -2153,13 +2154,14 @@ class MyWindow(QWidget):
                     
                 if menu_opc2 == 3 and entrar_opc == 1:
                     QApplication.processEvents()
+                    self.imgSeta.move(int(-100), int(-100))
                     if cont1 == 0:
                         letra = 'a'
                         cont1 = 1
                     
 
                         #print("entrei opc 3") 
-                        self.imgSeta.move(int(-100), int(-100))
+                        
 
                         self.op1MenuVisualizarAlfabeto.adjustSize()
                         self.op1MenuVisualizarAlfabeto.move(int(-100), int(-100))
@@ -3059,13 +3061,14 @@ class MyWindow(QWidget):
                 if menu_opc2 == 5 and entrar_opc == 1:
                     QApplication.processEvents()
                     #letra = 'proximo2'
-                    #troca_opc = 2
-                    #print("entrei opc 5") 
-                    letra = 'voltar'
-                    self.imgSeta.move(int(-100), int(-100))
+                   
+                    print("entrei opc 5") 
 
-                    
-                    if entrar_1_vez == 0 :
+                    if cont1 == 0:
+                        letra = 'voltar'
+                        cont1 = 1
+
+                        self.imgSeta.move(int(-100), int(-100))
                         data_e_hora_atuais = datetime.now()
                         data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y')
                         data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y %H:%M')
@@ -3106,18 +3109,36 @@ class MyWindow(QWidget):
 
                         self.tabelaRanks.adjustSize()
                         self.tabelaRanks.move(int(self.x/2.9), int(self.y/3))
+                    troca_opc = 2
+                    # if voltarMenu == 'continuar':
+                    #     letra = 'voltar'
 
+                    
+
+                    
+                    #if entrar_1_vez == 0 :
                         
 
-                        if letra == 'sair':
-                            self.tabelaRanks.adjustSize()
-                            self.tabelaRanks.move(-500, -500)
-                            self.ranks.adjustSize()
-                            self.ranks.move(-500, -500)
-                            menu_opc2 = 1
-                            entrar_opc = 0
-                            letra = 'proximo'
-                            print("entro dentro sair")
+                        
+                        #print(voltarMenu)
+                    if voltarMenu == 'sair':
+                        self.tabelaRanks.adjustSize()
+                        self.tabelaRanks.move(-5000, -5000)
+                        self.ranks.adjustSize()
+                        self.ranks.move(-500, -500)
+                        # menu_opc2 = 1
+                        # entrar_opc = 0
+                        # letra = 'proximo'
+                        # print("entro dentro sair")
+
+                        menu_opc2 = 1
+                        troca_opc = 0
+                        entrar_opc = 0
+                        letra = 'proximo'
+                        #menu_opc2_soletra = 0
+                        cont1 = 0
+                        voltarMenu = 'null'
+                        #voltarMenu = 'continuar'
                 
             if menu_opc1 == 5:
 
@@ -3181,7 +3202,7 @@ class Worker1(QThread):
         contador = 0
         contador_troca_opc = 0
         reducao = 1
-        global menu_opc1 , menu_opc2 , dentro_menu_opc2, entrar_opc , troca_opc, visualizarLetra,menu_opc2_soletra, letra
+        global menu_opc1 , menu_opc2 , dentro_menu_opc2, entrar_opc , troca_opc, visualizarLetra,menu_opc2_soletra, letra , voltarMenu
         letra_Momento = 'Iniciando'
         mp_drawing = mp.solutions.drawing_utils
         mp_drawing_styles = mp.solutions.drawing_styles
@@ -3212,6 +3233,7 @@ class Worker1(QThread):
                             #print(menu_opc2_soletra)
                             #print('letra momento: ' + letra_Momento)
                             #print('letra: ' + letra)
+                            #print(voltarMenu)
                             if letra_Momento != letra:
                                 #if letra_Momento == 'next':
                                 #    vira = 0
@@ -5664,17 +5686,19 @@ class Worker1(QThread):
                                 if indicador_y_5 < indicador_y_8:
                                     COLOR6 = (0, 255, 0)
                                     contador = 1 + contador
-                                print(visualizarLetra)
+                                #print(visualizarLetra)
                                 if contador >= 5:
                                     print("Letra voltar")
                                     print("vc Acertou")
-                                    letra_Momento = 'nenhuma'
-                                    letra = 'sair'
-                                    if (visualizarLetra == 27):
-                                        visualizarLetra = 1
-                                    visualizarLetra = visualizarLetra + 1
+                                    #letra_Momento = 'nenhuma'
+                                    voltarMenu = 'sair'
+                                    print(voltarMenu)
+                                    # letra_Momento = 'nenhuma'
+                                    letra = 'nenhuma'
+                                    # print("valor")
+                                   
                                     QApplication.processEvents()
-                                    time.sleep(0.5)
+                                    
                              
                                 contador = 0
                                 
