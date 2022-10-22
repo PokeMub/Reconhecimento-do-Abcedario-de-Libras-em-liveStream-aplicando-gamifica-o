@@ -223,7 +223,7 @@ class MyWindow(QWidget):
         self.op1MenuRecompensas.setGeometry(1000, 1000, int(self.x/1.5), 100) 
         self.op1MenuRecompensas.move(-500, -500)
 
-
+        #
         ## Imagem Seta
         self.imgSeta = QLabel(self)
         self.enderecoImSeta = QPixmap('imagens/seta.png')
