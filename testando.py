@@ -16,6 +16,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QMovie
 import sys
 from PIL import Image 
+from datetime import datetime
+import os
+import pandas as pd
+
+
 # https://www.youtube.com/watch?v=2RVVC9rrDco&ab_channel=Andr%C3%A9LuizFran%C3%A7aBatista
 #teste
 nomeJogador = 0
@@ -110,6 +115,29 @@ class MyWindow(QWidget):
 
 
         ############################################################################################################################
+        ## ranks
+
+
+
+        # df = pd.read_csv("ranks.txt", sep=",", header=None)
+        # print(df)
+        # df_ordenado = df.sort_values(by=3)
+
+
+        
+
+        df = pd.read_csv("ranks.txt", sep=",", header=None)
+        df.rename(columns={0: ' ', 1: ' ', 2: ' ',
+                3: '  ', 4: ' '}, inplace=True, )
+        df_ordenado = df.sort_values(by='  ')
+        string_ordenada = str(df_ordenado)
+        print(string_ordenada)
+        
+        self.tabelaRanks = QLabel(string_ordenada, self)
+        self.tabelaRanks.setFont(QFont('Arial Black', 18))
+        self.tabelaRanks.adjustSize()
+        self.tabelaRanks.move(-500, -500)
+        ###########################################################################################################################
         ## Segunda tela
 
         ## Label Principal Explicando pra que serve os sinais
@@ -210,6 +238,14 @@ class MyWindow(QWidget):
         self.botaoProx.adjustSize()
         self.botaoProx.setGeometry(100, 100, int(self.x/1.7), 50) 
         self.botaoProx.move(-500, -500)
+        ####################################################################################################################################
+
+        self.ranks = QLabel("Ranks", self)
+        self.largura = self.nomeJogo.frameGeometry().width()
+        self.altura = self.nomeJogo.frameGeometry().height()
+        self.ranks.setFont(QFont('Arial Black', 50))
+        self.ranks.adjustSize()
+        self.ranks.move(-500, -500)
         ###################################################################################################################################    
         #Gif Letra A
         self.labelA = QLabel(self)
@@ -1179,6 +1215,7 @@ class MyWindow(QWidget):
         print(nomeJogador)
         trav = 0
         cont1 = 0
+        entrar_1_vez =0
         while True:
             # QApplication.processEvents()
             if menu_opc1 == 0 :
@@ -3017,12 +3054,70 @@ class MyWindow(QWidget):
                     self.imgSeta.adjustSize()
                     self.imgSeta.move(int(self.x/3), int(self.y/1.74))
                     # print("teste4")
+                if menu_opc2 != 5:
+                    entrar_1_vez = 0
                 if menu_opc2 == 5 and entrar_opc == 1:
                     QApplication.processEvents()
-                    letra = 'proximo2'
-                    troca_opc = 2
-                    print("entrei opc 5") 
+                    #letra = 'proximo2'
+                    #troca_opc = 2
+                    #print("entrei opc 5") 
+                    letra = 'voltar'
                     self.imgSeta.move(int(-100), int(-100))
+
+                    
+                    if entrar_1_vez == 0 :
+                        data_e_hora_atuais = datetime.now()
+                        data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y')
+                        data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y %H:%M')
+
+                        arquivo = 'ranks.txt'
+                        teste_arquivo_exist = os.path.exists(arquivo)
+                        if teste_arquivo_exist == False:
+                            arquivo = open('ranks.txt', 'w')
+                            arquivo.close()
+                        conteudo = ('Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: ' +
+                                    data_e_hora_em_texto)   # insira seu conteúdo
+                        arquivo = open("ranks.txt", "a")
+                        arquivo.write('\n' + conteudo)
+                        arquivo.close()
+                        entrar_1_vez = 1
+                    
+
+
+                        self.imgSeta.move(int(-100), int(-100))
+
+                        self.op1MenuVisualizarAlfabeto.adjustSize()
+                        self.op1MenuVisualizarAlfabeto.move(int(-100), int(-100))
+
+                        self.op1MenuPraticarAlfabeto.adjustSize()
+                        self.op1MenuPraticarAlfabeto.move(int(-100), int(-100))
+
+                        self.op1MenuJogar.adjustSize()
+                        self.op1MenuJogar.move(int(-100), int(-100))
+
+                        self.op1MenuRecompensas.adjustSize()
+                        self.op1MenuRecompensas.move(int(-100), int(-100))
+
+                        self.imgMenu.adjustSize()
+                        self.imgMenu.move(int(self.x /3.3), int(-2000))
+
+                        self.ranks.adjustSize()
+                        self.ranks.move(int(self.x/1.7), int(self.y/5))
+
+                        self.tabelaRanks.adjustSize()
+                        self.tabelaRanks.move(int(self.x/2.9), int(self.y/3))
+
+                        
+
+                        if letra == 'sair':
+                            self.tabelaRanks.adjustSize()
+                            self.tabelaRanks.move(-500, -500)
+                            self.ranks.adjustSize()
+                            self.ranks.move(-500, -500)
+                            menu_opc2 = 1
+                            entrar_opc = 0
+                            letra = 'proximo'
+                            print("entro dentro sair")
                 
             if menu_opc1 == 5:
 
@@ -3114,7 +3209,7 @@ class Worker1(QThread):
                         image_height, image_width, _ = image.shape
                         annotated_image = image.copy()
                         for hand_landmarks in results.multi_hand_landmarks:
-                            print(menu_opc2_soletra)
+                            #print(menu_opc2_soletra)
                             #print('letra momento: ' + letra_Momento)
                             #print('letra: ' + letra)
                             if letra_Momento != letra:
@@ -5537,7 +5632,82 @@ class Worker1(QThread):
                                         COLOR3, 2, cv2.LINE_AA)
                                 cv2.circle(image, indicador_8, 4,
                                         (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)    
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)   
+
+                            elif letra_Momento == 'voltar':
+                                COLOR = (0, 255, 0)
+                                COLOR2 = (0, 0, 0)
+                                COLOR3 = (0, 0, 0)
+                                COLOR4 = (0, 0, 0)
+                                COLOR5 = (0, 0, 0)
+                                COLOR6 = (0, 0, 0)
+                                
+                                f = (dedao_x_3 - indicador_x_6)
+                                g = (indicador_y_6 - dedao_y_4)
+                    
+                                if f < 20 and g > 0:
+                                    COLOR2 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if indicador_y_13 < indicador_y_16:
+                                    COLOR3 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if indicador_y_9 < indicador_y_12:
+                                    COLOR4 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if indicador_y_17 < indicador_y_20:
+                                    COLOR5 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if indicador_y_5 < indicador_y_8:
+                                    COLOR6 = (0, 255, 0)
+                                    contador = 1 + contador
+                                print(visualizarLetra)
+                                if contador >= 5:
+                                    print("Letra voltar")
+                                    print("vc Acertou")
+                                    letra_Momento = 'nenhuma'
+                                    letra = 'sair'
+                                    if (visualizarLetra == 27):
+                                        visualizarLetra = 1
+                                    visualizarLetra = visualizarLetra + 1
+                                    QApplication.processEvents()
+                                    time.sleep(0.5)
+                             
+                                contador = 0
+                                
+                                #########################################################################
+                                cv2.line(image, (dedao_3), (indicador_6),
+                                        COLOR2, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_6, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, dedao_3, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                ###################################################################
+                                cv2.line(image, (mao_0), (indicador_16),
+                                        COLOR5, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_16, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                ###################################################################
+                                cv2.line(image, (mao_0), (indicador_12),
+                                        COLOR4, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_12, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                ###################################################################
+                                cv2.line(image, (mao_0), (indicador_20),
+                                        COLOR6, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_20, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                ###################################################################
+                                cv2.line(image, (mao_0), (indicador_8),
+                                        COLOR3, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_8, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)  
                             elif letra_Momento == 'selecionar':
                                 COLOR = (0, 255, 0)
                                 COLOR2 = (0, 0, 0)
