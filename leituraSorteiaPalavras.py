@@ -1,6 +1,4 @@
-import os
 import pandas as pd
-import sys
 import numpy as np
 import random
 
@@ -31,7 +29,6 @@ for variavel3 in range(0, 2):
         estagio = 'Fim'
     for variavel1 in range(0, tamanho):
         if arquivo.iloc[variavel1]['Estacao'] == estagio:
-            # print(arquivo.iloc[variavel1]['imagem'])
             if estagio == 'Meio':
                 tamanhoInicio = len(meio)
             if estagio == 'Fim':
@@ -42,7 +39,6 @@ for variavel3 in range(0, 2):
                     meio.append(arquivo.iloc[variavel1]['imagem'])
                 if estagio == 'Fim':
                     fim.append(arquivo.iloc[variavel1]['imagem'])
-
             else:
                 for variavel2 in range(0, tamanhoInicio):
                     if estagio == 'Meio':
@@ -60,9 +56,6 @@ for variavel3 in range(0, 2):
                 contador10 = 0
 #############################################################################################
 
-# print(meio)
-# print(fim)
-
 ############################################################################################
 # Sorteio das Telas
 faseMeio = random.randint(0, (len(meio) - 1))
@@ -72,12 +65,7 @@ faseMeio = meio[faseMeio]
 faseFim = fim[faseFim]
 faseInicio = 'chegada_castelo'
 faseChefao = 'luta_contra_dragao'
-# print(faseInicio)
-# print(faseMeio)
-# print(faseFim)
-# print(faseChefao)
 ###########################################################################################
-
 
 ###########################################################################################
 # Colocando as Palavras no Vetor
@@ -91,19 +79,13 @@ for variavel1 in range(0, tamanho):
     if arquivo.iloc[variavel1]['imagem'] == faseChefao:
         vetChefao.append(arquivo.iloc[variavel1]['Nome'])
 
-# print(vetInicio)
-# print(vetMeio)
-# print(vetFim)
-# print(vetChefao)
 ##########################################################################################
 
-
 #########################################################################################
-# Sorteando as Plavras
+# Sorteando as Plavras Nivel Facil
 palavraNivelFacilInicio = []
 palavraNivelFacilMeio = []
 palavraNivelFacilFim = []
-
 
 sortTemporario = ''
 for faseFacil in range(0, 5):
@@ -118,7 +100,7 @@ for faseFacil in range(0, 5):
                 if palavraNivelFacilMeio[0] == sortTemporario:
                     nRepetir = 1
                 else:
-                    palavraNivelFacilMeio.append(random.choice(vetMeio))
+                    palavraNivelFacilMeio.append(sortTemporario)
                     nRepetir = 0
         nRepetir = 1
 
@@ -131,77 +113,37 @@ for faseFacil in range(0, 5):
                 if palavraNivelFacilFim[0] == sortTemporario:
                     nRepetir = 1
                 else:
-                    palavraNivelFacilFim.append(random.choice(vetFim))
+                    palavraNivelFacilFim.append(sortTemporario)
                     nRepetir = 0
         nRepetir = 1
 
 
-# print('################# ')
-# print('Inicio - Facil: ')
-# print(palavraNivelFacilInicio )
-# print('################# ')
+print('')
+print('Inicio - Facil: ')
+print(palavraNivelFacilInicio)
+print('')
 
-# print('Meio - Facil: ')
-# print(palavraNivelFacilMeio )
-# print('################# ')
+print('')
+print('Meio - Facil: ')
+print(palavraNivelFacilMeio)
+print('')
 
-# print('Fim - Facil: ' )
-# print(palavraNivelFacilFim )
-# print('################# ')
+print('')
+print('Fim - Facil: ')
+print(palavraNivelFacilFim)
+print('')
 
+
+##########################################################################################
+
+#########################################################################################
+# Sorteando as Plavras Nivel Medio
 
 palavraNivelMedioInicio = []
 palavraNivelMedioMeio = []
 palavraNivelMedioFim = []
 ent = 0
 sortTemporario = ''
-# for faseMedio in range(0, 10):
-#     if faseMedio > -1 and faseMedio < 2:
-
-#         if len(palavraNivelMedioInicio) == 0:
-#             palavraNivelMedioInicio.append(random.choice(vetMeio))
-#         else:
-#             while (nRepetir == 1):
-#                 if ent != 1:
-#                     sortTemporario = random.choice(vetMeio)
-#                     # print(palavraNivelMedioInicio[0], sortTemporario )
-#                     if palavraNivelMedioInicio[0] == sortTemporario:
-#                         nRepetir = 1
-#                     else:
-#                         palavraNivelMedioInicio.append(sortTemporario)
-#                         # print( sortTemporario )
-#                         nRepetir = 0
-#                         ent = 1
-
-#                 sortTemporario = random.choice(vetMeio)
-#                 if palavraNivelMedioInicio[0] == sortTemporario or palavraNivelMedioInicio[1] == sortTemporario:
-#                     nRepetir = 1
-#                 else:
-#                     palavraNivelMedioInicio.append(sortTemporario)
-#                     nRepetir = 0
-#                 # else:
-#                 #     if len(palavraNivelMedioInicio) == 1:
-#                 #         palavraNivelMedioInicio.append(random.choice(vetMeio))
-#                 #     else:
-#                 #         if palavraNivelMedioInicio[1] == sortTemporario:
-#                 #             nRepetir = 1
-#                 #         else:
-#                 #             if len(palavraNivelMedioInicio) == 2:
-#                 #                 palavraNivelMedioInicio.append(random.choice(vetMeio))
-#                 #             else:
-#                 #                 if palavraNivelMedioInicio[2] == sortTemporario:
-#                 #                     nRepetir = 1
-#                 #                 else:
-#                 #                     if len(palavraNivelMedioInicio) == 3:
-#                 #                         palavraNivelMedioInicio.append(random.choice(vetMeio))
-#                 #                         nRepetir = 0
-#                 #                     else:
-#                 #                         if palavraNivelMedioInicio[3] == sortTemporario:
-#                 #                             nRepetir = 1
-#                 #                         else:
-#                 #                             palavraNivelMedioInicio.append(random.choice(vetMeio))
-#                 #                             nRepetir = 0
-#         nRepetir = 1
 
 for faseMedio in range(0, 6):
     if faseMedio > -1 and faseMedio < 2:
@@ -292,22 +234,26 @@ for faseMedio in range(0, 6):
         nRepetir = 1
 
 
-# print('################# ')
-# print('Inicio - Medio: ')
-# print(palavraNivelMedioInicio)
-# print('################# ')
+print('')
+print('Inicio - Medio: ')
+print(palavraNivelMedioInicio)
+print('')
 
-# print('Meio - Medio: ')
-# print(palavraNivelMedioMeio)
-# print('################# ')
+print('')
+print('Meio - Medio: ')
+print(palavraNivelMedioMeio)
+print('')
 
-# print('Fim - Medio: ')
-# print(palavraNivelMedioFim)
-# print('################# ')
-# print('')
-# print('')
-# print('')
+print('')
+print('Fim - Medio: ')
+print(palavraNivelMedioFim)
+print('')
 
+
+##########################################################################################
+
+#########################################################################################
+# Sorteando as Plavras Nivel Dificil
 
 palavraNivelDificilInicio = []
 palavraNivelDificilMeio = []
@@ -391,13 +337,15 @@ for fasedificil in range(0, 6):
                             nRepetir = 1
                         else:
                             if len(palavraNivelDificilInicio) == 2:
-                                palavraNivelDificilInicio.append(sortTemporario)
+                                palavraNivelDificilInicio.append(
+                                    sortTemporario)
                                 nRepetir = 0
                             else:
                                 if palavraNivelDificilInicio[2] == sortTemporario:
                                     nRepetir = 1
                                 else:
-                                    palavraNivelDificilInicio.append(sortTemporario)
+                                    palavraNivelDificilInicio.append(
+                                        sortTemporario)
                                     nRepetir = 0
         nRepetir = 1
 
