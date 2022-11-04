@@ -43,6 +43,7 @@ class MyWindow(QWidget):
             self.setMinimumSize(QSize(self.x, self.y))
             self.setWindowTitle("Tela Inicial")
 
+            ## Instanciando as telas
             if True:
                 pass
                 # Imagem Tela Menu
@@ -56,60 +57,87 @@ class MyWindow(QWidget):
                 self.imgTelaChefao = QLabel(self)
                 self.enderecoimgTelaChefao = QPixmap('imagens_Telas/chefao.jpg')
                 self.imgTelaChefao.setPixmap(self.enderecoimgTelaChefao)
-                self.imgTelaChefao.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaChefao.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaChefao.setGeometry(int(self.x/3.3), 0,0, 0)
                 self.imgTelaChefao.adjustSize()
+
+                
 
                 ## Imagem Fim Armamento
                 self.imgTelaFimArmamento = QLabel(self)
                 self.enderecoimgTelaFimArmamento = QPixmap('imagens_Telas/fim_armamento.jpg')
                 self.imgTelaFimArmamento.setPixmap(self.enderecoimgTelaFimArmamento)
-                self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaFimArmamento.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
                 self.imgTelaFimArmamento.adjustSize()
                 
+                
+
                 # ## Imagem Fim Dragão
                 self.imgTelaFimDragao = QLabel(self)
                 self.enderecoimgTelaFimDragao = QPixmap('imagens_Telas/fim_dragao.jpg')
                 self.imgTelaFimDragao.setPixmap(self.enderecoimgTelaFimDragao)
-                self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaFimDragao.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
                 self.imgTelaFimDragao.adjustSize()
+
+                
 
                 # ## Imagem Fim Princesa
                 self.imgTelaFimPrincesa = QLabel(self)
                 self.enderecoimgTelaFimPrincesa = QPixmap('imagens_Telas/fim_princesa.jpg')
                 self.imgTelaFimPrincesa.setPixmap(self.enderecoimgTelaFimPrincesa)
-                self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaFimPrincesa.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
                 self.imgTelaFimPrincesa.adjustSize()
                 trs = QTransform().rotate(180)
                 self.imgTelaFimPrincesa.setPixmap(QPixmap(self.enderecoimgTelaFimPrincesa).transformed(trs))
 
+                
+
                 # ## Imagem Inicio 
-                # self.imgFaseDificilChefao = QLabel(self)
-                # self.enderecoimgDificilChefao = QPixmap('imagens_Telas/chefao.jpg')
-                # self.imgFaseDificilChefao.setPixmap(self.enderecoimgDificilChefao)
-                # self.imgFaseDificilChefao.setGeometry(int(self.x/3.3), 0,0, 0)
-                # self.imgFaseDificilChefao.adjustSize()
+                self.imgTelaInicio = QLabel(self)
+                self.enderecoimgTelaInicio = QPixmap('imagens_Telas/inicio.jpg')
+                self.imgTelaInicio.setPixmap(self.enderecoimgTelaInicio)
+                self.imgTelaInicio.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaInicio.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaInicio.adjustSize()
+                trs = QTransform().rotate(180)
+                self.imgTelaInicio.setPixmap(QPixmap(self.enderecoimgTelaInicio).transformed(trs))
+
+                
 
                 # ## Imagem Meio Sala Estar
-                # self.imgFaseDificilChefao = QLabel(self)
-                # self.enderecoimgDificilChefao = QPixmap('imagens_Telas/chefao.jpg')
-                # self.imgFaseDificilChefao.setPixmap(self.enderecoimgDificilChefao)
-                # self.imgFaseDificilChefao.setGeometry(int(self.x/3.3), 0,0, 0)
-                # self.imgFaseDificilChefao.adjustSize()
+                self.imgTelaMeioSalaEstar = QLabel(self)
+                self.enderecoimgTelaMeioSalaEstar = QPixmap('imagens_Telas/meio_sala_estar.jpg')
+                self.imgTelaMeioSalaEstar.setPixmap(self.enderecoimgTelaMeioSalaEstar)
+                self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaMeioSalaEstar.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaMeioSalaEstar.adjustSize()
+
+                
 
                 # ## Imagem Meio Sala Jantar
-                # self.imgFaseDificilChefao = QLabel(self)
-                # self.enderecoimgDificilChefao = QPixmap('imagens_Telas/chefao.jpg')
-                # self.imgFaseDificilChefao.setPixmap(self.enderecoimgDificilChefao)
-                # self.imgFaseDificilChefao.setGeometry(int(self.x/3.3), 0,0, 0)
-                # self.imgFaseDificilChefao.adjustSize()
+                self.imgTelaMeioSalaJantar = QLabel(self)
+                self.enderecoimgTelaMeioSalaJantar  = QPixmap('imagens_Telas/meio_sala_jantar.jpg')
+                self.imgTelaMeioSalaJantar.setPixmap(self.enderecoimgTelaMeioSalaJantar )
+                self.imgTelaMeioSalaJantar.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaMeioSalaJantar.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaMeioSalaJantar.adjustSize()
+
+               
 
                 # ## Imagem Meio Sala Rei
-                # self.imgFaseDificilChefao = QLabel(self)
-                # self.enderecoimgDificilChefao = QPixmap('imagens_Telas/chefao.jpg')
-                # self.imgFaseDificilChefao.setPixmap(self.enderecoimgDificilChefao)
-                # self.imgFaseDificilChefao.setGeometry(int(self.x/3.3), 0,0, 0)
-                # self.imgFaseDificilChefao.adjustSize()
+                self.imgTelaMeioSalaRei= QLabel(self)
+                self.enderecoimgTelaMeioSalaRei = QPixmap('imagens_Telas/meio_sala_rei.jpg')
+                self.imgTelaMeioSalaRei.setPixmap(self.enderecoimgTelaMeioSalaRei)
+                self.imgTelaMeioSalaRei.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaMeioSalaRei.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaMeioSalaRei.adjustSize()
+                trs = QTransform().rotate(180)
+                self.imgTelaMeioSalaRei.setPixmap(QPixmap(self.enderecoimgTelaMeioSalaRei).transformed(trs))
 
+                
 
             self.nomeJogo = QLabel("Soletrando em Libras", self)
             self.largura = self.nomeJogo.frameGeometry().width()
@@ -468,14 +496,83 @@ class MyWindow(QWidget):
             print(vetChefao)
             print('')
         
+        if True:
+            ## Facil - Inicio    
+            self.nomeJogo = QLabel(palavraNivelFacilInicio[0], self)
+            self.largura = self.nomeJogo.frameGeometry().width()
+            self.altura = self.nomeJogo.frameGeometry().height()
+            self.nomeJogo.setFont(QFont('Arial Black', 90))
+            self.nomeJogo.adjustSize()
+            self.nomeJogo.move(-1000,-1000)
+            #self.nomeJogo.move(int(self.x/2), int(self.y/7))
 
-            
-        self.nomeJogo = QLabel(palavraNivelFacilInicio[0], self)
-        self.largura = self.nomeJogo.frameGeometry().width()
-        self.altura = self.nomeJogo.frameGeometry().height()
-        self.nomeJogo.setFont(QFont('Arial Black', 50))
-        self.nomeJogo.adjustSize()
-        self.nomeJogo.move(int(self.x/1.6), int(self.y/7))
+
+            ## Facil - Meio 0
+            self.nomeJogo = QLabel(palavraNivelFacilMeio[0], self)
+            self.largura = self.nomeJogo.frameGeometry().width()
+            self.altura = self.nomeJogo.frameGeometry().height()
+            self.nomeJogo.setFont(QFont('Arial Black', 90))
+            self.nomeJogo.adjustSize()
+            #self.nomeJogo.move(int(self.x/2), int(self.y/7))
+            self.nomeJogo.move(-1000,-1000)
+
+            ## Facil - Meio 1
+            self.nomeJogo = QLabel(palavraNivelFacilMeio[1], self)
+            self.largura = self.nomeJogo.frameGeometry().width()
+            self.altura = self.nomeJogo.frameGeometry().height()
+            self.nomeJogo.setFont(QFont('Arial Black', 90))
+            self.nomeJogo.adjustSize()
+            #self.nomeJogo.move(int(self.x/2), int(self.y/7))
+            self.nomeJogo.move(-1000,-1000)
+
+            ##Facil - Fim 0 
+
+            self.nomeJogo = QLabel(palavraNivelFacilFim[0], self)
+            self.largura = self.nomeJogo.frameGeometry().width()
+            self.altura = self.nomeJogo.frameGeometry().height()
+            self.nomeJogo.setFont(QFont('Arial Black', 90))
+            self.nomeJogo.adjustSize()
+            #self.nomeJogo.move(int(self.x/2), int(self.y/7))
+            self.nomeJogo.move(-1000,-1000)
+
+             ##Facil - Fim 1
+
+            self.nomeJogo = QLabel(palavraNivelFacilFim[1], self)
+            self.largura = self.nomeJogo.frameGeometry().width()
+            self.altura = self.nomeJogo.frameGeometry().height()
+            self.nomeJogo.setFont(QFont('Arial Black', 90))
+            self.nomeJogo.adjustSize()
+            #self.nomeJogo.move(int(self.x/2), int(self.y/7))
+            self.nomeJogo.move(-1000,-1000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     def __init__(self):
         super(MyWindow, self).__init__()
     ## Abrir Web Cam
