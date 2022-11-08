@@ -48,6 +48,7 @@ class MyWindow(QWidget):
     def ImageUpdateSlot(self, Image):
         self.FeedLabel.setPixmap(QPixmap.fromImage(Image))
     def initUI(self):
+        ## criando componentes da interface grafica
         if True:
             # Pegar o tamanho do monitor
             root = Tk()
@@ -60,13 +61,13 @@ class MyWindow(QWidget):
             # Tamanho Minimo da tela
             self.setMinimumSize(QSize(self.x, self.y))
             ####################################################
-
-            # Titulo da janela
-            self.setWindowTitle("Tela Inicial")
+            
             ###################################################
             # Label com o Nome do Jogo
             ## detectar fontes do pc https://flippingtypical.com/  
-    
+
+            # Titulo da janela
+            self.setWindowTitle("Tela Inicial")  
         ## Instanciando as telas
         if True:
                 # Imagem Tela Menu
@@ -537,6 +538,290 @@ class MyWindow(QWidget):
             self.menuNivelDificuldadeDificil.adjustSize()
             self.menuNivelDificuldadeDificil.setGeometry(1000, 1000, int(self.x/1.5), 100) 
             self.menuNivelDificuldadeDificil.move(-500, -500)
+        ## Botoes das frases soletradas
+        if True:
+            ## Inicialização labels Modalidade Facil
+            if True:
+                ## Facil - Inicio    
+                self.nivelFacilPalavra1 = QLabel(palavraNivelFacilInicio[0], self)
+                self.largura = self.nivelFacilPalavra1.frameGeometry().width()
+                self.altura = self.nivelFacilPalavra1.frameGeometry().height()
+                self.nivelFacilPalavra1.setFont(QFont('Arial Black', 90))
+                self.nivelFacilPalavra1.adjustSize()
+                self.nivelFacilPalavra1.move(-1000,-1000)
+                #self.nivelFacilPalavra1.move(int(self.x/2), int(self.y/7))
+
+
+                ## Facil - Meio 0
+                self.nivelFacilPalavra2 = QLabel(palavraNivelFacilMeio[0], self)
+                self.largura = self.nivelFacilPalavra2.frameGeometry().width()
+                self.altura = self.nivelFacilPalavra2.frameGeometry().height()
+                self.nivelFacilPalavra2.setFont(QFont('Arial Black', 90))
+                self.nivelFacilPalavra2.adjustSize()
+                #self.nivelFacilPalavra2.move(int(self.x/2), int(self.y/7))
+                self.nivelFacilPalavra2.move(-1000,-1000)
+
+                ## Facil - Meio 1
+                self.nivelFacilPalavra3 = QLabel(palavraNivelFacilMeio[1], self)
+                self.largura = self.nivelFacilPalavra3.frameGeometry().width()
+                self.altura = self.nivelFacilPalavra3.frameGeometry().height()
+                self.nivelFacilPalavra3.setFont(QFont('Arial Black', 90))
+                self.nivelFacilPalavra3.adjustSize()
+                #self.nivelFacilPalavra3.move(int(self.x/2), int(self.y/7))
+                self.nivelFacilPalavra3.move(-1000,-1000)
+
+                ##Facil - Fim 0 
+
+                self.nivelFacilPalavra4 = QLabel(palavraNivelFacilFim[0], self)
+                self.largura = self.nivelFacilPalavra4.frameGeometry().width()
+                self.altura = self.nivelFacilPalavra4.frameGeometry().height()
+                self.nivelFacilPalavra4.setFont(QFont('Arial Black', 90))
+                self.nivelFacilPalavra4.adjustSize()
+                #self.nivelFacilPalavra4.move(int(self.x/2), int(self.y/7))
+                self.nivelFacilPalavra4.move(-1000,-1000)
+
+                ##Facil - Fim 1
+
+                self.nivelFacilPalavra5 = QLabel(palavraNivelFacilFim[1], self)
+                self.largura = self.nivelFacilPalavra5.frameGeometry().width()
+                self.altura = self.nivelFacilPalavra5.frameGeometry().height()
+                self.nivelFacilPalavra5.setFont(QFont('Arial Black', 90))
+                self.nivelFacilPalavra5.adjustSize()
+                #self.nivelFacilPalavra5.move(int(self.x/2), int(self.y/7))
+                self.nivelFacilPalavra5.move(-1000,-1000)
+            ## Inicialização Labels Modadelide Medio
+            if True:
+                ## Medio - Inicio - 0
+                self.nivelMedioPalavra1 = QLabel(palavraNivelMedioInicio[0], self)
+                self.largura = self.nivelMedioPalavra1.frameGeometry().width()
+                self.altura = self.nivelMedioPalavra1.frameGeometry().height()
+                self.nivelMedioPalavra1.setFont(QFont('Arial Black', 90))
+                self.nivelMedioPalavra1.adjustSize()
+                self.nivelMedioPalavra1.move(-1000,-1000)
+                #self.nivelMedioPalavra1.move(int(self.x/2), int(self.y/7))
+
+                ## Medio - Inicio - 1
+                self.nivelMedioPalavra2 = QLabel(palavraNivelMedioInicio[1], self)
+                self.largura = self.nivelMedioPalavra2.frameGeometry().width()
+                self.altura = self.nivelMedioPalavra2.frameGeometry().height()
+                self.nivelMedioPalavra2.setFont(QFont('Arial Black', 90))
+                self.nivelMedioPalavra2.adjustSize()
+                self.nivelMedioPalavra2.move(-1000,-1000)
+                #self.nivelMedioPalavra2.move(int(self.x/2), int(self.y/7))
+
+                ## Medio - Inicio - 2
+                self.nivelMedioPalavra3 = QLabel(palavraNivelMedioInicio[2], self)
+                self.largura = self.nivelMedioPalavra3.frameGeometry().width()
+                self.altura = self.nivelMedioPalavra3.frameGeometry().height()
+                self.nivelMedioPalavra3.setFont(QFont('Arial Black', 90))
+                self.nivelMedioPalavra3.adjustSize()
+                self.nivelMedioPalavra3.move(-1000,-1000)
+                #self.nivelMedioPalavra2.move(int(self.x/2), int(self.y/7))
+
+                ## Medio - Inicio - 3
+                self.nivelMedioPalavra4 = QLabel(palavraNivelMedioInicio[3], self)
+                self.largura = self.nivelMedioPalavra4.frameGeometry().width()
+                self.altura = self.nivelMedioPalavra4.frameGeometry().height()
+                self.nivelMedioPalavra4.setFont(QFont('Arial Black', 90))
+                self.nivelMedioPalavra4.adjustSize()
+                self.nivelMedioPalavra4.move(-1000,-1000)
+                #self.nivelMedioPalavra4.move(int(self.x/2), int(self.y/7))
+
+
+                ## Medio - Meio - 0
+                self.nivelMedioPalavra5 = QLabel(palavraNivelMedioMeio[0], self)
+                self.largura = self.nivelMedioPalavra5.frameGeometry().width()
+                self.altura = self.nivelMedioPalavra5.frameGeometry().height()
+                self.nivelMedioPalavra5.setFont(QFont('Arial Black', 90))
+                self.nivelMedioPalavra5.adjustSize()
+                self.nivelMedioPalavra5.move(-1000,-1000)
+                #self.nivelMedioPalavra5.move(int(self.x/2), int(self.y/7))
+
+                ## Medio - Meio - 1
+                self.nivelMedioPalavra6 = QLabel(palavraNivelMedioMeio[1], self)
+                self.largura = self.nivelMedioPalavra6.frameGeometry().width()
+                self.altura = self.nivelMedioPalavra6.frameGeometry().height()
+                self.nivelMedioPalavra6.setFont(QFont('Arial Black', 90))
+                self.nivelMedioPalavra6.adjustSize()
+                self.nivelMedioPalavra6.move(-1000,-1000)
+                #self.nivelMedioPalavra6.move(int(self.x/2), int(self.y/7))
+
+                ## Medio - Meio - 2
+                self.nivelMedioPalavra7 = QLabel(palavraNivelMedioMeio[2], self)
+                self.largura = self.nivelMedioPalavra7.frameGeometry().width()
+                self.altura = self.nivelMedioPalavra7.frameGeometry().height()
+                self.nivelMedioPalavra7.setFont(QFont('Arial Black', 90))
+                self.nivelMedioPalavra7.adjustSize()
+                self.nivelMedioPalavra7.move(-1000,-1000)
+                #self.nivelMedioPalavra7.move(int(self.x/2), int(self.y/7))
+
+
+                ## Medio - Fim - 0
+                self.nivelMedioPalavra8 = QLabel(palavraNivelMedioFim[0], self)
+                self.largura = self.nivelMedioPalavra8.frameGeometry().width()
+                self.altura = self.nivelMedioPalavra8.frameGeometry().height()
+                self.nivelMedioPalavra8.setFont(QFont('Arial Black', 90))
+                self.nivelMedioPalavra8.adjustSize()
+                self.nivelMedioPalavra8.move(-1000,-1000)
+                #self.nivelMedioPalavra8.move(int(self.x/2), int(self.y/7))
+                
+                ## Medio - Fim - 1
+                self.nivelMedioPalavra9 = QLabel(palavraNivelMedioFim[1], self)
+                self.largura = self.nivelMedioPalavra9.frameGeometry().width()
+                self.altura = self.nivelMedioPalavra9.frameGeometry().height()
+                self.nivelMedioPalavra9.setFont(QFont('Arial Black', 90))
+                self.nivelMedioPalavra9.adjustSize()
+                self.nivelMedioPalavra9.move(-1000,-1000)
+                #self.nivelMedioPalavra9.move(int(self.x/2), int(self.y/7))
+
+                ## Medio - Fim - 2
+                self.nivelMedioPalavra10 = QLabel(palavraNivelMedioFim[2], self)
+                self.largura = self.nivelMedioPalavra10.frameGeometry().width()
+                self.altura = self.nivelMedioPalavra10.frameGeometry().height()
+                self.nivelMedioPalavra10.setFont(QFont('Arial Black', 90))
+                self.nivelMedioPalavra10.adjustSize()
+                #self.nivelMedioPalavra10.move(int(self.x/2), int(self.y/7))
+                self.nivelMedioPalavra10.move(-1000,-1000)
+            ##Inicialização Labels Modalidade Dificil
+            if True:
+                ## Dificil - Inicio - 0
+                self.nivelDificilPalavra1 = QLabel(palavraNivelDificilInicio[0], self)
+                self.largura = self.nivelDificilPalavra1.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra1.frameGeometry().height()
+                self.nivelDificilPalavra1.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra1.adjustSize()
+                self.nivelDificilPalavra1.move(-1000,-1000)
+                #self.nivelDificilPalavra1.move(int(self.x/2), int(self.y/7))
+
+                ## Dificil - Inicio - 1
+                self.nivelDificilPalavra2 = QLabel(palavraNivelDificilInicio[1], self)
+                self.largura = self.nivelDificilPalavra2.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra2.frameGeometry().height()
+                self.nivelDificilPalavra2.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra2.adjustSize()
+                self.nivelDificilPalavra2.move(-1000,-1000)
+                #self.nivelDificilPalavra2.move(int(self.x/2), int(self.y/7))
+
+                ## Dificil - Inicio - 2
+                self.nivelDificilPalavra3 = QLabel(palavraNivelDificilInicio[2], self)
+                self.largura = self.nivelDificilPalavra3.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra3.frameGeometry().height()
+                self.nivelDificilPalavra3.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra3.adjustSize()
+                self.nivelDificilPalavra3.move(-1000,-1000)
+                #self.nivelDificilPalavra3.move(int(self.x/2), int(self.y/7))
+
+            
+            ## Dificil - Meio - 0
+                self.nivelDificilPalavra4 = QLabel(palavraNivelDificilMeio[0], self)
+                self.largura = self.nivelDificilPalavra4.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra4.frameGeometry().height()
+                self.nivelDificilPalavra4.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra4.adjustSize()
+                self.nivelDificilPalavra4.move(-1000,-1000)
+                #self.nivelDificilPalavra4.move(int(self.x/2), int(self.y/7))
+
+                ## Dificil - Meio - 1
+                self.nivelDificilPalavra5 = QLabel(palavraNivelDificilMeio[1], self)
+                self.largura = self.nivelDificilPalavra5.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra5.frameGeometry().height()
+                self.nivelDificilPalavra5.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra5.adjustSize()
+                self.nivelDificilPalavra5.move(-1000,-1000)
+                #self.nivelDificilPalavra5.move(int(self.x/2), int(self.y/7))
+
+                ## Dificil - Meio - 2
+                self.nivelDificilPalavra6 = QLabel(palavraNivelDificilMeio[2], self)
+                self.largura = self.nivelDificilPalavra6.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra6.frameGeometry().height()
+                self.nivelDificilPalavra6.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra6.adjustSize()
+                self.nivelDificilPalavra6.move(-1000,-1000)
+                #self.nivelDificilPalavra6.move(int(self.x/2), int(self.y/7))
+
+
+                ## Dificil - Fim - 0
+                self.nivelDificilPalavra7 = QLabel(palavraNivelDificilFim[0], self)
+                self.largura = self.nivelDificilPalavra7.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra7.frameGeometry().height()
+                self.nivelDificilPalavra7.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra7.adjustSize()
+                self.nivelDificilPalavra7.move(-1000,-1000)
+                #self.nivelDificilPalavra7.move(int(self.x/2), int(self.y/7))
+
+                ## Dificil - Fim - 1
+                self.nivelDificilPalavra8 = QLabel(palavraNivelDificilFim[1], self)
+                self.largura = self.nivelDificilPalavra8.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra8.frameGeometry().height()
+                self.nivelDificilPalavra8.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra8.adjustSize()
+                self.nivelDificilPalavra8.move(-1000,-1000)
+                #self.nivelDificilPalavra8.move(int(self.x/2), int(self.y/7))
+
+                ## Dificil - Fim - 2
+                self.nivelDificilPalavra9 = QLabel(palavraNivelDificilFim[2], self)
+                self.largura = self.nivelDificilPalavra9.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra9.frameGeometry().height()
+                self.nivelDificilPalavra9.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra9.adjustSize()
+                self.nivelDificilPalavra9.move(-1000,-1000)
+                #self.nivelDificilPalavra9.move(int(self.x/2), int(self.y/7))
+
+                ## Dificil - Fim - 3
+                self.nivelDificilPalavra10 = QLabel(palavraNivelDificilFim[3], self)
+                self.largura = self.nivelDificilPalavra10.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra10.frameGeometry().height()
+                self.nivelDificilPalavra10.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra10.adjustSize()
+                self.nivelDificilPalavra10.move(-1000,-1000)
+                #self.nivelDificilPalavra10.move(int(self.x/2), int(self.y/7))
+
+
+                ## Dificil - Chefão - 0
+                self.nivelDificilPalavra11 = QLabel(vetChefao[0], self)
+                self.largura = self.nivelDificilPalavra11.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra11.frameGeometry().height()
+                self.nivelDificilPalavra11.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra11.adjustSize()
+                self.nivelDificilPalavra11.move(-1000,-1000)
+                #self.nivelDificilPalavra11.move(int(self.x/2), int(self.y/7))
+
+                ## Dificil - Chefão - 1
+                self.nivelDificilPalavra12 = QLabel(vetChefao[1], self)
+                self.largura = self.nivelDificilPalavra12.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra12.frameGeometry().height()
+                self.nivelDificilPalavra12.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra12.adjustSize()
+                self.nivelDificilPalavra12.move(-1000,-1000)
+                #self.nivelDificilPalavra12.move(int(self.x/2), int(self.y/7))
+
+                ## Dificil - Chefão - 2
+                self.nivelDificilPalavra13 = QLabel(vetChefao[2], self)
+                self.largura = self.nivelDificilPalavra13.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra13.frameGeometry().height()
+                self.nivelDificilPalavra13.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra13.adjustSize()
+                self.nivelDificilPalavra13.move(-1000,-1000)
+                #self.nivelDificilPalavra13.move(int(self.x/2), int(self.y/7))
+
+                ## Dificil - Chefão - 3
+                self.nivelDificilPalavra14 = QLabel(vetChefao[3], self)
+                self.largura = self.nivelDificilPalavra14.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra14.frameGeometry().height()
+                self.nivelDificilPalavra14.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra14.adjustSize()
+                self.nivelDificilPalavra14.move(-1000,-1000)
+                #self.nivelDificilPalavra14.move(int(self.x/2), int(self.y/7))
+
+                ## Dificil - Chefão - 4
+                self.nivelDificilPalavra15 = QLabel(vetChefao[4], self)
+                self.largura = self.nivelDificilPalavra15.frameGeometry().width()
+                self.altura = self.nivelDificilPalavra15.frameGeometry().height()
+                self.nivelDificilPalavra15.setFont(QFont('Arial Black', 90))
+                self.nivelDificilPalavra15.adjustSize()
+                #self.nivelDificilPalavra15.move(int(self.x/2), int(self.y/7))
+                self.nivelDificilPalavra15.move(-1000,-1000)              
+        ## Botoes Gerais
         if True:
             ## Imagem Tela Menu
             self.imgMenu = QLabel(self)
