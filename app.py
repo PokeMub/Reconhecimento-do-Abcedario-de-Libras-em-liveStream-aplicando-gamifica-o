@@ -30,7 +30,9 @@ entrar_opc = 0
 troca_opc = 0
 dentro_menu_opc2 = 0
 menu_opc2_soletra = 0
+menu_opc3 = 0
 voltarMenu = 'continuar'
+confirmacaoMenuOpcNivel = 0
 class MyWindow(QWidget):
     def __init__(self):
         super(MyWindow, self).__init__()
@@ -64,6 +66,100 @@ class MyWindow(QWidget):
             ###################################################
             # Label com o Nome do Jogo
             ## detectar fontes do pc https://flippingtypical.com/  
+    
+        ## Instanciando as telas
+        if True:
+                # Imagem Tela Menu
+                # self.imgFaseInicial = QLabel(self)
+                # self.enderecoimgFaseInicial = QPixmap('imagens_Telas/chefao.jpg')
+                # self.imgFaseInicial.setPixmap(self.enderecoimgFaseInicial)
+                # self.imgFaseInicial.setGeometry(-10000,-10000,-10000, -10000)
+                # # self.imgFaseInicial.setGeometry(int(self.x/3.3), 0,0, 0)
+                # self.imgFaseInicial.adjustSize()
+
+                ## Imagem Chefão
+                self.imgTelaChefao = QLabel(self)
+                self.enderecoimgTelaChefao = QPixmap('imagens_Telas/chefao.jpg')
+                self.imgTelaChefao.setPixmap(self.enderecoimgTelaChefao)
+                self.imgTelaChefao.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaChefao.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaChefao.adjustSize()
+
+                
+
+                ## Imagem Fim Armamento
+                self.imgTelaFimArmamento = QLabel(self)
+                self.enderecoimgTelaFimArmamento = QPixmap('imagens_Telas/fim_armamento.jpg')
+                self.imgTelaFimArmamento.setPixmap(self.enderecoimgTelaFimArmamento)
+                self.imgTelaFimArmamento.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaFimArmamento.adjustSize()
+                
+                
+
+                # ## Imagem Fim Dragão
+                self.imgTelaFimDragao = QLabel(self)
+                self.enderecoimgTelaFimDragao = QPixmap('imagens_Telas/fim_dragao.jpg')
+                self.imgTelaFimDragao.setPixmap(self.enderecoimgTelaFimDragao)
+                self.imgTelaFimDragao.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaFimDragao.adjustSize()
+
+                
+
+                # ## Imagem Fim Princesa
+                self.imgTelaFimPrincesa = QLabel(self)
+                self.enderecoimgTelaFimPrincesa = QPixmap('imagens_Telas/fim_princesa.jpg')
+                self.imgTelaFimPrincesa.setPixmap(self.enderecoimgTelaFimPrincesa)
+                self.imgTelaFimPrincesa.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaFimPrincesa.adjustSize()
+                trs = QTransform().rotate(180)
+                self.imgTelaFimPrincesa.setPixmap(QPixmap(self.enderecoimgTelaFimPrincesa).transformed(trs))
+
+                
+
+                # ## Imagem Inicio 
+                self.imgTelaInicio = QLabel(self)
+                self.enderecoimgTelaInicio = QPixmap('imagens_Telas/inicio.jpg')
+                self.imgTelaInicio.setPixmap(self.enderecoimgTelaInicio)
+                self.imgTelaInicio.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaInicio.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaInicio.adjustSize()
+                trs = QTransform().rotate(180)
+                self.imgTelaInicio.setPixmap(QPixmap(self.enderecoimgTelaInicio).transformed(trs))
+
+                
+
+                # ## Imagem Meio Sala Estar
+                self.imgTelaMeioSalaEstar = QLabel(self)
+                self.enderecoimgTelaMeioSalaEstar = QPixmap('imagens_Telas/meio_sala_estar.jpg')
+                self.imgTelaMeioSalaEstar.setPixmap(self.enderecoimgTelaMeioSalaEstar)
+                self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaMeioSalaEstar.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaMeioSalaEstar.adjustSize()
+
+                
+
+                # ## Imagem Meio Sala Jantar
+                self.imgTelaMeioSalaJantar = QLabel(self)
+                self.enderecoimgTelaMeioSalaJantar  = QPixmap('imagens_Telas/meio_sala_jantar.jpg')
+                self.imgTelaMeioSalaJantar.setPixmap(self.enderecoimgTelaMeioSalaJantar )
+                self.imgTelaMeioSalaJantar.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaMeioSalaJantar.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaMeioSalaJantar.adjustSize()
+
+               
+
+                # ## Imagem Meio Sala Rei
+                self.imgTelaMeioSalaRei= QLabel(self)
+                self.enderecoimgTelaMeioSalaRei = QPixmap('imagens_Telas/meio_sala_rei.jpg')
+                self.imgTelaMeioSalaRei.setPixmap(self.enderecoimgTelaMeioSalaRei)
+                self.imgTelaMeioSalaRei.setGeometry(-10000,-10000,-10000, -10000)
+                ##self.imgTelaMeioSalaRei.setGeometry(int(self.x/3.3), 0,0, 0)
+                self.imgTelaMeioSalaRei.adjustSize()
+                trs = QTransform().rotate(180)
+                self.imgTelaMeioSalaRei.setPixmap(QPixmap(self.enderecoimgTelaMeioSalaRei).transformed(trs))
         ## leitura arquivos + ordenação
         if True:
             nRepetir = 1
@@ -413,12 +509,43 @@ class MyWindow(QWidget):
             print('Chefão - Dificil: ')
             print(vetChefao)
             print('')
+        ## Botões tela Jogar
+        if True: 
+            self.menuNivelDificuldadeFacil = QPushButton(self)
+            self.menuNivelDificuldadeFacil.setText("Nivel Facil")
+            self.menuNivelDificuldadeFacil.setFont(QFont('Arial Black', 20))
+            self.menuNivelDificuldadeFacil.setStyleSheet("border :6px solid black;") 
+            self.menuNivelDificuldadeFacil.resize(150, 40) 
+            self.menuNivelDificuldadeFacil.adjustSize()
+            self.menuNivelDificuldadeFacil.setGeometry(1000, 1000, int(self.x/1.5), 100) 
+            self.menuNivelDificuldadeFacil.move(-500, -500)
+
+            self.menuNivelDificuldadeMedio = QPushButton(self)
+            self.menuNivelDificuldadeMedio.setText("Nivel Medio")
+            self.menuNivelDificuldadeMedio.setFont(QFont('Arial Black', 20))
+            self.menuNivelDificuldadeMedio.setStyleSheet("border :6px solid black;") 
+            self.menuNivelDificuldadeMedio.resize(150, 40) 
+            self.menuNivelDificuldadeMedio.adjustSize()
+            self.menuNivelDificuldadeMedio.setGeometry(1000, 1000, int(self.x/1.5), 100) 
+            self.menuNivelDificuldadeMedio.move(-500, -500)
+            
+            self.menuNivelDificuldadeDificil = QPushButton(self)
+            self.menuNivelDificuldadeDificil.setText("Nivel Dificil")
+            self.menuNivelDificuldadeDificil.setFont(QFont('Arial Black', 20))
+            self.menuNivelDificuldadeDificil.setStyleSheet("border :6px solid black;") 
+            self.menuNivelDificuldadeDificil.resize(150, 40) 
+            self.menuNivelDificuldadeDificil.adjustSize()
+            self.menuNivelDificuldadeDificil.setGeometry(1000, 1000, int(self.x/1.5), 100) 
+            self.menuNivelDificuldadeDificil.move(-500, -500)
         if True:
             ## Imagem Tela Menu
             self.imgMenu = QLabel(self)
             self.enderecoImMenu = QPixmap('imagens_Telas/chefao.jpg')
             self.imgMenu.setPixmap(self.enderecoImMenu)
             self.imgMenu.setGeometry(0, 0,0, 0)
+            #self.imgMenu.adjustSize()
+ 
+            
     
             self.nomeJogo = QLabel("Soletrando em Libras", self)
             self.largura = self.nomeJogo.frameGeometry().width()
@@ -568,6 +695,7 @@ class MyWindow(QWidget):
             self.ranks.setFont(QFont('Arial Black', 50))
             self.ranks.adjustSize()
             self.ranks.move(-500, -500)  
+        ## Instanciando as Imagens das Letras do Alfabeto
         if True:
             #Gif Letra A
             self.labelA = QLabel(self)
@@ -1434,11 +1562,12 @@ class MyWindow(QWidget):
             self.labelLetK.move(-500, -500)
     #Metodo para ação do botão
     def btLogar_presionado(self):
-        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu
+        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu, menu_opc3,confirmacaoMenuOpcNivel 
         nomeJogador = self.nomeJogador.text()
         print(nomeJogador)
         trav = 0
         cont1 = 0
+        entr1vez = 0
         entrar_1_vez =0
         while True:
             if menu_opc1 == 0 :
@@ -1510,7 +1639,7 @@ class MyWindow(QWidget):
                     self.op1MenuRecompensas.move(int(self.x/2.5), int(self.y/1.74))
                     
                     self.imgMenu.adjustSize()
-                    self.imgMenu.move(int(self.x /3.3), int(-100))
+                    self.imgMenu.move(int(self.x /3.3), 0)
                     dentro_menu_opc2 = 1
                 if menu_opc2 == 2 and entrar_opc == 1:
                     QApplication.processEvents()
@@ -3161,11 +3290,100 @@ class MyWindow(QWidget):
                     self.imgSeta.adjustSize()
                     self.imgSeta.move(int(self.x/3), int(self.y/2.15))
                 if menu_opc2 == 4 and entrar_opc == 1:
-                    QApplication.processEvents()
-                    letra = 'proximo2'
                     troca_opc = 2
-                    print("entrei opc 4") 
-                    self.imgSeta.move(int(-100), int(-100))
+                    QApplication.processEvents()
+                    if confirmacaoMenuOpcNivel == 0:
+                        if entr1vez  == 0:
+                            letra = 'proximo3'
+                            entr1vez = 1
+                        troca_opc = 2
+                        #print("entrei opc 4") 
+
+                        ## Limpando tela anterior
+                        self.imgSeta.move(int(-100), int(-100))
+
+                        self.op1MenuVisualizarAlfabeto.adjustSize()
+                        self.op1MenuVisualizarAlfabeto.move(int(-100), int(-100))
+
+                        self.op1MenuPraticarAlfabeto.adjustSize()
+                        self.op1MenuPraticarAlfabeto.move(int(-100), int(-100))
+
+                        self.op1MenuJogar.adjustSize()
+                        self.op1MenuJogar.move(int(-100), int(-100))
+
+                        self.op1MenuRecompensas.adjustSize()
+                        self.op1MenuRecompensas.move(int(-100), int(-100))
+
+                        self.imgMenu.adjustSize()
+                        self.imgMenu.move(int(self.x /3.3), int(-2000))
+                        
+
+                        ## Chamando os Botoes do menu
+                        self.menuNivelDificuldadeFacil.adjustSize()
+                        self.menuNivelDificuldadeFacil.setGeometry(900, 900, int(self.x/1.7), 90) 
+                        self.menuNivelDificuldadeFacil.move(int(self.x/2.5), int(self.y/4))
+
+                        self.menuNivelDificuldadeMedio.adjustSize()
+                        self.menuNivelDificuldadeMedio.setGeometry(900, 900, int(self.x/1.7), 90) 
+                        self.menuNivelDificuldadeMedio.move(int(self.x/2.5), int(self.y/2.8))
+
+                        self.menuNivelDificuldadeDificil.adjustSize()
+                        self.menuNivelDificuldadeDificil.setGeometry(900, 900, int(self.x/1.7), 90) 
+                        self.menuNivelDificuldadeDificil.move(int(self.x/2.5), int(self.y/2.15))
+
+                        ##Abrindo Imagem da tela Jogar
+                        self.imgTelaInicio.setGeometry(int(self.x/3.3), 0,0, 0)
+                        self.imgTelaInicio.adjustSize()
+                    if confirmacaoMenuOpcNivel == 1:
+                            ## limpando tela
+                            self.menuNivelDificuldadeFacil.adjustSize()
+                            self.menuNivelDificuldadeFacil.setGeometry(900, 900, int(self.x/1.7), 90) 
+                            self.menuNivelDificuldadeFacil.move(-1000, -1000)
+
+                            self.menuNivelDificuldadeMedio.adjustSize()
+                            self.menuNivelDificuldadeMedio.setGeometry(900, 900, int(self.x/1.7), 90) 
+                            self.menuNivelDificuldadeMedio.move(-1000, -1000)
+
+                            self.menuNivelDificuldadeDificil.adjustSize()
+                            self.menuNivelDificuldadeDificil.setGeometry(900, 900, int(self.x/1.7), 90) 
+                            self.menuNivelDificuldadeDificil.move(-1000, -1000)
+
+                            self.imgTelaInicio.setGeometry(-10000, -10000,-10000, -10000)
+                            self.imgTelaInicio.adjustSize()
+                    if menu_opc3 == 1 :
+                        
+                        #print('Menu op3 == 1')
+                        if confirmacaoMenuOpcNivel == 0:
+                            #QApplication.processEvents()
+                            self.imgSeta.adjustSize()
+                            self.imgSeta.move(int(self.x/3), int(self.y/4))
+                        if confirmacaoMenuOpcNivel == 1:
+                            self.imgSeta.adjustSize()
+                            self.imgSeta.move(-1000, -1000)
+                        
+                    if menu_opc3 == 2 :
+                        #print('Menu op3 == 2')
+                        if confirmacaoMenuOpcNivel == 0:
+                            #QApplication.processEvents()                 
+                            self.imgSeta.adjustSize()
+                            self.imgSeta.move(int(self.x/3), int(self.y/2.8))
+
+                        if confirmacaoMenuOpcNivel == 1:
+                            self.imgSeta.adjustSize()
+                            self.imgSeta.move(-1000, -1000)
+                    if menu_opc3 == 3 :
+                        #print('Menu op3 == 3')
+                        if confirmacaoMenuOpcNivel == 0:
+                            #QApplication.processEvents()
+                            self.imgSeta.adjustSize()
+                            self.imgSeta.move(int(self.x/3), int(self.y/2.15))
+                        if confirmacaoMenuOpcNivel == 1:
+                            self.imgSeta.adjustSize()
+                            self.imgSeta.move(-1000, -1000)
+                    if menu_opc3 == 'sair':
+                        menu_opc3 = 0
+                        entr1vez = 0
+                        confirmacaoMenuOpcNivel = 0
                 if menu_opc2 == 5 and entrar_opc != 1:   
                     QApplication.processEvents()
                     self.imgSeta.adjustSize()
@@ -3240,7 +3458,7 @@ class Worker1(QThread):
     def run(self):
         contador = 0
         reducao = 1
-        global menu_opc1 , menu_opc2 , dentro_menu_opc2, entrar_opc , troca_opc, visualizarLetra,menu_opc2_soletra, letra , voltarMenu
+        global menu_opc1 , menu_opc2 , dentro_menu_opc2, entrar_opc , troca_opc, visualizarLetra,menu_opc2_soletra, letra , voltarMenu,menu_opc3, confirmacaoMenuOpcNivel 
         letra_Momento = 'Iniciando'
         mp_drawing = mp.solutions.drawing_utils
         mp_drawing_styles = mp.solutions.drawing_styles
@@ -5474,6 +5692,7 @@ class Worker1(QThread):
                                         (0, 0, 0), 2, cv2.LINE_AA)
                                 cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
                             elif letra_Momento == 'proximo2':
+
                                 COLOR = (0, 255, 0)
                                 COLOR2 = (0, 0, 0)
                                 COLOR3 = (0, 0, 0)
@@ -5546,6 +5765,87 @@ class Worker1(QThread):
                                 cv2.circle(image, indicador_8, 4,
                                         (0, 0, 0), 2, cv2.LINE_AA)
                                 cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)   
+                            elif letra_Momento == 'proximo3':
+                                COLOR = (0, 255, 0)
+                                COLOR2 = (0, 0, 0)
+                                COLOR3 = (0, 0, 0)
+                                COLOR4 = (0, 0, 0)
+                                COLOR5 = (0, 0, 0)
+                                COLOR6 = (0, 0, 0)
+                                
+                                f = (dedao_x_3 - indicador_x_6)
+                                g = (indicador_y_6 - dedao_y_4)
+                    
+                                if f < 20 and g > 0:
+                                    COLOR2 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if indicador_y_13 < indicador_y_16:
+                                    COLOR3 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if indicador_y_9 < indicador_y_12:
+                                    COLOR4 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if indicador_y_17 < indicador_y_20:
+                                    COLOR5 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if indicador_y_5 < indicador_y_8:
+                                    COLOR6 = (0, 255, 0)
+                                    contador = 1 + contador
+                                #print(visualizarLetra)
+                                if contador >= 5:
+                                    print("Proximo3")
+                                    print("vc Acertou")
+                                    #letra_Momento = 'nenhuma'
+
+                                    if menu_opc3 == 0:
+                                        menu_opc3 = 1
+                                        QApplication.processEvents()
+                                        time.sleep(1)
+                                    else:
+                                        menu_opc3 = menu_opc3 + 1
+                                        QApplication.processEvents()
+                                        time.sleep(1)
+                                        if menu_opc3 == 4:
+                                            menu_opc3 = 1
+                                    letra = 'selecionar2'
+                                    #print(letra)
+                                                               
+                                contador = 0
+                                
+                                #########################################################################
+                                cv2.line(image, (dedao_3), (indicador_6),
+                                        COLOR2, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_6, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, dedao_3, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                ###################################################################
+                                cv2.line(image, (mao_0), (indicador_16),
+                                        COLOR5, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_16, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                ###################################################################
+                                cv2.line(image, (mao_0), (indicador_12),
+                                        COLOR4, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_12, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                ###################################################################
+                                cv2.line(image, (mao_0), (indicador_20),
+                                        COLOR6, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_20, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                ###################################################################
+                                cv2.line(image, (mao_0), (indicador_8),
+                                        COLOR3, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_8, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
                             elif letra_Momento == 'voltar':
                                 COLOR = (0, 255, 0)
                                 COLOR2 = (0, 0, 0)
@@ -5615,6 +5915,86 @@ class Worker1(QThread):
                                 cv2.circle(image, indicador_8, 4,
                                         (0, 0, 0), 2, cv2.LINE_AA)
                                 cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)  
+                            elif letra_Momento == 'selecionar2':
+
+                                
+                                COLOR = (0, 255, 0)
+                                COLOR2 = (0, 0, 0)
+                                COLOR3 = (0, 0, 0)
+                                COLOR4 = (0, 0, 0)
+                                COLOR5 = (0, 0, 0)
+                                COLOR6 = (0, 0, 0)
+                               
+                                if(dedao_x_4 > indicador_x_9):
+
+                                    f = (dedao_x_4 - indicador_x_9)
+                                if (dedao_x_4 < indicador_x_9):
+                                    f = (indicador_x_9 - dedao_x_4)
+
+                                if f < 20:
+                                    COLOR2 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if indicador_y_16 > indicador_y_12 and indicador_y_20 > indicador_y_12 and indicador_y_8 > indicador_y_12:
+
+                                    if indicador_y_15 > indicador_y_16:
+                                        COLOR3 = (0, 255, 0)
+                                        contador = 1 + contador
+
+                                    if indicador_y_11 > indicador_y_12:
+                                        COLOR4 = (0, 255, 0)
+                                        contador = 1 + contador
+
+                                    if indicador_y_19 > indicador_y_20:
+                                        COLOR5 = (0, 255, 0)
+                                        contador = 1 + contador
+
+                                    if indicador_y_7 > indicador_y_8:
+                                        COLOR6 = (0, 255, 0)
+                                        contador = 1 + contador
+                                print("entrou selecionar")
+                                if contador >= 5:
+                                    print("Letra B")
+                                    print("vc Acertou")
+                                    letra = 'a'
+                                    confirmacaoMenuOpcNivel = 1
+                                else:
+                                    letra = 'proximo3'    
+                                
+                                contador = 0
+                               
+                                #########################################################################
+                                cv2.line(image, (dedao_4), (indicador_9),
+                                        COLOR2, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_9, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, dedao_4, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                ###################################################################
+                                cv2.line(image, (mao_0), (indicador_16),
+                                        COLOR5, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_16, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                ###################################################################
+                                cv2.line(image, (mao_0), (indicador_12),
+                                        COLOR4, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_12, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                ###################################################################
+                                cv2.line(image, (mao_0), (indicador_20),
+                                        COLOR6, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_20, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                ###################################################################
+                                cv2.line(image, (mao_0), (indicador_8),
+                                        COLOR3, 2, cv2.LINE_AA)
+                                cv2.circle(image, indicador_8, 4,
+                                        (0, 0, 0), 2, cv2.LINE_AA)
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                
+                                
                             elif letra_Momento == 'selecionar':
                                 COLOR = (0, 255, 0)
                                 COLOR2 = (0, 0, 0)

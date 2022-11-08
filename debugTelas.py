@@ -43,99 +43,8 @@ class MyWindow(QWidget):
             self.setMinimumSize(QSize(self.x, self.y))
             self.setWindowTitle("Tela Inicial")
 
-            ## Instanciando as telas
-            if True:
-                pass
-                # Imagem Tela Menu
-                # self.imgFaseInicial = QLabel(self)
-                # self.enderecoimgFaseInicial = QPixmap('imagens_Telas/chefao.jpg')
-                # self.imgFaseInicial.setPixmap(self.enderecoimgFaseInicial)
-                # self.imgFaseInicial.setGeometry(int(self.x/3.3), 0,0, 0)
-                # self.imgFaseInicial.adjustSize()
-
-                ## Imagem Chefão
-                self.imgTelaChefao = QLabel(self)
-                self.enderecoimgTelaChefao = QPixmap('imagens_Telas/chefao.jpg')
-                self.imgTelaChefao.setPixmap(self.enderecoimgTelaChefao)
-                self.imgTelaChefao.setGeometry(-10000,-10000,-10000, -10000)
-                ##self.imgTelaChefao.setGeometry(int(self.x/3.3), 0,0, 0)
-                self.imgTelaChefao.adjustSize()
-
-                
-
-                ## Imagem Fim Armamento
-                self.imgTelaFimArmamento = QLabel(self)
-                self.enderecoimgTelaFimArmamento = QPixmap('imagens_Telas/fim_armamento.jpg')
-                self.imgTelaFimArmamento.setPixmap(self.enderecoimgTelaFimArmamento)
-                self.imgTelaFimArmamento.setGeometry(-10000,-10000,-10000, -10000)
-                ##self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
-                self.imgTelaFimArmamento.adjustSize()
-                
-                
-
-                # ## Imagem Fim Dragão
-                self.imgTelaFimDragao = QLabel(self)
-                self.enderecoimgTelaFimDragao = QPixmap('imagens_Telas/fim_dragao.jpg')
-                self.imgTelaFimDragao.setPixmap(self.enderecoimgTelaFimDragao)
-                self.imgTelaFimDragao.setGeometry(-10000,-10000,-10000, -10000)
-                ##self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
-                self.imgTelaFimDragao.adjustSize()
-
-                
-
-                # ## Imagem Fim Princesa
-                self.imgTelaFimPrincesa = QLabel(self)
-                self.enderecoimgTelaFimPrincesa = QPixmap('imagens_Telas/fim_princesa.jpg')
-                self.imgTelaFimPrincesa.setPixmap(self.enderecoimgTelaFimPrincesa)
-                self.imgTelaFimPrincesa.setGeometry(-10000,-10000,-10000, -10000)
-                ##self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
-                self.imgTelaFimPrincesa.adjustSize()
-                trs = QTransform().rotate(180)
-                self.imgTelaFimPrincesa.setPixmap(QPixmap(self.enderecoimgTelaFimPrincesa).transformed(trs))
-
-                
-
-                # ## Imagem Inicio 
-                self.imgTelaInicio = QLabel(self)
-                self.enderecoimgTelaInicio = QPixmap('imagens_Telas/inicio.jpg')
-                self.imgTelaInicio.setPixmap(self.enderecoimgTelaInicio)
-                self.imgTelaInicio.setGeometry(-10000,-10000,-10000, -10000)
-                ##self.imgTelaInicio.setGeometry(int(self.x/3.3), 0,0, 0)
-                self.imgTelaInicio.adjustSize()
-                trs = QTransform().rotate(180)
-                self.imgTelaInicio.setPixmap(QPixmap(self.enderecoimgTelaInicio).transformed(trs))
-
-                
-
-                # ## Imagem Meio Sala Estar
-                self.imgTelaMeioSalaEstar = QLabel(self)
-                self.enderecoimgTelaMeioSalaEstar = QPixmap('imagens_Telas/meio_sala_estar.jpg')
-                self.imgTelaMeioSalaEstar.setPixmap(self.enderecoimgTelaMeioSalaEstar)
-                self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
-                ##self.imgTelaMeioSalaEstar.setGeometry(int(self.x/3.3), 0,0, 0)
-                self.imgTelaMeioSalaEstar.adjustSize()
-
-                
-
-                # ## Imagem Meio Sala Jantar
-                self.imgTelaMeioSalaJantar = QLabel(self)
-                self.enderecoimgTelaMeioSalaJantar  = QPixmap('imagens_Telas/meio_sala_jantar.jpg')
-                self.imgTelaMeioSalaJantar.setPixmap(self.enderecoimgTelaMeioSalaJantar )
-                self.imgTelaMeioSalaJantar.setGeometry(-10000,-10000,-10000, -10000)
-                ##self.imgTelaMeioSalaJantar.setGeometry(int(self.x/3.3), 0,0, 0)
-                self.imgTelaMeioSalaJantar.adjustSize()
-
-               
-
-                # ## Imagem Meio Sala Rei
-                self.imgTelaMeioSalaRei= QLabel(self)
-                self.enderecoimgTelaMeioSalaRei = QPixmap('imagens_Telas/meio_sala_rei.jpg')
-                self.imgTelaMeioSalaRei.setPixmap(self.enderecoimgTelaMeioSalaRei)
-                self.imgTelaMeioSalaRei.setGeometry(-10000,-10000,-10000, -10000)
-                ##self.imgTelaMeioSalaRei.setGeometry(int(self.x/3.3), 0,0, 0)
-                self.imgTelaMeioSalaRei.adjustSize()
-                trs = QTransform().rotate(180)
-                self.imgTelaMeioSalaRei.setPixmap(QPixmap(self.enderecoimgTelaMeioSalaRei).transformed(trs))
+           
+            
 
                 
 
@@ -777,7 +686,7 @@ class MyWindow(QWidget):
             self.altura = self.nivelDificilPalavra15.frameGeometry().height()
             self.nivelDificilPalavra15.setFont(QFont('Arial Black', 90))
             self.nivelDificilPalavra15.adjustSize()
-            #self.nivelDificilPalavra15.move(-1000,-1000)
+            self.nivelDificilPalavra15.move(-1000,-1000)
             #self.nivelDificilPalavra15.move(int(self.x/2), int(self.y/7))
 
 
@@ -844,19 +753,9 @@ class Worker1(QThread):
                         image_height, image_width, _ = image.shape
                         annotated_image = image.copy()
                         for hand_landmarks in results.multi_hand_landmarks:
-                            if letra_Momento != letra:
-                                letra_Momento = letra
-                                vira = 0
-                                virar = 0
-                                subir = 0
-                                con = 0
-                                ladinho = 0
-                                contar = 0
-                                x = 0
-                
-                                QApplication.processEvents()
-                                time.sleep(0.5)
-                                troca_opc = 0
+                            if True:
+                        
+                                pass
                             mp_drawing.draw_landmarks(
                                 image,
                                 hand_landmarks,
