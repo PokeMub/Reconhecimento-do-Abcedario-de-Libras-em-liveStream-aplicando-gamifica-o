@@ -33,6 +33,17 @@ menu_opc2_soletra = 0
 menu_opc3 = 0
 voltarMenu = 'continuar'
 confirmacaoMenuOpcNivel = 0
+
+palavraNivelFacilInicio = []
+palavraNivelFacilMeio = []
+palavraNivelFacilFim = []
+palavraNivelMedioInicio = []
+palavraNivelMedioMeio = []
+palavraNivelMedioFim = []
+palavraNivelDificilInicio = []
+palavraNivelDificilMeio = []
+palavraNivelDificilFim = []
+vetChefao = []
 class MyWindow(QWidget):
     def __init__(self):
         super(MyWindow, self).__init__()
@@ -170,7 +181,6 @@ class MyWindow(QWidget):
             vetInicio = []
             vetMeio = []
             vetFim = []
-            vetChefao = []
             arquivo = pd.read_csv('./planilha/palavras.csv')
             tamanho = len(arquivo.index)
             variavel1 = 0
@@ -180,6 +190,7 @@ class MyWindow(QWidget):
             tamanhoInicio = 0
             faseMeio = 0
             faseFim = 0
+            global palavraNivelFacilInicio ,palavraNivelFacilMeio,palavraNivelFacilFim ,palavraNivelMedioInicio ,palavraNivelMedioMeio ,palavraNivelMedioFim,palavraNivelDificilInicio, palavraNivelDificilMeio ,palavraNivelDificilFim, vetChefao 
             # Definindo a tela do estagio
             ###########################################################################################
             for variavel3 in range(0, 2):
@@ -238,9 +249,7 @@ class MyWindow(QWidget):
             ##########################################################################################
             #########################################################################################
             # Sorteando as Plavras Nivel Facil
-            palavraNivelFacilInicio = []
-            palavraNivelFacilMeio = []
-            palavraNivelFacilFim = []
+            
             sortTemporario = ''
             for faseFacil in range(0, 5):
                 if faseFacil == 0:
@@ -288,9 +297,7 @@ class MyWindow(QWidget):
             #########################################################################################
             # Sorteando as Plavras Nivel Medio
 
-            palavraNivelMedioInicio = []
-            palavraNivelMedioMeio = []
-            palavraNivelMedioFim = []
+            
             ent = 0
             sortTemporario = ''
 
@@ -398,9 +405,7 @@ class MyWindow(QWidget):
             ##########################################################################################
             #########################################################################################
             # Sorteando as Plavras Nivel Dificil
-            palavraNivelDificilInicio = []
-            palavraNivelDificilMeio = []
-            palavraNivelDificilFim = []
+
 
             for fasedificil in range(0, 6):
                 if fasedificil > -1 and fasedificil < 2:
@@ -542,15 +547,23 @@ class MyWindow(QWidget):
         if True:
             ## Inicialização labels Modalidade Facil
             if True:
+                ## Traço
+                self.traco = QLabel('_', self)
+                self.largura = self.traco.frameGeometry().width()
+                self.altura = self.traco.frameGeometry().height()
+                self.traco.setFont(QFont('Arial Black', 90))
+                self.traco.adjustSize()
+                self.traco.move(-1000,-1000)
+                #self.traco.move(int(self.x/2), int(self.y/7))
+
                 ## Facil - Inicio    
-                self.nivelFacilPalavra1 = QLabel(palavraNivelFacilInicio[0], self)
+                self.nivelFacilPalavra1 = QLabel(palavraNivelFacilInicio, self)
                 self.largura = self.nivelFacilPalavra1.frameGeometry().width()
                 self.altura = self.nivelFacilPalavra1.frameGeometry().height()
                 self.nivelFacilPalavra1.setFont(QFont('Arial Black', 90))
                 self.nivelFacilPalavra1.adjustSize()
                 self.nivelFacilPalavra1.move(-1000,-1000)
                 #self.nivelFacilPalavra1.move(int(self.x/2), int(self.y/7))
-
 
                 ## Facil - Meio 0
                 self.nivelFacilPalavra2 = QLabel(palavraNivelFacilMeio[0], self)
@@ -1847,13 +1860,19 @@ class MyWindow(QWidget):
             self.labelLetK.move(-500, -500)
     #Metodo para ação do botão
     def btLogar_presionado(self):
-        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu, menu_opc3,confirmacaoMenuOpcNivel 
+        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu, menu_opc3,confirmacaoMenuOpcNivel,palavraNivelFacilInicio
         nomeJogador = self.nomeJogador.text()
         print(nomeJogador)
         trav = 0
         cont1 = 0
         entr1vez = 0
         entrar_1_vez =0
+        letraPrintar = ''
+        letraRemover = ''
+        estagio = 1
+        estagio2 = 1   
+        estagio3 = 1
+
         while True:
             if menu_opc1 == 0 :
                 if menu_opc1 == 0 and menu_opc2 == 0:
@@ -3637,34 +3656,917 @@ class MyWindow(QWidget):
                             self.imgTelaInicio.adjustSize()
                     if menu_opc3 == 1 :
                         
-                        #print('Menu op3 == 1')
-                        if confirmacaoMenuOpcNivel == 0:
-                            #QApplication.processEvents()
-                            self.imgSeta.adjustSize()
-                            self.imgSeta.move(int(self.x/3), int(self.y/4))
-                        if confirmacaoMenuOpcNivel == 1:
-                            self.imgSeta.adjustSize()
-                            self.imgSeta.move(-1000, -1000)
-                        
-                    if menu_opc3 == 2 :
-                        #print('Menu op3 == 2')
-                        if confirmacaoMenuOpcNivel == 0:
-                            #QApplication.processEvents()                 
-                            self.imgSeta.adjustSize()
-                            self.imgSeta.move(int(self.x/3), int(self.y/2.8))
+                        ## Sobre a tela
+                        if True:
+                            #print('Menu op3 == 1')
+                            if confirmacaoMenuOpcNivel == 0:
+                                #QApplication.processEvents()
+                                self.imgSeta.adjustSize()
+                                self.imgSeta.move(int(self.x/3), int(self.y/4))
+                            if confirmacaoMenuOpcNivel == 1:
+                                self.imgSeta.adjustSize()
+                                self.imgSeta.move(-1000, -1000)
 
-                        if confirmacaoMenuOpcNivel == 1:
-                            self.imgSeta.adjustSize()
-                            self.imgSeta.move(-1000, -1000)
+                                if estagio == 1:
+                                    self.nivelFacilPalavra1.move(int(self.x/2), int(self.y/7))
+                                    tamanhoPalavra = (len(palavraNivelFacilInicio))
+                                    palavraSub = str(palavraNivelFacilInicio)
+                                    result = palavraSub[-(tamanhoPalavra)]
+                                    print(result)
+                                    letra = result.lower()
+                                    letraPrintar = result.lower()
+                                elif estagio == 2:
+                                    if estagio2 == 1:
+                                        pass
+                                    elif estagio2 == 2:
+                                        pass
+                                elif estagio == 3:
+                                    if estagio3 == 1:
+                                        pass
+                                    elif estagio3 == 2:
+                                        pass
+
+                        ## Limpar a letra anteriror
+                        if True:
+                            if letraRemover == 'a':
+                                self.movieA.stop()
+                                self.labelA.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetA.adjustSize()
+                                self.labelExcLetA.move(int(self.x/1.15), int(-1000))
+
+                                self.imgA.adjustSize()
+                                self.imgA.move(int(self.x/2), int(-1000))
+
+                                self.labelLetA.adjustSize()
+                                self.labelLetA.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'b':
+                                self.movieB.stop()
+                                self.labelB.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetB.adjustSize()
+                                self.labelExcLetB.move(int(self.x/1.15), int(-1000))
+
+                                self.imgB.adjustSize()
+                                self.imgB.move(int(self.x/2), int(-1000))
+
+                                self.labelLetB.adjustSize()
+                                self.labelLetB.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'c':
+                                self.movieC.stop()
+                                self.labelC.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetC.adjustSize()
+                                self.labelExcLetC.move(int(self.x/1.15), int(-1000))
+
+                                self.imgC.adjustSize()
+                                self.imgC.move(int(self.x/2), int(-1000))
+
+                                self.labelLetC.adjustSize()
+                                self.labelLetC.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'd':
+                                self.movieD.stop()
+                                self.labelD.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetD.adjustSize()
+                                self.labelExcLetD.move(int(self.x/1.15), int(-1000))
+
+                                self.imgD.adjustSize()
+                                self.imgD.move(int(self.x/2), int(-1000))
+
+                                self.labelLetD.adjustSize()
+                                self.labelLetD.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'e':
+                                self.movieE.stop()
+                                self.labelE.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetE.adjustSize()
+                                self.labelExcLetE.move(int(self.x/1.15), int(-1000))
+
+                                self.imgE.adjustSize()
+                                self.imgE.move(int(self.x/2), int(-1000))
+
+                                self.labelLetE.adjustSize()
+                                self.labelLetE.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'f':
+                                self.movieF.stop()
+                                self.labelF.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetF.adjustSize()
+                                self.labelExcLetF.move(int(self.x/1.15), int(-1000))
+
+                                self.imgF.adjustSize()
+                                self.imgF.move(int(self.x/2), int(-1000))
+
+                                self.labelLetF.adjustSize()
+                                self.labelLetF.move(int(self.x/1.8), int(-1000)) 
+                            elif letraRemover == 'g':
+                                self.movieG.stop()
+                                self.labelG.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetG.adjustSize()
+                                self.labelExcLetG.move(int(self.x/1.15), int(-1000))
+
+                                self.imgG.adjustSize()
+                                self.imgG.move(int(self.x/2), int(-1000))
+
+                                self.labelLetG.adjustSize()
+                                self.labelLetG.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'h':
+                                self.movieH.stop()
+                                self.labelH.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetH.adjustSize()
+                                self.labelExcLetH.move(int(self.x/1.15), int(-1000))
+
+                                self.imgH1.adjustSize()
+                                self.imgH1.move(int(self.x/2), int(-1000))
+
+                                self.imgH2.adjustSize()
+                                self.imgH2.move(int(self.x/2), int(-1000))
+
+                                self.imgH3.adjustSize()
+                                self.imgH3.move(int(self.x/2), int(-1000))
+
+                                self.labelLetH.adjustSize()
+                                self.labelLetH.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'i':
+                                self.movieI.stop()
+                                self.labelI.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetI.adjustSize()
+                                self.labelExcLetI.move(int(self.x/1.15), int(-1000))
+
+                                self.imgI1.adjustSize()
+                                self.imgI1.move(int(self.x/2), int(-1000))
+
+                                self.imgI2.adjustSize()
+                                self.imgI2.move(int(self.x/2), int(-1000))
+
+                                self.imgI3.adjustSize()
+                                self.imgI3.move(int(self.x/2), int(-1000))
+
+                                self.imgI4.adjustSize()
+                                self.imgI4.move(int(self.x/2), int(-1000))
+
+                                self.labelLetI.adjustSize()
+                                self.labelLetI.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'j':
+                                self.movieJ.stop()
+                                self.labelJ.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetJ.adjustSize()
+                                self.labelExcLetJ.move(int(self.x/1.15), int(-1000))
+
+                                self.imgJ1.adjustSize()
+                                self.imgJ1.move(int(self.x/2), int(-1000))
+
+                                self.imgJ2.adjustSize()
+                                self.imgJ2.move(int(self.x/2), int(-1000))
+
+                                self.imgJ3.adjustSize()
+                                self.imgJ3.move(int(self.x/2), int(-1000))
+
+                                self.labelLetJ.adjustSize()
+                                self.labelLetJ.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'k':
+                                self.movieK.stop()
+                                self.labelK.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetK.adjustSize()
+                                self.labelExcLetK.move(int(self.x/1.15), int(-1000))
+
+                                self.imgK1.adjustSize()
+                                self.imgK1.move(int(self.x/2), int(-1000))
+
+                                self.imgK2.adjustSize()
+                                self.imgK2.move(int(self.x/2), int(-1000))
+
+                                self.imgK3.adjustSize()
+                                self.imgK3.move(int(self.x/2), int(-1000))
+
+                                self.labelLetK.adjustSize()
+                                self.labelLetK.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'l':
+                                self.movieL.stop()
+                                self.labelL.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetL.adjustSize()
+                                self.labelExcLetL.move(int(self.x/1.15), int(-1000))
+
+                                self.imgL.adjustSize()
+                                self.imgL.move(int(self.x/2), int(-1000))
+
+                                self.labelLetL.adjustSize()
+                                self.labelLetL.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'm':
+                                self.movieM.stop()
+                                self.labelM.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetM.adjustSize()
+                                self.labelExcLetM.move(int(self.x/1.15), int(-1000))
+
+                                self.imgM.adjustSize()
+                                self.imgM.move(int(self.x/2), int(-1000))
+
+                                self.labelLetM.adjustSize()
+                                self.labelLetM.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'n':
+                                self.movieN.stop()
+                                self.labelN.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetN.adjustSize()
+                                self.labelExcLetN.move(int(self.x/1.15), int(-1000))
+
+                                self.imgN.adjustSize()
+                                self.imgN.move(int(self.x/2), int(-1000))
+
+                                self.labelLetN.adjustSize()
+                                self.labelLetN.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'o':
+                                self.movieO.stop()
+                                self.labelO.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetO.adjustSize()
+                                self.labelExcLetO.move(int(self.x/1.15), int(-1000))
+
+                                self.imgO.adjustSize()
+                                self.imgO.move(int(self.x/2), int(-1000))
+
+                                self.labelLetO.adjustSize()
+                                self.labelLetO.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'p':
+                                self.movieP.stop()
+                                self.labelP.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetP.adjustSize()
+                                self.labelExcLetP.move(int(self.x/1.15), int(-1000))
+
+                                self.imgP.adjustSize()
+                                self.imgP.move(int(self.x/2), int(-1000))
+
+                                self.labelLetP.adjustSize()
+                                self.labelLetP.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'q':
+                                self.movieQ.stop()
+                                self.labelQ.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetQ.adjustSize()
+                                self.labelExcLetQ.move(int(self.x/1.15), int(-1000))
+
+                                self.imgQ.adjustSize()
+                                self.imgQ.move(int(self.x/2), int(-1000))
+
+                                self.labelLetQ.adjustSize()
+                                self.labelLetQ.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'r':
+                                self.movieR.stop()
+                                self.labelR.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetR.adjustSize()
+                                self.labelExcLetR.move(int(self.x/1.15), int(-1000))
+
+                                self.imgR.adjustSize()
+                                self.imgR.move(int(self.x/2), int(-1000))
+
+                                self.labelLetR.adjustSize()
+                                self.labelLetR.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 's':
+                                self.movieS.stop()
+                                self.labelS.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetS.adjustSize()
+                                self.labelExcLetS.move(int(self.x/1.15), int(-1000))
+
+                                self.imgS.adjustSize()
+                                self.imgS.move(int(self.x/2), int(-1000))
+
+                                self.labelLetS.adjustSize()
+                                self.labelLetS.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 't':
+                                self.movieT.stop()
+                                self.labelT.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetT.adjustSize()
+                                self.labelExcLetT.move(int(self.x/1.15), int(-1000))
+
+                                self.imgT.adjustSize()
+                                self.imgT.move(int(self.x/2), int(-1000))
+
+                                self.labelLetT.adjustSize()
+                                self.labelLetT.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'u':
+                                self.movieU.stop()
+                                self.labelU.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetU.adjustSize()
+                                self.labelExcLetU.move(int(self.x/1.15), int(-1000))
+
+                                self.imgU.adjustSize()
+                                self.imgU.move(int(self.x/2), int(-1000))
+
+                                self.labelLetU.adjustSize()
+                                self.labelLetU.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'v':
+                                self.movieV.stop()
+                                self.labelV.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetV.adjustSize()
+                                self.labelExcLetV.move(int(self.x/1.15), int(-1000))
+
+                                self.imgV.adjustSize()
+                                self.imgV.move(int(self.x/2), int(-1000))
+
+                                self.labelLetV.adjustSize()
+                                self.labelLetV.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'w':
+                                self.movieW.stop()
+                                self.labelW.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetW.adjustSize()
+                                self.labelExcLetW.move(int(self.x/1.15), int(-1000))
+
+                                self.imgW1.adjustSize()
+                                self.imgW1.move(int(self.x/2), int(-1000))
+
+                                self.imgW2.adjustSize()
+                                self.imgW2.move(int(self.x/2), int(-1000))
+
+                                self.imgW3.adjustSize()
+                                self.imgW3.move(int(self.x/2), int(-1000))
+
+                                self.labelLetW.adjustSize()
+                                self.labelLetW.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'x':
+                                self.movieX.stop()
+                                self.labelX.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetX.adjustSize()
+                                self.labelExcLetX.move(int(self.x/1.15), int(-1000))
+
+                                self.imgX1.adjustSize()
+                                self.imgX1.move(int(self.x/2), int(-1000))
+
+                                self.imgX2.adjustSize()
+                                self.imgX2.move(int(self.x/2), int(-1000))
+
+                                self.imgX3.adjustSize()
+                                self.imgX3.move(int(self.x/2), int(-1000))
+
+                                self.labelLetX.adjustSize()
+                                self.labelLetX.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'y':
+                                self.movieY.stop()
+                                self.labelY.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetY.adjustSize()
+                                self.labelExcLetY.move(int(self.x/1.15), int(-1000))
+
+                                self.imgY1.adjustSize()
+                                self.imgY1.move(int(self.x/2), int(-1000))
+
+                                self.imgY2.adjustSize()
+                                self.imgY2.move(int(self.x/2), int(-1000))
+
+                                self.imgY3.adjustSize()
+                                self.imgY3.move(int(self.x/2), int(-1000))
+
+                                self.labelLetY.adjustSize()
+                                self.labelLetY.move(int(self.x/1.8), int(-1000))
+                            elif letraRemover == 'z':
+                                self.movieZ.stop()
+                                self.labelZ.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                                self.labelExcLetZ.adjustSize()
+                                self.labelExcLetZ.move(int(self.x/1.15), int(-1000))
+
+                                self.imgZ1.adjustSize()
+                                self.imgZ1.move(int(self.x/2), int(-1000))
+
+                                self.imgZ2.adjustSize()
+                                self.imgZ2.move(int(self.x/2), int(-1000))
+
+                                self.imgZ3.adjustSize()
+                                self.imgZ3.move(int(self.x/2), int(-1000))
+
+                                self.imgZ4.adjustSize()
+                                self.imgZ4.move(int(self.x/2), int(-1000))
+
+                                self.labelLetZ.adjustSize()
+                                self.labelLetZ.move(int(self.x/1.8), int(-1000))
+                        ## printar a letra
+                        if True:
+                            if letraPrintar == 'a':
+                                self.labelA.setGeometry(QtCore.QRect(int(self.x/1.2), int(self.y/3.5), 600, 600))
+                                self.movieA.start()
+
+                                self.imgA.adjustSize()
+                                self.imgA.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'b':
+                                self.labelB.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieB.start()
+
+                                self.imgB.adjustSize()
+                                self.imgB.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'c':
+                                self.labelC.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieC.start()
+
+                                self.imgC.adjustSize()
+                                self.imgC.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'd':
+                                self.labelD.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieD.start()
+
+                                self.imgD.adjustSize()
+                                self.imgD.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'e':
+                                self.labelE.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieE.start()
+
+                                self.imgE.adjustSize()
+                                self.imgE.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'f':
+                                self.labelF.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieF.start()
+
+                                self.imgF.adjustSize()
+                                self.imgF.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'g':
+                                self.labelG.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieG.start()
+
+                                self.imgG.adjustSize()
+                                self.imgG.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'h':
+                                self.labelH.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieH.start()
+
+                                self.imgH1.adjustSize()
+                                self.imgH1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgH2.adjustSize()
+                                self.imgH2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgH3.adjustSize()
+                                self.imgH3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'i':
+                                self.labelI.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieI.start()
+
+                                self.imgI1.adjustSize()
+                                self.imgI1.move(int(self.x/3.2), int(self.y/3.5))
+
+                                self.imgI2.adjustSize()
+                                self.imgI2.move(int(self.x/2.25), int(self.y/3.5))
+
+                                self.imgI3.adjustSize()
+                                self.imgI3.move(int(self.x/1.74), int(self.y/3.5))
+
+                                self.imgI4.adjustSize()
+                                self.imgI4.move(int(self.x/1.42), int(self.y/3.5))
+                            elif letraPrintar == 'j':
+                                self.labelJ.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieJ.start()
+
+                                self.imgJ1.adjustSize()
+                                self.imgJ1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgJ2.adjustSize()
+                                self.imgJ2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgJ3.adjustSize()
+                                self.imgJ3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'k':
+                                self.labelK.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieK.start()
+
+                                self.imgK1.adjustSize()
+                                self.imgK1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgK2.adjustSize()
+                                self.imgK2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgK3.adjustSize()
+                                self.imgK3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'l':
+                                self.labelL.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieL.start()
+
+                                self.imgL.adjustSize()
+                                self.imgL.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'm':
+                                self.labelM.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieM.start()
+
+                                self.imgM.adjustSize()
+                                self.imgM.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'n':
+                                self.labelN.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieN.start()
+
+                                self.imgN.adjustSize()
+                                self.imgN.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'o':
+                                self.labelO.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieO.start()
+
+                                self.imgO.adjustSize()
+                                self.imgO.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'p':
+                                self.labelP.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieP.start()
+
+                                self.imgP.adjustSize()
+                                self.imgP.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'q':
+                                self.labelQ.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieQ.start()
+
+                                self.imgQ.adjustSize()
+                                self.imgQ.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'r':
+                                self.labelR.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieR.start()
+
+                                self.imgR.adjustSize()
+                                self.imgR.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 's':
+                                self.labelS.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieS.start()
+
+                                self.imgS.adjustSize()
+                                self.imgS.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 't':
+                                self.labelT.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieT.start()
+
+                                self.labelExcLetT.adjustSize()
+                                self.labelExcLetT.move(int(self.x/1.15), int(self.y/4.2))
+
+                                self.imgT.adjustSize()
+                                self.imgT.move(int(self.x/2), int(self.y/3.5))
+
+                                self.labelLetT.adjustSize()
+                                self.labelLetT.move(int(self.x/1.8), int(self.y/4.2))
+                            elif letraPrintar == 'u':
+                                self.labelU.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieU.start()
+
+                                self.imgU.adjustSize()
+                                self.imgU.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'v':
+                                self.labelV.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieV.start()
+
+                                self.imgV.adjustSize()
+                                self.imgV.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'w':
+                                self.labelW.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieW.start()
+
+                                self.imgW1.adjustSize()
+                                self.imgW1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgW2.adjustSize()
+                                self.imgW2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgW3.adjustSize()
+                                self.imgW3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'x':
+                                self.labelX.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieX.start()
+
+                                self.imgX3.adjustSize()
+                                self.imgX3.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgX2.adjustSize()
+                                self.imgX2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgX1.adjustSize()
+                                self.imgX1.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'y':
+                                self.labelY.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieY.start()
+
+                                self.imgY1.adjustSize()
+                                self.imgY1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgY2.adjustSize()
+                                self.imgY2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgY3.adjustSize()
+                                self.imgY3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'z': 
+                                self.labelZ.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
+                                self.movieZ.start()
+
+                                self.imgZ1.adjustSize()
+                                self.imgZ1.move(int(self.x/1.7), int(self.y/3.5))
+
+                                self.imgZ2.adjustSize()
+                                self.imgZ2.move(int(self.x/2.25), int(self.y/3.5))
+
+                                self.imgZ4.adjustSize()
+                                self.imgZ4.move(int(self.x/2.25), int(self.y/1.65))
+
+                                self.imgZ3.adjustSize()
+                                self.imgZ3.move(int(self.x/1.7), int(self.y/1.65))
+      
+                    if menu_opc3 == 2 :
+                        ##Opc gerais
+                        if True:
+                            #print('Menu op3 == 2')
+                            if confirmacaoMenuOpcNivel == 0:
+                                #QApplication.processEvents()                 
+                                self.imgSeta.adjustSize()
+                                self.imgSeta.move(int(self.x/3), int(self.y/2.8))
+
+                            if confirmacaoMenuOpcNivel == 1:
+                                self.imgSeta.adjustSize()
+                                self.imgSeta.move(-1000, -1000)
+                        ##Limpar letra
+                        if True:
+                            if letraRemover == 'a':
+                                self.imgA.adjustSize()
+                                self.imgA.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'b':
+                                
+
+                                self.imgB.adjustSize()
+                                self.imgB.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'c':
+                                self.imgC.adjustSize()
+                                self.imgC.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'd':
+                                self.imgD.adjustSize()
+                                self.imgD.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'e':
+                                self.imgE.adjustSize()
+                                self.imgE.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'f':
+                                self.imgF.adjustSize()
+                                self.imgF.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'g':
+                                self.imgG.adjustSize()
+                                self.imgG.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'h':
+                                self.imgH1.adjustSize()
+                                self.imgH1.move(int(self.x/2), int(-1000))
+
+                                self.imgH2.adjustSize()
+                                self.imgH2.move(int(self.x/2), int(-1000))
+
+                                self.imgH3.adjustSize()
+                                self.imgH3.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'i':
+                                self.imgI1.adjustSize()
+                                self.imgI1.move(int(self.x/2), int(-1000))
+
+                                self.imgI2.adjustSize()
+                                self.imgI2.move(int(self.x/2), int(-1000))
+
+                                self.imgI3.adjustSize()
+                                self.imgI3.move(int(self.x/2), int(-1000))
+
+                                self.imgI4.adjustSize()
+                                self.imgI4.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'j':
+                                self.imgJ1.adjustSize()
+                                self.imgJ1.move(int(self.x/2), int(-1000))
+
+                                self.imgJ2.adjustSize()
+                                self.imgJ2.move(int(self.x/2), int(-1000))
+
+                                self.imgJ3.adjustSize()
+                                self.imgJ3.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'k':
+                                self.imgK1.adjustSize()
+                                self.imgK1.move(int(self.x/2), int(-1000))
+
+                                self.imgK2.adjustSize()
+                                self.imgK2.move(int(self.x/2), int(-1000))
+
+                                self.imgK3.adjustSize()
+                                self.imgK3.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'l':
+                                self.imgL.adjustSize()
+                                self.imgL.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'm':
+                                self.imgM.adjustSize()
+                                self.imgM.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'n':
+                                self.imgN.adjustSize()
+                                self.imgN.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'o':
+                                self.imgO.adjustSize()
+                                self.imgO.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'p':
+                                self.imgP.adjustSize()
+                                self.imgP.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'q':
+                                self.imgQ.adjustSize()
+                                self.imgQ.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'r':
+                                self.imgR.adjustSize()
+                                self.imgR.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 's':
+                                self.imgS.adjustSize()
+                                self.imgS.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 't':
+                                self.imgT.adjustSize()
+                                self.imgT.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'u':
+                                self.imgU.adjustSize()
+                                self.imgU.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'v':
+                                self.imgV.adjustSize()
+                                self.imgV.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'w':
+                                self.imgW1.adjustSize()
+                                self.imgW1.move(int(self.x/2), int(-1000))
+
+                                self.imgW2.adjustSize()
+                                self.imgW2.move(int(self.x/2), int(-1000))
+
+                                self.imgW3.adjustSize()
+                                self.imgW3.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'x':
+                                self.imgX1.adjustSize()
+                                self.imgX1.move(int(self.x/2), int(-1000))
+
+                                self.imgX2.adjustSize()
+                                self.imgX2.move(int(self.x/2), int(-1000))
+
+                                self.imgX3.adjustSize()
+                                self.imgX3.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'y':
+                                self.imgY1.adjustSize()
+                                self.imgY1.move(int(self.x/2), int(-1000))
+
+                                self.imgY2.adjustSize()
+                                self.imgY2.move(int(self.x/2), int(-1000))
+
+                                self.imgY3.adjustSize()
+                                self.imgY3.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'z':
+                                self.imgZ1.adjustSize()
+                                self.imgZ1.move(int(self.x/2), int(-1000))
+
+                                self.imgZ2.adjustSize()
+                                self.imgZ2.move(int(self.x/2), int(-1000))
+
+                                self.imgZ3.adjustSize()
+                                self.imgZ3.move(int(self.x/2), int(-1000))
+
+                                self.imgZ4.adjustSize()
+                                self.imgZ4.move(int(self.x/2), int(-1000))
+                        ## printar a letra
+                        if True:
+                            if letraPrintar == 'a':
+                                self.imgA.adjustSize()
+                                self.imgA.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'b':
+                                self.imgB.adjustSize()
+                                self.imgB.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'c':
+                                self.imgC.adjustSize()
+                                self.imgC.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'd':
+                                self.imgD.adjustSize()
+                                self.imgD.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'e':
+                                self.imgE.adjustSize()
+                                self.imgE.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'f':
+                                self.imgF.adjustSize()
+                                self.imgF.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'g':
+                                self.imgG.adjustSize()
+                                self.imgG.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'h':
+                                self.imgH1.adjustSize()
+                                self.imgH1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgH2.adjustSize()
+                                self.imgH2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgH3.adjustSize()
+                                self.imgH3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'i':
+                                self.imgI1.adjustSize()
+                                self.imgI1.move(int(self.x/3.2), int(self.y/3.5))
+
+                                self.imgI2.adjustSize()
+                                self.imgI2.move(int(self.x/2.25), int(self.y/3.5))
+
+                                self.imgI3.adjustSize()
+                                self.imgI3.move(int(self.x/1.74), int(self.y/3.5))
+
+                                self.imgI4.adjustSize()
+                                self.imgI4.move(int(self.x/1.42), int(self.y/3.5))
+                            elif letraPrintar == 'j':
+                                self.imgJ1.adjustSize()
+                                self.imgJ1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgJ2.adjustSize()
+                                self.imgJ2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgJ3.adjustSize()
+                                self.imgJ3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'k':
+                                self.imgK1.adjustSize()
+                                self.imgK1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgK2.adjustSize()
+                                self.imgK2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgK3.adjustSize()
+                                self.imgK3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'l':
+                                self.imgL.adjustSize()
+                                self.imgL.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'm':
+                                self.imgM.adjustSize()
+                                self.imgM.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'n':
+                                self.imgN.adjustSize()
+                                self.imgN.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'o':
+                                self.imgO.adjustSize()
+                                self.imgO.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'p':
+                                self.imgP.adjustSize()
+                                self.imgP.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'q':
+                                self.imgQ.adjustSize()
+                                self.imgQ.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'r':
+                                self.imgR.adjustSize()
+                                self.imgR.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 's':
+                                self.imgS.adjustSize()
+                                self.imgS.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 't':
+                                self.imgT.adjustSize()
+                                self.imgT.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'u':
+                                self.imgU.adjustSize()
+                                self.imgU.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'v':
+                                self.imgV.adjustSize()
+                                self.imgV.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'w':
+                                self.imgW1.adjustSize()
+                                self.imgW1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgW2.adjustSize()
+                                self.imgW2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgW3.adjustSize()
+                                self.imgW3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'x':
+                                self.imgX3.adjustSize()
+                                self.imgX3.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgX2.adjustSize()
+                                self.imgX2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgX1.adjustSize()
+                                self.imgX1.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'y':
+                                self.imgY1.adjustSize()
+                                self.imgY1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgY2.adjustSize()
+                                self.imgY2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgY3.adjustSize()
+                                self.imgY3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'z': 
+                                self.imgZ1.adjustSize()
+                                self.imgZ1.move(int(self.x/1.7), int(self.y/3.5))
+
+                                self.imgZ2.adjustSize()
+                                self.imgZ2.move(int(self.x/2.25), int(self.y/3.5))
+
+                                self.imgZ4.adjustSize()
+                                self.imgZ4.move(int(self.x/2.25), int(self.y/1.65))
+
+                                self.imgZ3.adjustSize()
+                                self.imgZ3.move(int(self.x/1.7), int(self.y/1.65))
                     if menu_opc3 == 3 :
-                        #print('Menu op3 == 3')
-                        if confirmacaoMenuOpcNivel == 0:
-                            #QApplication.processEvents()
-                            self.imgSeta.adjustSize()
-                            self.imgSeta.move(int(self.x/3), int(self.y/2.15))
-                        if confirmacaoMenuOpcNivel == 1:
-                            self.imgSeta.adjustSize()
-                            self.imgSeta.move(-1000, -1000)
+                        ##opcoes gerais
+                        if True:
+                                
+                            #print('Menu op3 == 3')
+                            if confirmacaoMenuOpcNivel == 0:
+                                #QApplication.processEvents()
+                                self.imgSeta.adjustSize()
+                                self.imgSeta.move(int(self.x/3), int(self.y/2.15))
+                            if confirmacaoMenuOpcNivel == 1:
+                                self.imgSeta.adjustSize()
+                                self.imgSeta.move(-1000, -1000)
                     if menu_opc3 == 'sair':
                         menu_opc3 = 0
                         entr1vez = 0
