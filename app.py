@@ -45,6 +45,10 @@ palavraNivelDificilInicio = []
 palavraNivelDificilMeio = []
 palavraNivelDificilFim = []
 vetChefao = []
+faseMeio = 0
+faseFim = 0
+faseInicio = 0
+faseChefao = 0
 class MyWindow(QWidget):
     def __init__(self):
         super(MyWindow, self).__init__()
@@ -189,9 +193,8 @@ class MyWindow(QWidget):
             variavel2 = 0
             variavel3 = 0
             tamanhoInicio = 0
-            faseMeio = 0
-            faseFim = 0
-            global palavraNivelFacilInicio ,palavraNivelFacilMeio,palavraNivelFacilFim ,palavraNivelMedioInicio ,palavraNivelMedioMeio ,palavraNivelMedioFim,palavraNivelDificilInicio, palavraNivelDificilMeio ,palavraNivelDificilFim, vetChefao 
+            
+            global palavraNivelFacilInicio ,palavraNivelFacilMeio,palavraNivelFacilFim ,palavraNivelMedioInicio ,palavraNivelMedioMeio ,palavraNivelMedioFim,palavraNivelDificilInicio, palavraNivelDificilMeio ,palavraNivelDificilFim, vetChefao , faseInicio ,faseMeio , faseFim , faseChefao
             # Definindo a tela do estagio
             ###########################################################################################
             for variavel3 in range(0, 2):
@@ -235,6 +238,8 @@ class MyWindow(QWidget):
             faseFim = fim[faseFim]
             faseInicio = 'chegada_castelo'
             faseChefao = 'luta_contra_dragao'
+
+            
             ###########################################################################################
             ###########################################################################################
             # Colocando as Palavras no Vetor
@@ -1861,7 +1866,7 @@ class MyWindow(QWidget):
             self.labelLetK.move(-500, -500)
     #Metodo para ação do botão
     def btLogar_presionado(self):
-        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu, menu_opc3,confirmacaoMenuOpcNivel,palavraNivelFacilInicio,trocaLetra
+        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu, menu_opc3,confirmacaoMenuOpcNivel,palavraNivelFacilInicio,trocaLetra, faseInicio ,faseMeio , faseFim , faseChefao
         nomeJogador = self.nomeJogador.text()
         print(nomeJogador)
         trav = 0
@@ -3668,8 +3673,11 @@ class MyWindow(QWidget):
                             if confirmacaoMenuOpcNivel == 1:
                                 self.imgSeta.adjustSize()
                                 self.imgSeta.move(-1000, -1000)
-
+                                
                                 if estagio == 1:
+                                    
+                                    self.imgTelaInicio.setGeometry(int(self.x/3.3), 0,0, 0)
+                                    self.imgTelaInicio.adjustSize()
                                     if trocaLetra == 1 and estagio == 1:
                                         letraRemover = letraPrintar
                                         trocaLetra = 0
@@ -3694,6 +3702,40 @@ class MyWindow(QWidget):
                                         letraPrintar = unidecode.unidecode(result.lower())
                                         #print('entrou')
                                 elif estagio == 2:
+                                    self.imgTelaInicio.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaInicio.adjustSize()
+                                    ## faseInicio ,faseMeio , faseFim , faseChefao
+
+
+                                    trs = QTransform().rotate(180)
+                                    self.imgTelaMeioSalaRei.setPixmap(QPixmap(self.enderecoimgTelaMeioSalaRei).transformed(trs))
+                                    if faseMeio == 'sala_principal':
+                                        self.imgTelaMeioSalaJantar.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaJantar.adjustSize()
+
+                                        self.imgTelaMeioSalaRei.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaRei.adjustSize()
+
+                                        self.imgTelaMeioSalaEstar.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaMeioSalaEstar.adjustSize()
+                                    if faseMeio == 'sala_jantar':
+                                        self.imgTelaMeioSalaJantar.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaMeioSalaJantar.adjustSize()
+
+                                        self.imgTelaMeioSalaRei.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaRei.adjustSize()
+
+                                        self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaEstar.adjustSize()
+                                    if faseMeio == 'sala_rei':
+                                        self.imgTelaMeioSalaJantar.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaJantar.adjustSize()
+
+                                        self.imgTelaMeioSalaRei.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaMeioSalaRei.adjustSize()
+
+                                        self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaEstar.adjustSize()
                                     if estagio2 == 1:
                                         if trocaLetra == 1 and estagio == 2 and estagio2 == 1:
                                             letraRemover = letraPrintar
@@ -3744,7 +3786,52 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                 elif estagio == 3:
+                                    self.imgTelaMeioSalaJantar.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaMeioSalaJantar.adjustSize()
 
+                                    self.imgTelaMeioSalaRei.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaMeioSalaRei.adjustSize()
+
+                                    self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaMeioSalaEstar.adjustSize()
+
+
+                                    if faseFim == 'torre_com_armamento':
+                                        self.imgTelaFimPrincesa.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimPrincesa.adjustSize()
+
+                                        self.imgTelaFimDragao.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimDragao.adjustSize()
+
+
+                                        self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimArmamento.adjustSize()
+
+                                    if faseFim == 'torre_com_princesa':
+                                        self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimPrincesa.adjustSize()
+
+                                        self.imgTelaFimDragao.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimDragao.adjustSize()
+
+                                        self.imgTelaFimArmamento.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimArmamento.adjustSize()
+
+                                    if faseFim == 'torre_com_dragao':
+                                        self.imgTelaFimPrincesa.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimPrincesa.adjustSize()
+
+                                        self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimDragao.adjustSize()
+
+                                        self.imgTelaFimArmamento.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimArmamento.adjustSize()
                                     if estagio3 == 1:
                                         if trocaLetra == 1 and estagio == 3 and estagio3 == 1:
                                             letraRemover = letraPrintar
@@ -3777,7 +3864,12 @@ class MyWindow(QWidget):
                                         if contAux == tamanhoPalavra:
                                             estagio = 1
                                             menu_opc2 = 1
-                                            troca_opc = 1
+                                            entrar_opc = 0
+                                            letra = 'proximo'
+                                            trav = 1
+                                            confirmacaoMenuOpcNivel = 0
+                                            entr1vez  = 0
+                                            menu_opc3 = 0
                                             tamanhoPalavra = (len(palavraNivelFacilFim[1]))
                                             palavraSub = str(palavraNivelFacilFim[1])
                                             result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
