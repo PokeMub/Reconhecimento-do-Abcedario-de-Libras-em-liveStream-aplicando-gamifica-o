@@ -1878,6 +1878,7 @@ class MyWindow(QWidget):
         estagio = 1
         estagio2 = 1   
         estagio3 = 1
+        estagio1 = 1
         contAux = 0
         tamanhoPalavra = -1
         while True:
@@ -4482,6 +4483,339 @@ class MyWindow(QWidget):
                             if confirmacaoMenuOpcNivel == 1:
                                 self.imgSeta.adjustSize()
                                 self.imgSeta.move(-1000, -1000)
+
+                                if estagio == 1:
+                                    self.imgTelaInicio.setGeometry(int(self.x/3.3), 0,0, 0)
+                                    self.imgTelaInicio.adjustSize()
+                                    if estagio1 == 1:
+                                        
+                                        if trocaLetra == 1 and estagio == 1 and estagio1 == 1:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio1 = 2
+                                            tamanhoPalavra = (len(palavraNivelMedioInicio[0]))
+                                            palavraSub = str(palavraNivelMedioInicio[0])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelMedioPalavra1.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelMedioPalavra1.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelMedioInicio[0]))
+                                            palavraSub = str(palavraNivelMedioInicio[0])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio1 == 2:
+                                        if trocaLetra == 1 and estagio == 1 and estagio1 == 2:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio1 = 3
+                                            tamanhoPalavra = (len(palavraNivelMedioInicio[1]))
+                                            palavraSub = str(palavraNivelMedioInicio[1])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelMedioPalavra2.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelMedioPalavra2.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelMedioInicio[1]))
+                                            palavraSub = str(palavraNivelMedioInicio[1])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio1 == 3:
+                                        if trocaLetra == 1 and estagio == 1 and estagio1 == 3:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio1 = 4
+                                            tamanhoPalavra = (len(palavraNivelMedioInicio[2]))
+                                            palavraSub = str(palavraNivelMedioInicio[2])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelMedioPalavra3.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelMedioPalavra3.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelMedioInicio[2]))
+                                            palavraSub = str(palavraNivelMedioInicio[2])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio1 == 4:
+                                        if trocaLetra == 1 and estagio == 1 and estagio1 == 4:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio = 2
+                                            tamanhoPalavra = (len(palavraNivelMedioInicio[3]))
+                                            palavraSub = str(palavraNivelMedioInicio[3])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelMedioPalavra4.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelMedioPalavra4.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelMedioInicio[3]))
+                                            palavraSub = str(palavraNivelMedioInicio[3])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                elif estagio == 2:
+                                    self.imgTelaInicio.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaInicio.adjustSize()
+                                    ## faseInicio ,faseMeio , faseFim , faseChefao
+
+                                    if faseMeio == 'sala_principal':
+                                        self.imgTelaMeioSalaJantar.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaJantar.adjustSize()
+
+                                        self.imgTelaMeioSalaRei.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaRei.adjustSize()
+
+                                        self.imgTelaMeioSalaEstar.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaMeioSalaEstar.adjustSize()
+                                    if faseMeio == 'sala_jantar':
+                                        self.imgTelaMeioSalaJantar.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaMeioSalaJantar.adjustSize()
+
+                                        self.imgTelaMeioSalaRei.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaRei.adjustSize()
+
+                                        self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaEstar.adjustSize()
+                                    if faseMeio == 'sala_rei':
+                                        self.imgTelaMeioSalaJantar.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaJantar.adjustSize()
+
+                                        self.imgTelaMeioSalaRei.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaMeioSalaRei.adjustSize()
+
+                                        self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaEstar.adjustSize()
+                                    if estagio2 == 1:
+                                        if trocaLetra == 1 and estagio == 2 and estagio2 == 1:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio2 = 2
+                                            tamanhoPalavra = (len(palavraNivelMedioMeio[0]))
+                                            palavraSub = str(palavraNivelMedioMeio[0])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelMedioPalavra5.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelMedioPalavra5.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelMedioMeio[0]))
+                                            palavraSub = str(palavraNivelMedioMeio[0])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio2 == 2:
+                                       
+                                        if trocaLetra == 1 and estagio == 2 and estagio2 == 2:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio2 = 3
+                                            tamanhoPalavra = (len(palavraNivelMedioMeio[1]))
+                                            palavraSub = str(palavraNivelMedioMeio[1])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelMedioPalavra6.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelMedioPalavra6.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelMedioMeio[1]))
+                                            palavraSub = str(palavraNivelMedioMeio[1])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio2 == 3:
+                                        if trocaLetra == 1 and estagio == 2 and estagio2 == 3:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio = 3
+                                            tamanhoPalavra = (len(palavraNivelMedioMeio[2]))
+                                            palavraSub = str(palavraNivelMedioMeio[2])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelMedioPalavra7.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelMedioPalavra7.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelMedioMeio[2]))
+                                            palavraSub = str(palavraNivelMedioMeio[2])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                elif estagio == 3:
+                                    self.imgTelaMeioSalaJantar.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaMeioSalaJantar.adjustSize()
+
+                                    self.imgTelaMeioSalaRei.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaMeioSalaRei.adjustSize()
+
+                                    self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaMeioSalaEstar.adjustSize()
+
+
+                                    if faseFim == 'torre_com_armamento':
+                                        self.imgTelaFimPrincesa.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimPrincesa.adjustSize()
+
+                                        self.imgTelaFimDragao.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimDragao.adjustSize()
+
+
+                                        self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimArmamento.adjustSize()
+
+                                    if faseFim == 'torre_com_princesa':
+                                        self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimPrincesa.adjustSize()
+
+                                        self.imgTelaFimDragao.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimDragao.adjustSize()
+
+                                        self.imgTelaFimArmamento.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimArmamento.adjustSize()
+
+                                    if faseFim == 'torre_com_dragao':
+                                        self.imgTelaFimPrincesa.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimPrincesa.adjustSize()
+
+                                        self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimDragao.adjustSize()
+
+                                        self.imgTelaFimArmamento.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimArmamento.adjustSize()
+                                    if estagio3 == 1:
+                                        if trocaLetra == 1 and estagio == 3 and estagio3 == 1:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio3 = 2
+                                            tamanhoPalavra = (len(palavraNivelMedioFim[0]))
+                                            palavraSub = str(palavraNivelMedioFim[0])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelMedioPalavra8.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelMedioPalavra8.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelMedioFim[0]))
+                                            palavraSub = str(palavraNivelMedioFim[0])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio3 == 2:
+                                        if trocaLetra == 1 and estagio == 3 and estagio3 == 2:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio3 = 3
+                                            tamanhoPalavra = (len(palavraNivelMedioFim[1]))
+                                            palavraSub = str(palavraNivelMedioFim[1])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelMedioPalavra9.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelMedioPalavra9.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelMedioFim[1]))
+                                            palavraSub = str(palavraNivelMedioFim[1])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    
+                                    elif estagio3 == 3:
+                                        if trocaLetra == 1 and estagio == 3 and estagio3 == 3:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio = 1
+                                            menu_opc2 = 1
+                                            entrar_opc = 0
+                                            letra = 'proximo'
+                                            trav = 1
+                                            confirmacaoMenuOpcNivel = 0
+                                            entr1vez  = 0
+                                            menu_opc3 = 0
+                                            tamanhoPalavra = (len(palavraNivelMedioFim[2]))
+                                            palavraSub = str(palavraNivelMedioFim[2])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelMedioPalavra10.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelMedioPalavra10.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelMedioFim[2]))
+                                            palavraSub = str(palavraNivelMedioFim[2])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
                         ##Limpar letra
                         if True:
                             if letraRemover == 'a':
