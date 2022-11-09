@@ -4560,6 +4560,7 @@ class MyWindow(QWidget):
                                             letra = unidecode.unidecode(result.lower())
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
+                                            # teste
                                     elif estagio1 == 4:
                                         if trocaLetra == 1 and estagio == 1 and estagio1 == 4:
                                             letraRemover = letraPrintar
