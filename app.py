@@ -20,6 +20,7 @@ from datetime import datetime
 import os
 import pandas as pd
 import random
+import unidecode
 # https://www.youtube.com/watch?v=2RVVC9rrDco&ab_channel=Andr%C3%A9LuizFran%C3%A7aBatista
 nomeJogador = 0
 visualizarLetra = 1
@@ -33,7 +34,7 @@ menu_opc2_soletra = 0
 menu_opc3 = 0
 voltarMenu = 'continuar'
 confirmacaoMenuOpcNivel = 0
-
+trocaLetra = 0
 palavraNivelFacilInicio = []
 palavraNivelFacilMeio = []
 palavraNivelFacilFim = []
@@ -1860,7 +1861,7 @@ class MyWindow(QWidget):
             self.labelLetK.move(-500, -500)
     #Metodo para ação do botão
     def btLogar_presionado(self):
-        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu, menu_opc3,confirmacaoMenuOpcNivel,palavraNivelFacilInicio
+        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu, menu_opc3,confirmacaoMenuOpcNivel,palavraNivelFacilInicio,trocaLetra
         nomeJogador = self.nomeJogador.text()
         print(nomeJogador)
         trav = 0
@@ -1872,7 +1873,7 @@ class MyWindow(QWidget):
         estagio = 1
         estagio2 = 1   
         estagio3 = 1
-
+        contAux = 0
         while True:
             if menu_opc1 == 0 :
                 if menu_opc1 == 0 and menu_opc2 == 0:
@@ -3668,13 +3669,19 @@ class MyWindow(QWidget):
                                 self.imgSeta.move(-1000, -1000)
 
                                 if estagio == 1:
+                                    if trocaLetra == 1:
+                                        letraRemover = letraPrintar
+                                        trocaLetra = 0
+                                        contAux = contAux + 1
                                     self.nivelFacilPalavra1.move(int(self.x/2), int(self.y/7))
                                     tamanhoPalavra = (len(palavraNivelFacilInicio))
                                     palavraSub = str(palavraNivelFacilInicio)
-                                    result = palavraSub[-(tamanhoPalavra)]
+                                    result = palavraSub[-(tamanhoPalavra - contAux)]
                                     print(result)
-                                    letra = result.lower()
-                                    letraPrintar = result.lower()
+                                    letra = unidecode.unidecode(result.lower())
+                                    letraPrintar = unidecode.unidecode(result.lower())
+                                    
+
                                 elif estagio == 2:
                                     if estagio2 == 1:
                                         pass
@@ -4201,14 +4208,8 @@ class MyWindow(QWidget):
                                 self.labelT.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
                                 self.movieT.start()
 
-                                self.labelExcLetT.adjustSize()
-                                self.labelExcLetT.move(int(self.x/1.15), int(self.y/4.2))
-
                                 self.imgT.adjustSize()
                                 self.imgT.move(int(self.x/2), int(self.y/3.5))
-
-                                self.labelLetT.adjustSize()
-                                self.labelLetT.move(int(self.x/1.8), int(self.y/4.2))
                             elif letraPrintar == 'u':
                                 self.labelU.setGeometry(QtCore.QRect(int(self.x/1.18), int(self.y/3.5), 600, 600))
                                 self.movieU.start()
@@ -4645,7 +4646,7 @@ class Worker1(QThread):
     def run(self):
         contador = 0
         reducao = 1
-        global menu_opc1 , menu_opc2 , dentro_menu_opc2, entrar_opc , troca_opc, visualizarLetra,menu_opc2_soletra, letra , voltarMenu,menu_opc3, confirmacaoMenuOpcNivel 
+        global menu_opc1 , menu_opc2 , dentro_menu_opc2, entrar_opc , troca_opc, visualizarLetra,menu_opc2_soletra, letra , voltarMenu,menu_opc3, confirmacaoMenuOpcNivel,trocaLetra 
         letra_Momento = 'Iniciando'
         mp_drawing = mp.solutions.drawing_utils
         mp_drawing_styles = mp.solutions.drawing_styles
@@ -4866,6 +4867,7 @@ class Worker1(QThread):
                                     print("Letra A")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 2  
                                     time.sleep(2)
                                                                 
@@ -4941,6 +4943,7 @@ class Worker1(QThread):
                                     print("Letra B")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 3 
                                     time.sleep(2)
                                 contador = 0
@@ -5027,6 +5030,7 @@ class Worker1(QThread):
                                     print("Letra c")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 4 
                                     time.sleep(2)
 
@@ -5123,6 +5127,7 @@ class Worker1(QThread):
                                     print("Letra D")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 5 
                                     time.sleep(2)
 
@@ -5209,6 +5214,7 @@ class Worker1(QThread):
                                     print("Letra E")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 6 
                                     time.sleep(2)
                                 contador = 0
@@ -5282,6 +5288,7 @@ class Worker1(QThread):
                                     print("Letra F")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 7 
                                     time.sleep(2)
 
@@ -5361,6 +5368,7 @@ class Worker1(QThread):
                                     print("Letra G")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 8 
                                     time.sleep(2)
 
@@ -5442,6 +5450,7 @@ class Worker1(QThread):
                                     print("Letra H")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 9 
                                     time.sleep(2)
 
@@ -5510,6 +5519,7 @@ class Worker1(QThread):
                                     print("Letra I")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 10 
                                     time.sleep(2)
 
@@ -5592,6 +5602,7 @@ class Worker1(QThread):
                                     print("Letra J")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 11
                                     time.sleep(2)
 
@@ -5682,6 +5693,7 @@ class Worker1(QThread):
                                     print("Letra K")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 12 
                                     time.sleep(2)
                                 contador = 0
@@ -5748,6 +5760,7 @@ class Worker1(QThread):
                                     print("Letra L")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 13 
                                     time.sleep(2)
                                 contador = 0
@@ -5809,6 +5822,7 @@ class Worker1(QThread):
                                     print("Letra M")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 14 
                                     time.sleep(2)
                                 contador = 0
@@ -5870,6 +5884,7 @@ class Worker1(QThread):
                                     print("Letra N")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 15
                                     time.sleep(2)
                                 contador = 0
@@ -5947,6 +5962,7 @@ class Worker1(QThread):
                                     print("Letra O")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 16
                                     time.sleep(2)
 
@@ -6007,6 +6023,7 @@ class Worker1(QThread):
                                     print("Letra P")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 17
                                     time.sleep(2)
                                 contador = 0
@@ -6062,6 +6079,7 @@ class Worker1(QThread):
                                     print("Letra Q")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 18
                                     time.sleep(2)
                                 contador = 0
@@ -6137,6 +6155,7 @@ class Worker1(QThread):
                                     print("Letra R")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 19 
                                     time.sleep(2)
                                 contador = 0
@@ -6216,6 +6235,7 @@ class Worker1(QThread):
                                     print("Letra S")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 20
                                     time.sleep(2)
                                 contador = 0
@@ -6288,6 +6308,7 @@ class Worker1(QThread):
                                     print("Letra T")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 21 
                                     time.sleep(2)
                                 contador = 0
@@ -6354,6 +6375,7 @@ class Worker1(QThread):
                                     print("Letra U")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 22
                                     time.sleep(2)
 
@@ -6421,6 +6443,7 @@ class Worker1(QThread):
                                     print("Letra V")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 23 
                                     time.sleep(2)
 
@@ -6489,6 +6512,7 @@ class Worker1(QThread):
                                     print("Letra W")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 24
                                     time.sleep(2)
                                 contador = 0
@@ -6598,6 +6622,7 @@ class Worker1(QThread):
                                     print("Letra X")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 25
                                     time.sleep(2)
                                 contador = 0
@@ -6686,6 +6711,7 @@ class Worker1(QThread):
                                     print("Letra Y")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 26
                                     time.sleep(2)
                                 contador = 0
@@ -6770,6 +6796,7 @@ class Worker1(QThread):
                                     print("Letra Z")
                                     print("vc Acertou")
                                     letra = 'next'
+                                    trocaLetra = 1
                                     menu_opc2_soletra  = 27
                                     time.sleep(2)
                                 contador = 0

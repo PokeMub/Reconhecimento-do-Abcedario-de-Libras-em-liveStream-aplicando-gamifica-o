@@ -1,8 +1,10 @@
+import unidecode
 
-a = 'LUCAS'
+a = 'LUCão'
 
 result = a[-5]
-result = a[-4]
+result = a[-2]
 
 
-print(result.lower())
+print(unidecode.unidecode(result.lower()) )
+
