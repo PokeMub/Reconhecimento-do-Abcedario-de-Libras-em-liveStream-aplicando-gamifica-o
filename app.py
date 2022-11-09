@@ -1874,6 +1874,7 @@ class MyWindow(QWidget):
         estagio2 = 1   
         estagio3 = 1
         contAux = 0
+        tamanhoPalavra = -1
         while True:
             if menu_opc1 == 0 :
                 if menu_opc1 == 0 and menu_opc2 == 0:
@@ -3669,32 +3670,135 @@ class MyWindow(QWidget):
                                 self.imgSeta.move(-1000, -1000)
 
                                 if estagio == 1:
-                                    if trocaLetra == 1:
+                                    if trocaLetra == 1 and estagio == 1:
                                         letraRemover = letraPrintar
                                         trocaLetra = 0
                                         contAux = contAux + 1
-                                    self.nivelFacilPalavra1.move(int(self.x/2), int(self.y/7))
-                                    tamanhoPalavra = (len(palavraNivelFacilInicio))
-                                    palavraSub = str(palavraNivelFacilInicio)
-                                    result = palavraSub[-(tamanhoPalavra - contAux)]
-                                    print(result)
-                                    letra = unidecode.unidecode(result.lower())
-                                    letraPrintar = unidecode.unidecode(result.lower())
-                                    
-
+                                    if contAux == tamanhoPalavra:
+                                        estagio = 2
+                                        tamanhoPalavra = (len(palavraNivelFacilInicio))
+                                        palavraSub = str(palavraNivelFacilInicio)
+                                        result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                        
+                                        letraRemover = unidecode.unidecode(result.lower()) 
+                                        letraPrintar = ''
+                                        self.nivelFacilPalavra1.move(-10000, -10000)
+                                        contAux = 0
+                                    else:    
+                                        self.nivelFacilPalavra1.move(int(self.x/2), int(self.y/7))
+                                        tamanhoPalavra = (len(palavraNivelFacilInicio))
+                                        palavraSub = str(palavraNivelFacilInicio)
+                                        result = palavraSub[-(tamanhoPalavra - contAux)]
+                                        #print(result)
+                                        letra = unidecode.unidecode(result.lower())
+                                        letraPrintar = unidecode.unidecode(result.lower())
+                                        #print('entrou')
                                 elif estagio == 2:
                                     if estagio2 == 1:
-                                        pass
+                                        if trocaLetra == 1 and estagio == 2 and estagio2 == 1:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio2 = 2
+                                            tamanhoPalavra = (len(palavraNivelFacilMeio[0]))
+                                            palavraSub = str(palavraNivelFacilMeio[0])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelFacilPalavra2.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelFacilPalavra2.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelFacilMeio[0]))
+                                            palavraSub = str(palavraNivelFacilMeio[0])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
                                     elif estagio2 == 2:
-                                        pass
+                                       
+                                        if trocaLetra == 1 and estagio == 2 and estagio2 == 2:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio = 3
+                                            tamanhoPalavra = (len(palavraNivelFacilMeio[1]))
+                                            palavraSub = str(palavraNivelFacilMeio[1])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelFacilPalavra3.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelFacilPalavra3.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelFacilMeio[1]))
+                                            palavraSub = str(palavraNivelFacilMeio[1])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
                                 elif estagio == 3:
+
                                     if estagio3 == 1:
-                                        pass
+                                        if trocaLetra == 1 and estagio == 3 and estagio3 == 1:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio3 = 2
+                                            tamanhoPalavra = (len(palavraNivelFacilFim[0]))
+                                            palavraSub = str(palavraNivelFacilFim[0])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelFacilPalavra4.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelFacilPalavra4.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelFacilFim[0]))
+                                            palavraSub = str(palavraNivelFacilFim[0])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
                                     elif estagio3 == 2:
-                                        pass
+                                        if trocaLetra == 1 and estagio == 3 and estagio3 == 2:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio = 1
+                                            menu_opc2 = 1
+                                            troca_opc = 1
+                                            tamanhoPalavra = (len(palavraNivelFacilFim[1]))
+                                            palavraSub = str(palavraNivelFacilFim[1])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelFacilPalavra5.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelFacilPalavra5.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelFacilFim[1]))
+                                            palavraSub = str(palavraNivelFacilFim[1])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
 
                         ## Limpar a letra anteriror
                         if True:
+                            
                             if letraRemover == 'a':
                                 self.movieA.stop()
                                 self.labelA.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
