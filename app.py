@@ -1889,8 +1889,8 @@ class MyWindow(QWidget):
         estagio1 = 1
         contAux = 0
         tamanhoPalavra = -1
-        self.btLogar.setGeometry(-10000, -10000, -10000, -10000)
-        self.btLogar.adjustSize()
+        self.nomeJogo.adjustSize()
+        self.nomeJogo.move(-10000, -10000)
         while True:
             if menu_opc1 == 0 :
                 if menu_opc1 == 0 and menu_opc2 == 0:
