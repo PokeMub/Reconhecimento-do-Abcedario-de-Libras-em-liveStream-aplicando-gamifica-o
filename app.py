@@ -527,6 +527,7 @@ class MyWindow(QWidget):
             self.menuNivelDificuldadeFacil.setText("Nivel Facil")
             self.menuNivelDificuldadeFacil.setFont(QFont('Arial Black', 20))
             self.menuNivelDificuldadeFacil.setStyleSheet("border :6px solid black;") 
+            self.menuNivelDificuldadeFacil.setStyleSheet("background-color:green") 
             self.menuNivelDificuldadeFacil.resize(150, 40) 
             self.menuNivelDificuldadeFacil.adjustSize()
             self.menuNivelDificuldadeFacil.setGeometry(1000, 1000, int(self.x/1.5), 100) 
@@ -5562,8 +5563,6 @@ class MyWindow(QWidget):
                                             letra = unidecode.unidecode(result.lower())
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
-
-
                         ##Limpar letra
                         if True:
                             if letraRemover == 'a':
