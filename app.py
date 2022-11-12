@@ -1878,6 +1878,7 @@ class MyWindow(QWidget):
         estagio = 1
         estagio2 = 1   
         estagio3 = 1
+        estagio4 = 1
         estagio1 = 1
         contAux = 0
         tamanhoPalavra = -1
@@ -5090,15 +5091,749 @@ class MyWindow(QWidget):
                     if menu_opc3 == 3 :
                         ##opcoes gerais
                         if True:
-                                
-                            #print('Menu op3 == 3')
                             if confirmacaoMenuOpcNivel == 0:
-                                #QApplication.processEvents()
                                 self.imgSeta.adjustSize()
                                 self.imgSeta.move(int(self.x/3), int(self.y/2.15))
                             if confirmacaoMenuOpcNivel == 1:
                                 self.imgSeta.adjustSize()
-                                self.imgSeta.move(-1000, -1000)
+                                self.imgSeta.move(-1000, -1000)                               
+                                if estagio == 1:
+                                    self.imgTelaInicio.setGeometry(int(self.x/3.3), 0,0, 0)
+                                    self.imgTelaInicio.adjustSize()
+                                    if estagio1 == 1:                                      
+                                        if trocaLetra == 1 and estagio == 1 and estagio1 == 1:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio1 = 2
+                                            tamanhoPalavra = (len(palavraNivelDificilInicio[0]))
+                                            palavraSub = str(palavraNivelDificilInicio[0])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra1.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra1.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelDificilInicio[0]))
+                                            palavraSub = str(palavraNivelDificilInicio[0])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio1 == 2:
+                                        if trocaLetra == 1 and estagio == 1 and estagio1 == 2:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio1 = 3
+                                            tamanhoPalavra = (len(palavraNivelDificilInicio[1]))
+                                            palavraSub = str(palavraNivelDificilInicio[1])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra2.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra2.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelDificilInicio[1]))
+                                            palavraSub = str(palavraNivelDificilInicio[1])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio1 == 3:
+                                        if trocaLetra == 1 and estagio == 1 and estagio1 == 3:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio = 2
+                                            tamanhoPalavra = (len(palavraNivelDificilInicio[2]))
+                                            palavraSub = str(palavraNivelDificilInicio[2])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra3.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra3.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelDificilInicio[2]))
+                                            palavraSub = str(palavraNivelDificilInicio[2])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')         
+                                elif estagio == 2:
+                                    self.imgTelaInicio.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaInicio.adjustSize()
+                                    ## faseInicio ,faseMeio , faseFim , faseChefao
+
+                                    if faseMeio == 'sala_principal':
+                                        self.imgTelaMeioSalaJantar.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaJantar.adjustSize()
+
+                                        self.imgTelaMeioSalaRei.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaRei.adjustSize()
+
+                                        self.imgTelaMeioSalaEstar.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaMeioSalaEstar.adjustSize()
+                                    if faseMeio == 'sala_jantar':
+                                        self.imgTelaMeioSalaJantar.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaMeioSalaJantar.adjustSize()
+
+                                        self.imgTelaMeioSalaRei.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaRei.adjustSize()
+
+                                        self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaEstar.adjustSize()
+                                    if faseMeio == 'sala_rei':
+                                        self.imgTelaMeioSalaJantar.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaJantar.adjustSize()
+
+                                        self.imgTelaMeioSalaRei.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaMeioSalaRei.adjustSize()
+
+                                        self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
+                                        self.imgTelaMeioSalaEstar.adjustSize()
+                                    if estagio2 == 1:
+                                        if trocaLetra == 1 and estagio == 2 and estagio2 == 1:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio2 = 2
+                                            tamanhoPalavra = len(palavraNivelDificilMeio[0])
+                                            palavraSub = str(palavraNivelDificilMeio[0])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra4.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra4.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelDificilMeio[0]))
+                                            palavraSub = str(palavraNivelDificilMeio[0])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio2 == 2:
+                                        if trocaLetra == 1 and estagio == 2 and estagio2 == 2:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio2 = 3
+                                            tamanhoPalavra = (len(palavraNivelDificilMeio[1]))
+                                            palavraSub = str(palavraNivelDificilMeio[1])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra5.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra5.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelDificilMeio[1]))
+                                            palavraSub = str(palavraNivelDificilMeio[1])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio2 == 3:
+                                        if trocaLetra == 1 and estagio == 2 and estagio2 == 3:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio = 3
+                                            tamanhoPalavra = (len(palavraNivelDificilMeio[2]))
+                                            palavraSub = str(palavraNivelDificilMeio[2])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra6.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra6.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelDificilMeio[2]))
+                                            palavraSub = str(palavraNivelDificilMeio[2])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                elif estagio == 3:
+                                    self.imgTelaMeioSalaJantar.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaMeioSalaJantar.adjustSize()
+
+                                    self.imgTelaMeioSalaRei.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaMeioSalaRei.adjustSize()
+
+                                    self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaMeioSalaEstar.adjustSize()
+
+
+                                    if faseFim == 'torre_com_armamento':
+                                        self.imgTelaFimPrincesa.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimPrincesa.adjustSize()
+
+                                        self.imgTelaFimDragao.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimDragao.adjustSize()
+
+
+                                        self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimArmamento.adjustSize()
+
+                                    if faseFim == 'torre_com_princesa':
+                                        self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimPrincesa.adjustSize()
+
+                                        self.imgTelaFimDragao.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimDragao.adjustSize()
+
+                                        self.imgTelaFimArmamento.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimArmamento.adjustSize()
+
+                                    if faseFim == 'torre_com_dragao':
+                                        self.imgTelaFimPrincesa.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimPrincesa.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimPrincesa.adjustSize()
+
+                                        self.imgTelaFimDragao.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimDragao.adjustSize()
+
+                                        self.imgTelaFimArmamento.setGeometry(-10000,-10000,-10000, -10000)
+                                        ##self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
+                                        self.imgTelaFimArmamento.adjustSize()
+                                    if estagio3 == 1:
+                                        if trocaLetra == 1 and estagio == 3 and estagio3 == 1:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio3 = 2
+                                            tamanhoPalavra = (len(palavraNivelDificilFim[0]))
+                                            palavraSub = str(palavraNivelDificilFim[0])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra7.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra7.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelDificilFim[0]))
+                                            palavraSub = str(palavraNivelDificilFim[0])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio3 == 2:
+                                        if trocaLetra == 1 and estagio == 3 and estagio3 == 2:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio3 = 3
+                                            tamanhoPalavra = (len(palavraNivelDificilFim[1]))
+                                            palavraSub = str(palavraNivelDificilFim[1])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra8.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra8.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelDificilFim[1]))
+                                            palavraSub = str(palavraNivelDificilFim[1])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio3 == 3:
+                                        if trocaLetra == 1 and estagio == 3 and estagio3 == 3:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio3 = 4
+                                            tamanhoPalavra = (len(palavraNivelDificilFim[2]))
+                                            palavraSub = str(palavraNivelDificilFim[2])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra9.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra9.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelDificilFim[2]))
+                                            palavraSub = str(palavraNivelDificilFim[2])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    elif estagio3 == 4:
+                                        if trocaLetra == 1 and estagio == 3 and estagio3 == 4:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio = 4
+                                            tamanhoPalavra = (len(palavraNivelDificilFim[3]))
+                                            palavraSub = str(palavraNivelDificilFim[3])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra10.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra10.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(palavraNivelDificilFim[3]))
+                                            palavraSub = str(palavraNivelDificilFim[3])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                elif estagio == 4:
+                                    self.imgTelaFimPrincesa.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaFimPrincesa.adjustSize()
+
+                                    self.imgTelaFimDragao.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaFimDragao.adjustSize()
+
+                                    self.imgTelaFimArmamento.setGeometry(-10000,-10000,-10000, -10000)
+                                    self.imgTelaFimArmamento.adjustSize()
+
+                                    self.imgTelaChefao.setGeometry(int(self.x/3.3), 0,0, 0)
+                                    self.imgTelaChefao.adjustSize()
+
+                                    if estagio4 == 1:
+                                        if trocaLetra == 1 and estagio == 4 and estagio4 == 1:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio4 = 2
+                                            tamanhoPalavra = (len(vetChefao[0]))
+                                            palavraSub = str(vetChefao[0])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra11.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra11.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(vetChefao[0]))
+                                            palavraSub = str(vetChefao[0])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    if estagio4 == 2:
+                                        if trocaLetra == 1 and estagio == 4 and estagio4 == 2:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio4 = 3
+                                            tamanhoPalavra = (len(vetChefao[1]))
+                                            palavraSub = str(vetChefao[1])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra12.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra12.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(vetChefao[1]))
+                                            palavraSub = str(vetChefao[1])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    if estagio4 == 3:
+                                        if trocaLetra == 1 and estagio == 4 and estagio4 == 3:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio4 = 4
+                                            tamanhoPalavra = (len(vetChefao[2]))
+                                            palavraSub = str(vetChefao[2])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra13.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra13.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(vetChefao[2]))
+                                            palavraSub = str(vetChefao[2])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    if estagio4 == 4:
+                                        if trocaLetra == 1 and estagio == 4 and estagio4 == 4:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio4 = 5
+                                            tamanhoPalavra = (len(vetChefao[3]))
+                                            palavraSub = str(vetChefao[3])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra14.move(-10000, -10000)
+                                            contAux = 0
+                                        else:    
+                                            self.nivelDificilPalavra14.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(vetChefao[3]))
+                                            palavraSub = str(vetChefao[3])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+                                    if estagio4 == 5:
+                                        if trocaLetra == 1 and estagio == 4 and estagio4 == 5:
+                                            letraRemover = letraPrintar
+                                            trocaLetra = 0
+                                            contAux = contAux + 1
+                                        if contAux == tamanhoPalavra:
+                                            estagio = 1
+                                            menu_opc2 = 1
+                                            entrar_opc = 0
+                                            letra = 'proximo'
+                                            trav = 1
+                                            confirmacaoMenuOpcNivel = 0
+                                            entr1vez  = 0
+                                            menu_opc3 = 0
+                                            tamanhoPalavra = (len(vetChefao[4]))
+                                            palavraSub = str(vetChefao[4])
+                                            result = palavraSub[-(tamanhoPalavra - (contAux - 1))]
+                                            
+                                            letraRemover = unidecode.unidecode(result.lower()) 
+                                            letraPrintar = ''
+                                            self.nivelDificilPalavra15.move(-10000, -10000)
+                                            contAux = 0
+
+                                            self.imgTelaChefao.setGeometry(-10000,-10000,-10000, -10000)
+                                            self.imgTelaChefao.adjustSize()
+                                        else:    
+                                            self.nivelDificilPalavra15.move(int(self.x/2), int(self.y/7))
+                                            tamanhoPalavra = (len(vetChefao[4]))
+                                            palavraSub = str(vetChefao[4])
+                                            result = palavraSub[-(tamanhoPalavra - contAux)]
+                                            #print(result)
+                                            letra = unidecode.unidecode(result.lower())
+                                            letraPrintar = unidecode.unidecode(result.lower())
+                                            #print('entrou')
+
+
+                        ##Limpar letra
+                        if True:
+                            if letraRemover == 'a':
+                                self.imgA.adjustSize()
+                                self.imgA.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'b':
+                                
+
+                                self.imgB.adjustSize()
+                                self.imgB.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'c':
+                                self.imgC.adjustSize()
+                                self.imgC.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'd':
+                                self.imgD.adjustSize()
+                                self.imgD.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'e':
+                                self.imgE.adjustSize()
+                                self.imgE.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'f':
+                                self.imgF.adjustSize()
+                                self.imgF.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'g':
+                                self.imgG.adjustSize()
+                                self.imgG.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'h':
+                                self.imgH1.adjustSize()
+                                self.imgH1.move(int(self.x/2), int(-1000))
+
+                                self.imgH2.adjustSize()
+                                self.imgH2.move(int(self.x/2), int(-1000))
+
+                                self.imgH3.adjustSize()
+                                self.imgH3.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'i':
+                                self.imgI1.adjustSize()
+                                self.imgI1.move(int(self.x/2), int(-1000))
+
+                                self.imgI2.adjustSize()
+                                self.imgI2.move(int(self.x/2), int(-1000))
+
+                                self.imgI3.adjustSize()
+                                self.imgI3.move(int(self.x/2), int(-1000))
+
+                                self.imgI4.adjustSize()
+                                self.imgI4.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'j':
+                                self.imgJ1.adjustSize()
+                                self.imgJ1.move(int(self.x/2), int(-1000))
+
+                                self.imgJ2.adjustSize()
+                                self.imgJ2.move(int(self.x/2), int(-1000))
+
+                                self.imgJ3.adjustSize()
+                                self.imgJ3.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'k':
+                                self.imgK1.adjustSize()
+                                self.imgK1.move(int(self.x/2), int(-1000))
+
+                                self.imgK2.adjustSize()
+                                self.imgK2.move(int(self.x/2), int(-1000))
+
+                                self.imgK3.adjustSize()
+                                self.imgK3.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'l':
+                                self.imgL.adjustSize()
+                                self.imgL.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'm':
+                                self.imgM.adjustSize()
+                                self.imgM.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'n':
+                                self.imgN.adjustSize()
+                                self.imgN.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'o':
+                                self.imgO.adjustSize()
+                                self.imgO.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'p':
+                                self.imgP.adjustSize()
+                                self.imgP.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'q':
+                                self.imgQ.adjustSize()
+                                self.imgQ.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'r':
+                                self.imgR.adjustSize()
+                                self.imgR.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 's':
+                                self.imgS.adjustSize()
+                                self.imgS.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 't':
+                                self.imgT.adjustSize()
+                                self.imgT.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'u':
+                                self.imgU.adjustSize()
+                                self.imgU.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'v':
+                                self.imgV.adjustSize()
+                                self.imgV.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'w':
+                                self.imgW1.adjustSize()
+                                self.imgW1.move(int(self.x/2), int(-1000))
+
+                                self.imgW2.adjustSize()
+                                self.imgW2.move(int(self.x/2), int(-1000))
+
+                                self.imgW3.adjustSize()
+                                self.imgW3.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'x':
+                                self.imgX1.adjustSize()
+                                self.imgX1.move(int(self.x/2), int(-1000))
+
+                                self.imgX2.adjustSize()
+                                self.imgX2.move(int(self.x/2), int(-1000))
+
+                                self.imgX3.adjustSize()
+                                self.imgX3.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'y':
+                                self.imgY1.adjustSize()
+                                self.imgY1.move(int(self.x/2), int(-1000))
+
+                                self.imgY2.adjustSize()
+                                self.imgY2.move(int(self.x/2), int(-1000))
+
+                                self.imgY3.adjustSize()
+                                self.imgY3.move(int(self.x/2), int(-1000))
+                            elif letraRemover == 'z':
+                                self.imgZ1.adjustSize()
+                                self.imgZ1.move(int(self.x/2), int(-1000))
+
+                                self.imgZ2.adjustSize()
+                                self.imgZ2.move(int(self.x/2), int(-1000))
+
+                                self.imgZ3.adjustSize()
+                                self.imgZ3.move(int(self.x/2), int(-1000))
+
+                                self.imgZ4.adjustSize()
+                                self.imgZ4.move(int(self.x/2), int(-1000))
+                        ## printar a letra
+                        if True:
+                            if letraPrintar == 'a':
+                                self.imgA.adjustSize()
+                                self.imgA.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'b':
+                                self.imgB.adjustSize()
+                                self.imgB.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'c':
+                                self.imgC.adjustSize()
+                                self.imgC.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'd':
+                                self.imgD.adjustSize()
+                                self.imgD.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'e':
+                                self.imgE.adjustSize()
+                                self.imgE.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'f':
+                                self.imgF.adjustSize()
+                                self.imgF.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'g':
+                                self.imgG.adjustSize()
+                                self.imgG.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'h':
+                                self.imgH1.adjustSize()
+                                self.imgH1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgH2.adjustSize()
+                                self.imgH2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgH3.adjustSize()
+                                self.imgH3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'i':
+                                self.imgI1.adjustSize()
+                                self.imgI1.move(int(self.x/3.2), int(self.y/3.5))
+
+                                self.imgI2.adjustSize()
+                                self.imgI2.move(int(self.x/2.25), int(self.y/3.5))
+
+                                self.imgI3.adjustSize()
+                                self.imgI3.move(int(self.x/1.74), int(self.y/3.5))
+
+                                self.imgI4.adjustSize()
+                                self.imgI4.move(int(self.x/1.42), int(self.y/3.5))
+                            elif letraPrintar == 'j':
+                                self.imgJ1.adjustSize()
+                                self.imgJ1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgJ2.adjustSize()
+                                self.imgJ2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgJ3.adjustSize()
+                                self.imgJ3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'k':
+                                self.imgK1.adjustSize()
+                                self.imgK1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgK2.adjustSize()
+                                self.imgK2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgK3.adjustSize()
+                                self.imgK3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'l':
+                                self.imgL.adjustSize()
+                                self.imgL.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'm':
+                                self.imgM.adjustSize()
+                                self.imgM.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'n':
+                                self.imgN.adjustSize()
+                                self.imgN.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'o':
+                                self.imgO.adjustSize()
+                                self.imgO.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'p':
+                                self.imgP.adjustSize()
+                                self.imgP.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'q':
+                                self.imgQ.adjustSize()
+                                self.imgQ.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'r':
+                                self.imgR.adjustSize()
+                                self.imgR.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 's':
+                                self.imgS.adjustSize()
+                                self.imgS.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 't':
+                                self.imgT.adjustSize()
+                                self.imgT.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'u':
+                                self.imgU.adjustSize()
+                                self.imgU.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'v':
+                                self.imgV.adjustSize()
+                                self.imgV.move(int(self.x/2), int(self.y/3.5))
+                            elif letraPrintar == 'w':
+                                self.imgW1.adjustSize()
+                                self.imgW1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgW2.adjustSize()
+                                self.imgW2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgW3.adjustSize()
+                                self.imgW3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'x':
+                                self.imgX3.adjustSize()
+                                self.imgX3.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgX2.adjustSize()
+                                self.imgX2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgX1.adjustSize()
+                                self.imgX1.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'y':
+                                self.imgY1.adjustSize()
+                                self.imgY1.move(int(self.x/3), int(self.y/3.5))
+
+                                self.imgY2.adjustSize()
+                                self.imgY2.move(int(self.x/2), int(self.y/3.5))
+
+                                self.imgY3.adjustSize()
+                                self.imgY3.move(int(self.x/1.5), int(self.y/3.5))
+                            elif letraPrintar == 'z': 
+                                self.imgZ1.adjustSize()
+                                self.imgZ1.move(int(self.x/1.7), int(self.y/3.5))
+
+                                self.imgZ2.adjustSize()
+                                self.imgZ2.move(int(self.x/2.25), int(self.y/3.5))
+
+                                self.imgZ4.adjustSize()
+                                self.imgZ4.move(int(self.x/2.25), int(self.y/1.65))
+
+                                self.imgZ3.adjustSize()
+                                self.imgZ3.move(int(self.x/1.7), int(self.y/1.65))
                     if menu_opc3 == 'sair':
                         menu_opc3 = 0
                         entr1vez = 0
