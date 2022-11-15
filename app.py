@@ -5463,7 +5463,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra1.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra1.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra1.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(palavraNivelDificilInicio[0]))
                                             palavraSub = str(palavraNivelDificilInicio[0])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -5507,7 +5507,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra2.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra2.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra2.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(palavraNivelDificilInicio[1]))
                                             palavraSub = str(palavraNivelDificilInicio[1])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -5551,7 +5551,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra3.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra3.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra3.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(palavraNivelDificilInicio[2]))
                                             palavraSub = str(palavraNivelDificilInicio[2])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -5627,7 +5627,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra4.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra4.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra4.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(palavraNivelDificilMeio[0]))
                                             palavraSub = str(palavraNivelDificilMeio[0])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -5671,7 +5671,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra5.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra5.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra5.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(palavraNivelDificilMeio[1]))
                                             palavraSub = str(palavraNivelDificilMeio[1])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -5715,7 +5715,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra6.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra6.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra6.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(palavraNivelDificilMeio[2]))
                                             palavraSub = str(palavraNivelDificilMeio[2])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -5806,7 +5806,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra7.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra7.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra7.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(palavraNivelDificilFim[0]))
                                             palavraSub = str(palavraNivelDificilFim[0])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -5850,7 +5850,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra8.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra8.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra8.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(palavraNivelDificilFim[1]))
                                             palavraSub = str(palavraNivelDificilFim[1])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -5894,7 +5894,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra9.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra9.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra9.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(palavraNivelDificilFim[2]))
                                             palavraSub = str(palavraNivelDificilFim[2])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -5938,7 +5938,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra10.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra10.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra10.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(palavraNivelDificilFim[3]))
                                             palavraSub = str(palavraNivelDificilFim[3])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -5991,7 +5991,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra11.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra11.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra11.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(vetChefao[0]))
                                             palavraSub = str(vetChefao[0])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -6031,7 +6031,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra12.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra12.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra12.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(vetChefao[1]))
                                             palavraSub = str(vetChefao[1])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -6071,7 +6071,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra13.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra13.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra13.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(vetChefao[2]))
                                             palavraSub = str(vetChefao[2])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -6111,7 +6111,7 @@ class MyWindow(QWidget):
                                             self.nivelDificilPalavra14.move(-10000, -10000)
                                             contAux = 0
                                         else:    
-                                            self.nivelDificilPalavra14.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra14.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(vetChefao[3]))
                                             palavraSub = str(vetChefao[3])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -6179,7 +6179,7 @@ class MyWindow(QWidget):
                                             
                                             somatorioPontos = 0
                                         else:    
-                                            self.nivelDificilPalavra15.move(int(self.x/2), int(self.y/7))
+                                            self.nivelDificilPalavra15.move(int(self.x/2), int(self.y/50))
                                             tamanhoPalavra = (len(vetChefao[4]))
                                             palavraSub = str(vetChefao[4])
                                             result = palavraSub[-(tamanhoPalavra - contAux)]
