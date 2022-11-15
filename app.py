@@ -3748,7 +3748,7 @@ class MyWindow(QWidget):
                                         self.nivelFacilPalavra1.move(-10000, -10000)
                                         contAux = 0
                                     else:    
-                                        self.nivelFacilPalavra1.move(int(self.x/2), int(self.y/20))
+                                        self.nivelFacilPalavra1.move(int(self.x/2), int(self.y/50))
                                         tamanhoPalavra = (len(palavraNivelFacilInicio))
                                         palavraSub = str(palavraNivelFacilInicio)
                                         result = palavraSub[-(tamanhoPalavra - contAux)]
@@ -6470,7 +6470,8 @@ class MyWindow(QWidget):
                     self.imgSeta.adjustSize()
                     self.imgSeta.move(int(self.x/3), int(self.y/1.74))
                 if menu_opc2 != 5:
-                    entrar_1_vez = 0
+                    #entrar_1_vez = 0
+                    pass
                 if menu_opc2 == 5 and entrar_opc == 1:
                     QApplication.processEvents()
                     print("entrei opc 5") 
@@ -6504,7 +6505,7 @@ class MyWindow(QWidget):
 
                         self.tabelaRanks.adjustSize()
                         self.tabelaRanks.move(int(self.x/2.9), int(self.y/3))
-                    troca_opc = 2
+                        troca_opc = 2
                     if voltarMenu == 'sair':
                         self.tabelaRanks.adjustSize()
                         self.tabelaRanks.move(-5000, -5000)
