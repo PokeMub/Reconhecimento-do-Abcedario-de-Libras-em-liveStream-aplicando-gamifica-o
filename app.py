@@ -6465,9 +6465,7 @@ class MyWindow(QWidget):
                     QApplication.processEvents()
                     self.imgSeta.adjustSize()
                     self.imgSeta.move(int(self.x/3), int(self.y/1.74))
-                if menu_opc2 != 5:
-                    #entrar_1_vez = 0
-                    pass
+
                 if menu_opc2 == 5 and entrar_opc == 1:
                     QApplication.processEvents()
                     print("entrei opc 5") 
