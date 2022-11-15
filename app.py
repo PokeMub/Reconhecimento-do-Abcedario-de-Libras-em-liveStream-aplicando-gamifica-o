@@ -3748,7 +3748,7 @@ class MyWindow(QWidget):
                                         self.nivelFacilPalavra1.move(-10000, -10000)
                                         contAux = 0
                                     else:    
-                                        self.nivelFacilPalavra1.move(int(self.x/2), int(self.y/7))
+                                        self.nivelFacilPalavra1.move(int(self.x/2), int(self.y/20))
                                         tamanhoPalavra = (len(palavraNivelFacilInicio))
                                         palavraSub = str(palavraNivelFacilInicio)
                                         result = palavraSub[-(tamanhoPalavra - contAux)]
