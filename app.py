@@ -1913,8 +1913,8 @@ class MyWindow(QWidget):
         self.nomeJogo.adjustSize()
         self.nomeJogo.move(-10000, -10000)
         while True:
-            print ('Pontução geral: ' ,  somatorioPontos)
-            print('Pontuação Unica: ', contadorPonto)
+            #print ('Pontução geral: ' ,  somatorioPontos)
+            #print('Pontuação Unica: ', contadorPonto)
             if menu_opc1 == 0 :
                 if menu_opc1 == 0 and menu_opc2 == 0:
                     QApplication.processEvents()
