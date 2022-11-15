@@ -1,27 +1,4 @@
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 07:18
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 07:20
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 07:21
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 07:25
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 07:28
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 07:30
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 07:34
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 07:36
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 08:43
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 08:45
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 08:50
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 08:56
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 08:57
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 09:10
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 09:11
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 10:25
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 10:26
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 10:26
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 10:27
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 10:30
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 10:30
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 22/10/2022 10:30
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 04/11/2022 10:07
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 08/11/2022 08:27
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 08/11/2022 08:28
 Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 08/11/2022 09:31
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 08/11/2022 09:31
+Nome: lucas , Fase: Princesa , Modalidade: Facil , Pontos: 342 , Dia: 15/11/2022 10:04
+Nome: Jorgin , Fase: Princesa , Modalidade: Medio , Pontos: 1062 , Dia: 15/11/2022 10:12
+Nome: Bernado , Fase: Princesa , Modalidade: Dificil , Pontos: -1456 , Dia: 15/11/2022 10:39

@@ -1892,7 +1892,7 @@ class MyWindow(QWidget):
             self.labelLetK.move(-500, -500)
     #Metodo para ação do botão
     def btLogar_presionado(self):
-        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu, menu_opc3,confirmacaoMenuOpcNivel,palavraNivelFacilInicio,trocaLetra, faseInicio ,faseMeio , faseFim , faseChefao,contadorPonto
+        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu, menu_opc3,confirmacaoMenuOpcNivel,palavraNivelFacilInicio,trocaLetra, faseInicio ,faseMeio , faseFim , faseChefao,contadorPonto, nomeJogador
         nomeJogador = self.nomeJogador.text()
         print(nomeJogador)
         trav = 0
@@ -3977,6 +3977,24 @@ class MyWindow(QWidget):
                                             self.nivelFacilPalavra5.move(-10000, -10000)
                                             contAux = 0
                                             resetePontos = 1
+
+
+                                            data_e_hora_atuais = datetime.now()
+                                            data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y')
+                                            data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y %H:%M')
+                                            arquivo = 'ranks.txt'
+                                            teste_arquivo_exist = os.path.exists(arquivo)
+                                            if teste_arquivo_exist == False:
+                                                arquivo = open('ranks.txt', 'w')
+                                                arquivo.close()
+                                            conteudo = ('Nome: '+ nomeJogador + ' , Fase: Princesa , Modalidade: Facil , Pontos: ' + str(somatorioPontos) + ' , Dia: ' +
+                                                        data_e_hora_em_texto)   # insira seu conteúdo
+                                            arquivo = open("ranks.txt", "a")
+                                            arquivo.write('\n' + conteudo)
+                                            arquivo.close()
+                                            
+                                            somatorioPontos = 0
+
                                         else:    
                                             self.nivelFacilPalavra5.move(int(self.x/2), int(self.y/7))
                                             tamanhoPalavra = (len(palavraNivelFacilFim[1]))
@@ -4586,7 +4604,26 @@ class MyWindow(QWidget):
                                     self.imgTelaInicio.setGeometry(int(self.x/3.3), 0,0, 0)
                                     self.imgTelaInicio.adjustSize()
                                     if estagio1 == 1:
-                                        
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 15
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 9
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 6
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 3
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 1 and estagio1 == 1:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -4611,6 +4648,26 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     elif estagio1 == 2:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 15
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 9
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 6
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 3
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 1 and estagio1 == 2:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -4635,6 +4692,26 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     elif estagio1 == 3:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 15
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 9
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 6
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 3
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 1 and estagio1 == 3:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -4660,6 +4737,26 @@ class MyWindow(QWidget):
                                             #print('entrou')
                                             # teste
                                     elif estagio1 == 4:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 15
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 9
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 6
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 3
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 1 and estagio1 == 4:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -4716,6 +4813,26 @@ class MyWindow(QWidget):
                                         self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
                                         self.imgTelaMeioSalaEstar.adjustSize()
                                     if estagio2 == 1:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 15
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 9
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 6
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 3
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 2 and estagio2 == 1:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -4740,7 +4857,26 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     elif estagio2 == 2:
-                                       
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 15
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 9
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 6
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 3
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 2 and estagio2 == 2:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -4765,6 +4901,26 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     elif estagio2 == 3:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 15
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 9
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 6
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 3
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 2 and estagio2 == 3:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -4836,6 +4992,26 @@ class MyWindow(QWidget):
                                         ##self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
                                         self.imgTelaFimArmamento.adjustSize()
                                     if estagio3 == 1:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 15
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 9
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 6
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 3
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 3 and estagio3 == 1:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -4860,6 +5036,26 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     elif estagio3 == 2:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 15
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 9
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 6
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 3
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 3 and estagio3 == 2:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -4885,6 +5081,26 @@ class MyWindow(QWidget):
                                             #print('entrou')
                                     
                                     elif estagio3 == 3:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 15
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 9
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 6
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 3
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 3 and estagio3 == 3:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -4906,6 +5122,24 @@ class MyWindow(QWidget):
                                             letraPrintar = ''
                                             self.nivelMedioPalavra10.move(-10000, -10000)
                                             contAux = 0
+
+                                            resetePontos = 1
+
+                                            data_e_hora_atuais = datetime.now()
+                                            data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y')
+                                            data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y %H:%M')
+                                            arquivo = 'ranks.txt'
+                                            teste_arquivo_exist = os.path.exists(arquivo)
+                                            if teste_arquivo_exist == False:
+                                                arquivo = open('ranks.txt', 'w')
+                                                arquivo.close()
+                                            conteudo = ('Nome: '+ nomeJogador + ' , Fase: Princesa , Modalidade: Medio , Pontos: ' + str(somatorioPontos) + ' , Dia: ' +
+                                                        data_e_hora_em_texto)   # insira seu conteúdo
+                                            arquivo = open("ranks.txt", "a")
+                                            arquivo.write('\n' + conteudo)
+                                            arquivo.close()
+                                            
+                                            somatorioPontos = 0
                                         else:    
                                             self.nivelMedioPalavra10.move(int(self.x/2), int(self.y/7))
                                             tamanhoPalavra = (len(palavraNivelMedioFim[2]))
@@ -5197,7 +5431,27 @@ class MyWindow(QWidget):
                                 if estagio == 1:
                                     self.imgTelaInicio.setGeometry(int(self.x/3.3), 0,0, 0)
                                     self.imgTelaInicio.adjustSize()
-                                    if estagio1 == 1:                                      
+                                    if estagio1 == 1:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 20
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 16
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 8
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 4
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0                                      
                                         if trocaLetra == 1 and estagio == 1 and estagio1 == 1:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5222,6 +5476,26 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     elif estagio1 == 2:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 20
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 16
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 8
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 4
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0 
                                         if trocaLetra == 1 and estagio == 1 and estagio1 == 2:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5246,6 +5520,26 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     elif estagio1 == 3:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 20
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 16
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 8
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 4
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0 
                                         if trocaLetra == 1 and estagio == 1 and estagio1 == 3:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5302,6 +5596,26 @@ class MyWindow(QWidget):
                                         self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
                                         self.imgTelaMeioSalaEstar.adjustSize()
                                     if estagio2 == 1:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 20
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 16
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 8
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 4
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0 
                                         if trocaLetra == 1 and estagio == 2 and estagio2 == 1:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5326,6 +5640,26 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     elif estagio2 == 2:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 20
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 16
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 8
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 4
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0 
                                         if trocaLetra == 1 and estagio == 2 and estagio2 == 2:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5350,6 +5684,26 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     elif estagio2 == 3:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 20
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 16
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 8
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 4
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0 
                                         if trocaLetra == 1 and estagio == 2 and estagio2 == 3:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5421,6 +5775,26 @@ class MyWindow(QWidget):
                                         ##self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
                                         self.imgTelaFimArmamento.adjustSize()
                                     if estagio3 == 1:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 20
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 16
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 8
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 4
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0 
                                         if trocaLetra == 1 and estagio == 3 and estagio3 == 1:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5445,6 +5819,26 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     elif estagio3 == 2:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 20
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 16
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 8
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 4
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0 
                                         if trocaLetra == 1 and estagio == 3 and estagio3 == 2:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5469,6 +5863,26 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     elif estagio3 == 3:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 20
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 16
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 8
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 4
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0 
                                         if trocaLetra == 1 and estagio == 3 and estagio3 == 3:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5493,6 +5907,26 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     elif estagio3 == 4:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 60:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 3:
+                                                somatorioPontos = somatorioPontos + 20
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 16
+                                            elif contadorPonto <= 9:
+                                                somatorioPontos = somatorioPontos + 12
+                                            elif contadorPonto <= 15:
+                                                somatorioPontos = somatorioPontos + 8
+                                            elif contadorPonto <= 60:
+                                                somatorioPontos = somatorioPontos + 4
+                                            elif contadorPonto > 60:
+                                                somatorioPontos = somatorioPontos + 1
+                                                contadorPonto = 0 
                                         if trocaLetra == 1 and estagio == 3 and estagio3 == 4:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5530,6 +5964,22 @@ class MyWindow(QWidget):
                                     self.imgTelaChefao.adjustSize()
 
                                     if estagio4 == 1:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 10:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 4:
+                                                somatorioPontos = somatorioPontos + 40
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 32
+                                            elif contadorPonto <= 10:
+                                                somatorioPontos = somatorioPontos + 24
+                                            elif contadorPonto > 10:
+                                                somatorioPontos = somatorioPontos + (-2000)
+                                                contadorPonto = 0 
                                         if trocaLetra == 1 and estagio == 4 and estagio4 == 1:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5554,6 +6004,22 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     if estagio4 == 2:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 10:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 4:
+                                                somatorioPontos = somatorioPontos + 40
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 32
+                                            elif contadorPonto <= 10:
+                                                somatorioPontos = somatorioPontos + 24
+                                            elif contadorPonto > 10:
+                                                somatorioPontos = somatorioPontos + (-2000)
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 4 and estagio4 == 2:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5578,6 +6044,22 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     if estagio4 == 3:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 10:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 4:
+                                                somatorioPontos = somatorioPontos + 40
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 32
+                                            elif contadorPonto <= 10:
+                                                somatorioPontos = somatorioPontos + 24
+                                            elif contadorPonto > 10:
+                                                somatorioPontos = somatorioPontos + (-2000)
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 4 and estagio4 == 3:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5602,6 +6084,22 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     if estagio4 == 4:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 10:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 4:
+                                                somatorioPontos = somatorioPontos + 40
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 32
+                                            elif contadorPonto <= 10:
+                                                somatorioPontos = somatorioPontos + 24
+                                            elif contadorPonto > 10:
+                                                somatorioPontos = somatorioPontos + (-2000)
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 4 and estagio4 == 4:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5626,6 +6124,22 @@ class MyWindow(QWidget):
                                             letraPrintar = unidecode.unidecode(result.lower())
                                             #print('entrou')
                                     if estagio4 == 5:
+                                        if resetePontos == 1:
+                                            contadorPonto = 0
+                                            resetePontos = 0
+                                        if contadorPonto > 10:
+                                            letra = 'next'
+                                            trocaLetra = 1                                        
+                                        if letra  == 'next':
+                                            if contadorPonto <= 4:
+                                                somatorioPontos = somatorioPontos + 40
+                                            elif contadorPonto <= 6:
+                                                somatorioPontos = somatorioPontos + 32
+                                            elif contadorPonto <= 10:
+                                                somatorioPontos = somatorioPontos + 24
+                                            elif contadorPonto > 10:
+                                                somatorioPontos = somatorioPontos + (-2000)
+                                                contadorPonto = 0
                                         if trocaLetra == 1 and estagio == 4 and estagio4 == 5:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -5650,6 +6164,24 @@ class MyWindow(QWidget):
 
                                             self.imgTelaChefao.setGeometry(-10000,-10000,-10000, -10000)
                                             self.imgTelaChefao.adjustSize()
+
+                                            resetePontos = 1
+
+                                            data_e_hora_atuais = datetime.now()
+                                            data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y')
+                                            data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y %H:%M')
+                                            arquivo = 'ranks.txt'
+                                            teste_arquivo_exist = os.path.exists(arquivo)
+                                            if teste_arquivo_exist == False:
+                                                arquivo = open('ranks.txt', 'w')
+                                                arquivo.close()
+                                            conteudo = ('Nome: '+ nomeJogador + ' , Fase: Princesa , Modalidade: Dificil , Pontos: ' + str(somatorioPontos) + ' , Dia: ' +
+                                                        data_e_hora_em_texto)   # insira seu conteúdo
+                                            arquivo = open("ranks.txt", "a")
+                                            arquivo.write('\n' + conteudo)
+                                            arquivo.close()
+                                            
+                                            somatorioPontos = 0
                                         else:    
                                             self.nivelDificilPalavra15.move(int(self.x/2), int(self.y/7))
                                             tamanhoPalavra = (len(vetChefao[4]))
@@ -5942,25 +6474,13 @@ class MyWindow(QWidget):
                 if menu_opc2 == 5 and entrar_opc == 1:
                     QApplication.processEvents()
                     print("entrei opc 5") 
-                    if cont1 == 0:
+                    if True:
                         letra = 'voltar'
-                        cont1 = 1
 
                         self.imgSeta.move(int(-100), int(-100))
-                        data_e_hora_atuais = datetime.now()
-                        data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y')
-                        data_e_hora_em_texto = data_e_hora_atuais.strftime('%d/%m/%Y %H:%M')
+                        
 
-                        arquivo = 'ranks.txt'
-                        teste_arquivo_exist = os.path.exists(arquivo)
-                        if teste_arquivo_exist == False:
-                            arquivo = open('ranks.txt', 'w')
-                            arquivo.close()
-                        conteudo = ('Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: ' +
-                                    data_e_hora_em_texto)   # insira seu conteúdo
-                        arquivo = open("ranks.txt", "a")
-                        arquivo.write('\n' + conteudo)
-                        arquivo.close()
+
                         entrar_1_vez = 1
                         self.imgSeta.move(int(-100), int(-100))
 
@@ -8482,7 +9002,9 @@ class Worker1(QThread):
                                     print("vc Acertou")
                                     voltarMenu = 'sair'
                                     print(voltarMenu)
-                                    letra = 'nenhuma'
+                                    letra = 'proximo'
+                                    menu_opc2 = 1
+                                    entrar_opc = 0
                                     QApplication.processEvents()                                                     
                                 contador = 0
                                 
