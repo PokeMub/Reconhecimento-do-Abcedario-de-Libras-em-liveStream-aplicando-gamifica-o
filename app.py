@@ -21,6 +21,8 @@ import os
 import pandas as pd
 import random
 import unidecode
+# import _thread
+import threading 
 # https://www.youtube.com/watch?v=2RVVC9rrDco&ab_channel=Andr%C3%A9LuizFran%C3%A7aBatista
 nomeJogador = 0
 visualizarLetra = 1
@@ -49,6 +51,17 @@ faseMeio = 0
 faseFim = 0
 faseInicio = 0
 faseChefao = 0
+contadorPonto = 0
+def contadorPontuacao():
+    p = False
+    global contadorPonto
+    #print("dentro tread") 
+    while(p == False):
+        contadorPonto = contadorPonto + 1
+        #print(contadorPonto)
+        time.sleep(1)
+
+ 
 class MyWindow(QWidget):
     def __init__(self):
         super(MyWindow, self).__init__()
@@ -61,9 +74,15 @@ class MyWindow(QWidget):
         self.Worker1.ImageUpdate.connect(self.ImageUpdateSlot)
         self.setLayout(self.VBL)
         self.initUI()
+
+    
     def ImageUpdateSlot(self, Image):
         self.FeedLabel.setPixmap(QPixmap.fromImage(Image))
+     
     def initUI(self):
+        ##_thread.start_new_thread(contadorPontuacao,())
+        
+        # ti.start()
         ## criando componentes da interface grafica
         if True:
             # Pegar o tamanho do monitor
@@ -1873,7 +1892,7 @@ class MyWindow(QWidget):
             self.labelLetK.move(-500, -500)
     #Metodo para ação do botão
     def btLogar_presionado(self):
-        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu, menu_opc3,confirmacaoMenuOpcNivel,palavraNivelFacilInicio,trocaLetra, faseInicio ,faseMeio , faseFim , faseChefao
+        global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu, menu_opc3,confirmacaoMenuOpcNivel,palavraNivelFacilInicio,trocaLetra, faseInicio ,faseMeio , faseFim , faseChefao,contadorPonto
         nomeJogador = self.nomeJogador.text()
         print(nomeJogador)
         trav = 0
@@ -1889,9 +1908,13 @@ class MyWindow(QWidget):
         estagio1 = 1
         contAux = 0
         tamanhoPalavra = -1
+        somatorioPontos = 0
+        resetePontos = 1
         self.nomeJogo.adjustSize()
         self.nomeJogo.move(-10000, -10000)
         while True:
+            print ('Pontução geral: ' ,  somatorioPontos)
+            print('Pontuação Unica: ', contadorPonto)
             if menu_opc1 == 0 :
                 if menu_opc1 == 0 and menu_opc2 == 0:
                     QApplication.processEvents()
@@ -3689,6 +3712,27 @@ class MyWindow(QWidget):
                                     
                                     self.imgTelaInicio.setGeometry(int(self.x/3.3), 0,0, 0)
                                     self.imgTelaInicio.adjustSize()
+                                    if resetePontos == 1:
+                                        contadorPonto = 0
+                                        resetePontos = 0
+                                    if contadorPonto > 60:
+                                        letra = 'next'
+                                        trocaLetra = 1                                        
+                                    if letra  == 'next':
+                                        if contadorPonto <= 3:
+                                            somatorioPontos = somatorioPontos + 10
+                                        elif contadorPonto <= 6:
+                                            somatorioPontos = somatorioPontos + 8
+                                        elif contadorPonto <= 9:
+                                            somatorioPontos = somatorioPontos + 6
+                                        elif contadorPonto <= 15:
+                                            somatorioPontos = somatorioPontos + 4
+                                        elif contadorPonto <= 60:
+                                            somatorioPontos = somatorioPontos + 2
+                                        elif contadorPonto > 60:
+                                            somatorioPontos = somatorioPontos + 1
+                                            contadorPonto = 0
+                                        
                                     if trocaLetra == 1 and estagio == 1:
                                         letraRemover = letraPrintar
                                         trocaLetra = 0
@@ -3747,7 +3791,30 @@ class MyWindow(QWidget):
 
                                         self.imgTelaMeioSalaEstar.setGeometry(-10000,-10000,-10000, -10000)
                                         self.imgTelaMeioSalaEstar.adjustSize()
+                                    
+                                    if resetePontos == 1:
+                                        contadorPonto = 0
+                                        resetePontos = 0
+                                    if contadorPonto > 60:
+                                        letra = 'next'
+                                        trocaLetra = 1                                        
+                                    if letra  == 'next':
+                                        if contadorPonto <= 3:
+                                            somatorioPontos = somatorioPontos + 10
+                                        elif contadorPonto <= 6:
+                                            somatorioPontos = somatorioPontos + 8
+                                        elif contadorPonto <= 9:
+                                            somatorioPontos = somatorioPontos + 6
+                                        elif contadorPonto <= 15:
+                                            somatorioPontos = somatorioPontos + 4
+                                        elif contadorPonto <= 60:
+                                            somatorioPontos = somatorioPontos + 2
+                                        elif contadorPonto > 60:
+                                            somatorioPontos = somatorioPontos + 1
+                                            contadorPonto = 0
+                                    
                                     if estagio2 == 1:
+                                        
                                         if trocaLetra == 1 and estagio == 2 and estagio2 == 1:
                                             letraRemover = letraPrintar
                                             trocaLetra = 0
@@ -3843,6 +3910,26 @@ class MyWindow(QWidget):
                                         self.imgTelaFimArmamento.setGeometry(-10000,-10000,-10000, -10000)
                                         ##self.imgTelaFimArmamento.setGeometry(int(self.x/3.3), 0,0, 0)
                                         self.imgTelaFimArmamento.adjustSize()
+                                    if resetePontos == 1:
+                                        contadorPonto = 0
+                                        resetePontos = 0
+                                    if contadorPonto > 60:
+                                        letra = 'next'
+                                        trocaLetra = 1                                        
+                                    if letra  == 'next':
+                                        if contadorPonto <= 3:
+                                            somatorioPontos = somatorioPontos + 10
+                                        elif contadorPonto <= 6:
+                                            somatorioPontos = somatorioPontos + 8
+                                        elif contadorPonto <= 9:
+                                            somatorioPontos = somatorioPontos + 6
+                                        elif contadorPonto <= 15:
+                                            somatorioPontos = somatorioPontos + 4
+                                        elif contadorPonto <= 60:
+                                            somatorioPontos = somatorioPontos + 2
+                                        elif contadorPonto > 60:
+                                            somatorioPontos = somatorioPontos + 1
+                                            contadorPonto = 0
                                     if estagio3 == 1:
                                         if trocaLetra == 1 and estagio == 3 and estagio3 == 1:
                                             letraRemover = letraPrintar
@@ -3889,6 +3976,7 @@ class MyWindow(QWidget):
                                             letraPrintar = ''
                                             self.nivelFacilPalavra5.move(-10000, -10000)
                                             contAux = 0
+                                            resetePontos = 1
                                         else:    
                                             self.nivelFacilPalavra5.move(int(self.x/2), int(self.y/7))
                                             tamanhoPalavra = (len(palavraNivelFacilFim[1]))
@@ -5919,7 +6007,7 @@ class Worker1(QThread):
     def run(self):
         contador = 0
         reducao = 1
-        global menu_opc1 , menu_opc2 , dentro_menu_opc2, entrar_opc , troca_opc, visualizarLetra,menu_opc2_soletra, letra , voltarMenu,menu_opc3, confirmacaoMenuOpcNivel,trocaLetra 
+        global menu_opc1 , menu_opc2 , dentro_menu_opc2, entrar_opc , troca_opc, visualizarLetra,menu_opc2_soletra, letra , voltarMenu,menu_opc3, confirmacaoMenuOpcNivel,trocaLetra,contadorPonto 
         letra_Momento = 'Iniciando'
         mp_drawing = mp.solutions.drawing_utils
         mp_drawing_styles = mp.solutions.drawing_styles
@@ -6141,8 +6229,9 @@ class Worker1(QThread):
                                     print("vc Acertou")
                                     letra = 'next'
                                     trocaLetra = 1
-                                    menu_opc2_soletra  = 2  
-                                    time.sleep(2)
+                                    menu_opc2_soletra  = 2                                     
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                                                 
                                 contador = 0
                                 
@@ -6218,7 +6307,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 3 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
                                
                                 #########################################################################
@@ -6305,7 +6395,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 4 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
 
                                 contador = 0
                                
@@ -6402,7 +6493,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 5 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
 
                                 contador = 0
                                 #########################################################################
@@ -6489,7 +6581,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 6 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
                                 #########################################################################
                                 cv2.line(image, (dedao_4), (indicador_16),
@@ -6563,7 +6656,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 7 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
 
                                 contador = 0
 
@@ -6643,7 +6737,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 8 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
 
                                 contador = 0
 
@@ -6725,7 +6820,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 9 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
 
                                 contador = 0
 
@@ -6794,7 +6890,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 10 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
 
                                 contador = 0
 
@@ -6877,7 +6974,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 11
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
 
                                 contador = 0
 
@@ -6968,7 +7066,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 12 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
 
                                 cv2.line(image, (indicador_6), (dedao_4),
@@ -7035,7 +7134,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 13 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
                                
                                 #########################################################################
@@ -7097,7 +7197,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 14 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
 
                                 cv2.line(image, (dedao_4), (indicador_20),
@@ -7159,7 +7260,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 15
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
 
                                 cv2.line(image, (dedao_4), (indicador_20),
@@ -7237,7 +7339,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 16
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
 
                                 contador = 0
                                 
@@ -7298,7 +7401,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 17
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
 
                                 ###################################################################
@@ -7354,7 +7458,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 18
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
 
                                 #########################################################################
@@ -7430,7 +7535,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 19 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
 
                                 #########################################################################
@@ -7510,7 +7616,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 20
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
                                 #########################################################################
                                 cv2.line(image, (dedao_4), (indicador_16),
@@ -7583,7 +7690,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 21 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
 
                                 #########################################################################
@@ -7650,7 +7758,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 22
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
 
                                 contador = 0
 
@@ -7718,7 +7827,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 23 
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
 
                                 contador = 0
 
@@ -7787,7 +7897,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 24
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
                                 if con == 2:
 
@@ -7897,7 +8008,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 25
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
                                 if con == 2:
                                     ladinho = 0
@@ -7986,7 +8098,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 26
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
                                 if con == 2:
                                     subir = 0
@@ -8071,7 +8184,8 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 27
-                                    time.sleep(2)
+                                    time.sleep(1)
+                                    contadorPonto = 0
                                 contador = 0
                                 #########################################################################
                                 cv2.line(image, (dedao_4), (indicador_16),
@@ -8583,6 +8697,7 @@ class Worker1(QThread):
 
 
 def window():  
+    threading.Thread(target = contadorPontuacao).start()
     app = QApplication(sys.argv)
     win = MyWindow()
     win.show()
