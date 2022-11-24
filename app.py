@@ -2178,7 +2178,8 @@ class MyWindow(QWidget):
                     ### Adicionando uma imagem
                     ## Label da Imagem Proximo
                     self.labelImagProximo.adjustSize()
-                    self.labelImagProximo.move(int(self.x/3 + 150), int(self.y/1.9))
+                    self.labelImagProximo.move(int(self.x/2.3), int(self.y/4.2))
+
                     self.imgProximo.setGeometry(QtCore.QRect(int(self.x/2.8), int(self.y/3.5), 600, 600))
                     self.enderecoImgProx.start()
                     ## Imagem Proximo
@@ -2190,7 +2191,7 @@ class MyWindow(QWidget):
                     
                     ## Label da Imagem Selecionar
                     self.labelImagSelecionar.adjustSize()
-                    self.labelImagSelecionar.move(int(self.x/1.8 + 130), int(self.y/1.9))
+                    self.labelImagSelecionar.move(int(self.x/1.4), int(self.y/4.2))
                     self.imgSelecionar.setGeometry(QtCore.QRect(int(self.x/1.5), int(self.y/3.5), 600, 600))
                     self.enderecoImgSel.start()
                     ## Imagem Selecionar
