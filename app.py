@@ -1025,15 +1025,242 @@ class MyWindow(QWidget):
             self.ranks.setFont(QFont('Arial Black', 50))
             self.ranks.adjustSize()
             self.ranks.move(-500, -500)  
-        ## Instanciando as Imagens das Letras do Alfabeto
-
         ## Instanciando Letras Modalidade Dificil
-        self.letraModalidadeDificilA = QLabel("A", self)
-        self.largura = self.letraModalidadeDificilA.frameGeometry().width()
-        self.altura = self.letraModalidadeDificilA.frameGeometry().height()
-        self.letraModalidadeDificilA.setFont(QFont('Arial Black', 150))
-        self.letraModalidadeDificilA.adjustSize()
-        self.letraModalidadeDificilA.move(int(self.x/1.55), int(self.y/3.5))
+        if True:
+            ## A
+            self.letraModalidadeDificilA = QLabel("A", self)
+            self.largura = self.letraModalidadeDificilA.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilA.frameGeometry().height()
+            self.letraModalidadeDificilA.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilA.adjustSize()
+            #self.letraModalidadeDificilA.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilA.move(int(self.x/2), int(-1000))
+
+            ## B
+            self.letraModalidadeDificilB = QLabel("B", self)
+            self.largura = self.letraModalidadeDificilB.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilB.frameGeometry().height()
+            self.letraModalidadeDificilB.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilB.adjustSize()
+            #self.letraModalidadeDificilB.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilB.move(int(self.x/2), int(-1000))
+
+            ## C
+            self.letraModalidadeDificilC = QLabel("C", self)
+            self.largura = self.letraModalidadeDificilC.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilC.frameGeometry().height()
+            self.letraModalidadeDificilC.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilC.adjustSize()
+            #self.letraModalidadeDificilC.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilC.move(int(self.x/2), int(-1000))
+
+            ## D
+            self.letraModalidadeDificilD = QLabel("D", self)
+            self.largura = self.letraModalidadeDificilD.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilD.frameGeometry().height()
+            self.letraModalidadeDificilD.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilD.adjustSize()
+            #self.letraModalidadeDificilD.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilD.move(int(self.x/2), int(-1000))
+
+            ## E
+            self.letraModalidadeDificilE = QLabel("E", self)
+            self.largura = self.letraModalidadeDificilE.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilE.frameGeometry().height()
+            self.letraModalidadeDificilE.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilE.adjustSize()
+            #self.letraModalidadeDificilE.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilE.move(int(self.x/2), int(-1000))
+            
+            ## F
+            self.letraModalidadeDificilF = QLabel("F", self)
+            self.largura = self.letraModalidadeDificilF.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilF.frameGeometry().height()
+            self.letraModalidadeDificilF.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilF.adjustSize()
+            #self.letraModalidadeDificilF.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilF.move(int(self.x/2), int(-1000))
+
+            ## G
+            self.letraModalidadeDificilG = QLabel("G", self)
+            self.largura = self.letraModalidadeDificilG.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilG.frameGeometry().height()
+            self.letraModalidadeDificilG.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilG.adjustSize()
+            #self.letraModalidadeDificilG.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilG.move(int(self.x/2), int(-1000))
+
+            ## H
+            self.letraModalidadeDificilH = QLabel("H", self)
+            self.largura = self.letraModalidadeDificilH.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilH.frameGeometry().height()
+            self.letraModalidadeDificilH.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilH.adjustSize()
+            #self.letraModalidadeDificilH.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilH.move(int(self.x/2), int(-1000))
+
+            ## I
+            self.letraModalidadeDificilI = QLabel("I", self)
+            self.largura = self.letraModalidadeDificilI.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilI.frameGeometry().height()
+            self.letraModalidadeDificilI.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilI.adjustSize()
+            #self.letraModalidadeDificilI.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilI.move(int(self.x/2), int(-1000))
+
+            ## J
+            self.letraModalidadeDificilJ = QLabel("J", self)
+            self.largura = self.letraModalidadeDificilJ.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilJ.frameGeometry().height()
+            self.letraModalidadeDificilJ.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilJ.adjustSize()
+            #self.letraModalidadeDificilJ.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilJ.move(int(self.x/2), int(-1000))
+
+            ## K
+            self.letraModalidadeDificilK = QLabel("K", self)
+            self.largura = self.letraModalidadeDificilK.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilK.frameGeometry().height()
+            self.letraModalidadeDificilK.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilK.adjustSize()
+            #self.letraModalidadeDificilK.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilK.move(int(self.x/2), int(-1000))
+
+            ## L
+            self.letraModalidadeDificilL = QLabel("L", self)
+            self.largura = self.letraModalidadeDificilL.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilL.frameGeometry().height()
+            self.letraModalidadeDificilL.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilL.adjustSize()
+            #self.letraModalidadeDificilL.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilL.move(int(self.x/2), int(-1000))
+
+            ## M
+            self.letraModalidadeDificilM = QLabel("M", self)
+            self.largura = self.letraModalidadeDificilM.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilM.frameGeometry().height()
+            self.letraModalidadeDificilM.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilM.adjustSize()
+            #self.letraModalidadeDificilM.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilM.move(int(self.x/2), int(-1000))
+
+            ## N
+            self.letraModalidadeDificilN = QLabel("N", self)
+            self.largura = self.letraModalidadeDificilN.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilN.frameGeometry().height()
+            self.letraModalidadeDificilN.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilN.adjustSize()
+            #self.letraModalidadeDificilN.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilN.move(int(self.x/2), int(-1000))
+
+            ## O
+            self.letraModalidadeDificilO = QLabel("O", self)
+            self.largura = self.letraModalidadeDificilO.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilO.frameGeometry().height()
+            self.letraModalidadeDificilO.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilO.adjustSize()
+            #self.letraModalidadeDificilO.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilO.move(int(self.x/2), int(-1000))
+
+            ## P
+            self.letraModalidadeDificilP = QLabel("P", self)
+            self.largura = self.letraModalidadeDificilP.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilP.frameGeometry().height()
+            self.letraModalidadeDificilP.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilP.adjustSize()
+            #self.letraModalidadeDificilP.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilP.move(int(self.x/2), int(-1000))
+
+            ## Q
+            self.letraModalidadeDificilQ = QLabel("Q", self)
+            self.largura = self.letraModalidadeDificilQ.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilQ.frameGeometry().height()
+            self.letraModalidadeDificilQ.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilQ.adjustSize()
+            #self.letraModalidadeDificilQ.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilQ.move(int(self.x/2), int(-1000))
+
+            ## R
+            self.letraModalidadeDificilR = QLabel("R", self)
+            self.largura = self.letraModalidadeDificilR.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilR.frameGeometry().height()
+            self.letraModalidadeDificilR.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilR.adjustSize()
+            #self.letraModalidadeDificilR.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilR.move(int(self.x/2), int(-1000))
+
+            ## S
+            self.letraModalidadeDificilS = QLabel("S", self)
+            self.largura = self.letraModalidadeDificilS.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilS.frameGeometry().height()
+            self.letraModalidadeDificilS.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilS.adjustSize()
+            #self.letraModalidadeDificilS.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilS.move(int(self.x/2), int(-1000))
+
+            ## T
+            self.letraModalidadeDificilT = QLabel("T", self)
+            self.largura = self.letraModalidadeDificilT.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilT.frameGeometry().height()
+            self.letraModalidadeDificilT.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilT.adjustSize()
+            #self.letraModalidadeDificilT.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilT.move(int(self.x/2), int(-1000))
+
+            ## U
+            self.letraModalidadeDificilU = QLabel("U", self)
+            self.largura = self.letraModalidadeDificilU.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilU.frameGeometry().height()
+            self.letraModalidadeDificilU.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilU.adjustSize()
+            #self.letraModalidadeDificilU.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilU.move(int(self.x/2), int(-1000))
+
+            ## V
+            self.letraModalidadeDificilV = QLabel("V", self)
+            self.largura = self.letraModalidadeDificilV.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilV.frameGeometry().height()
+            self.letraModalidadeDificilV.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilV.adjustSize()
+            #self.letraModalidadeDificilV.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilV.move(int(self.x/2), int(-1000))
+
+            ## W
+            self.letraModalidadeDificilW = QLabel("W", self)
+            self.largura = self.letraModalidadeDificilW.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilW.frameGeometry().height()
+            self.letraModalidadeDificilW.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilW.adjustSize()
+            #self.letraModalidadeDificilW.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilW.move(int(self.x/2), int(-1000))
+
+            ## X
+            self.letraModalidadeDificilX = QLabel("X", self)
+            self.largura = self.letraModalidadeDificilX.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilX.frameGeometry().height()
+            self.letraModalidadeDificilX.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilX.adjustSize()
+            #self.letraModalidadeDificilX.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilX.move(int(self.x/2), int(-1000))
+
+            ## Y
+            self.letraModalidadeDificilY = QLabel("Y", self)
+            self.largura = self.letraModalidadeDificilY.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilY.frameGeometry().height()
+            self.letraModalidadeDificilY.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilY.adjustSize()
+            #self.letraModalidadeDificilY.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilY.move(int(self.x/2), int(-1000))
+
+            ## Z
+            self.letraModalidadeDificilZ = QLabel("Z", self)
+            self.largura = self.letraModalidadeDificilZ.frameGeometry().width()
+            self.altura = self.letraModalidadeDificilZ.frameGeometry().height()
+            self.letraModalidadeDificilZ.setFont(QFont('Arial Black', 150))
+            self.letraModalidadeDificilZ.adjustSize()
+            #self.letraModalidadeDificilZ.move(int(self.x/1.6), int(self.y/3.5))
+            self.letraModalidadeDificilZ.move(int(self.x/2), int(-1000))
+        ## Instanciando as Imagens das Letras do Alfabeto
         if True:
             #Gif Letra A
             self.labelA = QLabel(self)
@@ -1900,6 +2127,7 @@ class MyWindow(QWidget):
             self.labelLetK.move(-500, -500)
     #Metodo para ação do botão
     def btLogar_presionado(self):
+        
         global letra , dentro_menu_opc2, entrar_opc, menu_opc2, troca_opc, visualizarLetra, menu_opc2_soletra, voltarMenu, menu_opc3,confirmacaoMenuOpcNivel,palavraNivelFacilInicio,trocaLetra, faseInicio ,faseMeio , faseFim , faseChefao,contadorPonto, nomeJogador
         nomeJogador = self.nomeJogador.text()
         print(nomeJogador)
@@ -6198,273 +6426,163 @@ class MyWindow(QWidget):
                         ##Limpar letra
                         if True:
                             if letraRemover == 'a':
-                                self.imgA.adjustSize()
-                                self.imgA.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilA.adjustSize()
+                                self.letraModalidadeDificilA.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'b':
-                                
-
-                                self.imgB.adjustSize()
-                                self.imgB.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilB.adjustSize()
+                                self.letraModalidadeDificilB.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'c':
-                                self.imgC.adjustSize()
-                                self.imgC.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilC.adjustSize()
+                                self.letraModalidadeDificilC.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'd':
-                                self.imgD.adjustSize()
-                                self.imgD.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilD.adjustSize()
+                                self.letraModalidadeDificilD.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'e':
-                                self.imgE.adjustSize()
-                                self.imgE.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilE.adjustSize()
+                                self.letraModalidadeDificilE.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'f':
-                                self.imgF.adjustSize()
-                                self.imgF.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilF.adjustSize()
+                                self.letraModalidadeDificilF.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'g':
-                                self.imgG.adjustSize()
-                                self.imgG.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilG.adjustSize()
+                                self.letraModalidadeDificilG.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'h':
-                                self.imgH1.adjustSize()
-                                self.imgH1.move(int(self.x/2), int(-1000))
-
-                                self.imgH2.adjustSize()
-                                self.imgH2.move(int(self.x/2), int(-1000))
-
-                                self.imgH3.adjustSize()
-                                self.imgH3.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilH.adjustSize()
+                                self.letraModalidadeDificilH.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'i':
-                                self.imgI1.adjustSize()
-                                self.imgI1.move(int(self.x/2), int(-1000))
-
-                                self.imgI2.adjustSize()
-                                self.imgI2.move(int(self.x/2), int(-1000))
-
-                                self.imgI3.adjustSize()
-                                self.imgI3.move(int(self.x/2), int(-1000))
-
-                                self.imgI4.adjustSize()
-                                self.imgI4.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilI.adjustSize()
+                                self.letraModalidadeDificilI.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'j':
-                                self.imgJ1.adjustSize()
-                                self.imgJ1.move(int(self.x/2), int(-1000))
-
-                                self.imgJ2.adjustSize()
-                                self.imgJ2.move(int(self.x/2), int(-1000))
-
-                                self.imgJ3.adjustSize()
-                                self.imgJ3.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilJ.adjustSize()
+                                self.letraModalidadeDificilJ.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'k':
-                                self.imgK1.adjustSize()
-                                self.imgK1.move(int(self.x/2), int(-1000))
-
-                                self.imgK2.adjustSize()
-                                self.imgK2.move(int(self.x/2), int(-1000))
-
-                                self.imgK3.adjustSize()
-                                self.imgK3.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilK.adjustSize()
+                                self.letraModalidadeDificilK.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'l':
-                                self.imgL.adjustSize()
-                                self.imgL.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilL.adjustSize()
+                                self.letraModalidadeDificilL.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'm':
-                                self.imgM.adjustSize()
-                                self.imgM.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilM.adjustSize()
+                                self.letraModalidadeDificilM.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'n':
-                                self.imgN.adjustSize()
-                                self.imgN.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilN.adjustSize()
+                                self.letraModalidadeDificilN.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'o':
-                                self.imgO.adjustSize()
-                                self.imgO.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilO.adjustSize()
+                                self.letraModalidadeDificilO.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'p':
-                                self.imgP.adjustSize()
-                                self.imgP.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilP.adjustSize()
+                                self.letraModalidadeDificilP.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'q':
-                                self.imgQ.adjustSize()
-                                self.imgQ.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilQ.adjustSize()
+                                self.letraModalidadeDificilQ.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'r':
-                                self.imgR.adjustSize()
-                                self.imgR.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilR.adjustSize()
+                                self.letraModalidadeDificilR.move(int(self.x/2), int(-1000))
                             elif letraRemover == 's':
-                                self.imgS.adjustSize()
-                                self.imgS.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilS.adjustSize()
+                                self.letraModalidadeDificilS.move(int(self.x/2), int(-1000))
                             elif letraRemover == 't':
-                                self.imgT.adjustSize()
-                                self.imgT.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilT.adjustSize()
+                                self.letraModalidadeDificilT.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'u':
-                                self.imgU.adjustSize()
-                                self.imgU.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilU.adjustSize()
+                                self.letraModalidadeDificilU.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'v':
-                                self.imgV.adjustSize()
-                                self.imgV.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilV.adjustSize()
+                                self.letraModalidadeDificilV.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'w':
-                                self.imgW1.adjustSize()
-                                self.imgW1.move(int(self.x/2), int(-1000))
-
-                                self.imgW2.adjustSize()
-                                self.imgW2.move(int(self.x/2), int(-1000))
-
-                                self.imgW3.adjustSize()
-                                self.imgW3.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilW.adjustSize()
+                                self.letraModalidadeDificilW.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'x':
-                                self.imgX1.adjustSize()
-                                self.imgX1.move(int(self.x/2), int(-1000))
-
-                                self.imgX2.adjustSize()
-                                self.imgX2.move(int(self.x/2), int(-1000))
-
-                                self.imgX3.adjustSize()
-                                self.imgX3.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilX.adjustSize()
+                                self.letraModalidadeDificilX.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'y':
-                                self.imgY1.adjustSize()
-                                self.imgY1.move(int(self.x/2), int(-1000))
-
-                                self.imgY2.adjustSize()
-                                self.imgY2.move(int(self.x/2), int(-1000))
-
-                                self.imgY3.adjustSize()
-                                self.imgY3.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilY.adjustSize()
+                                self.letraModalidadeDificilY.move(int(self.x/2), int(-1000))
                             elif letraRemover == 'z':
-                                self.imgZ1.adjustSize()
-                                self.imgZ1.move(int(self.x/2), int(-1000))
-
-                                self.imgZ2.adjustSize()
-                                self.imgZ2.move(int(self.x/2), int(-1000))
-
-                                self.imgZ3.adjustSize()
-                                self.imgZ3.move(int(self.x/2), int(-1000))
-
-                                self.imgZ4.adjustSize()
-                                self.imgZ4.move(int(self.x/2), int(-1000))
+                                self.letraModalidadeDificilZ.adjustSize()
+                                self.letraModalidadeDificilZ.move(int(self.x/2), int(-1000))
                         ## printar a letra
                         if True:
                             if letraPrintar == 'a':
-                                self.imgA.adjustSize()
-                                self.imgA.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilA.adjustSize()
+                                self.letraModalidadeDificilA.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'b':
-                                self.imgB.adjustSize()
-                                self.imgB.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilB.adjustSize()
+                                self.letraModalidadeDificilB.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'c':
-                                self.imgC.adjustSize()
-                                self.imgC.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilC.adjustSize()
+                                self.letraModalidadeDificilC.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'd':
-                                self.imgD.adjustSize()
-                                self.imgD.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilD.adjustSize()
+                                self.letraModalidadeDificilD.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'e':
-                                self.imgE.adjustSize()
-                                self.imgE.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilE.adjustSize()
+                                self.letraModalidadeDificilE.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'f':
-                                self.imgF.adjustSize()
-                                self.imgF.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilF.adjustSize()
+                                self.letraModalidadeDificilF.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'g':
-                                self.imgG.adjustSize()
-                                self.imgG.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilG.adjustSize()
+                                self.letraModalidadeDificilG.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'h':
-                                self.imgH1.adjustSize()
-                                self.imgH1.move(int(self.x/3), int(self.y/3.5))
-
-                                self.imgH2.adjustSize()
-                                self.imgH2.move(int(self.x/2), int(self.y/3.5))
-
-                                self.imgH3.adjustSize()
-                                self.imgH3.move(int(self.x/1.5), int(self.y/3.5))
+                                self.letraModalidadeDificilH.adjustSize()
+                                self.letraModalidadeDificilH.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'i':
-                                self.imgI1.adjustSize()
-                                self.imgI1.move(int(self.x/3.2), int(self.y/3.5))
-
-                                self.imgI2.adjustSize()
-                                self.imgI2.move(int(self.x/2.25), int(self.y/3.5))
-
-                                self.imgI3.adjustSize()
-                                self.imgI3.move(int(self.x/1.74), int(self.y/3.5))
-
-                                self.imgI4.adjustSize()
-                                self.imgI4.move(int(self.x/1.42), int(self.y/3.5))
+                                self.letraModalidadeDificilI.adjustSize()
+                                self.letraModalidadeDificilI.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'j':
-                                self.imgJ1.adjustSize()
-                                self.imgJ1.move(int(self.x/3), int(self.y/3.5))
-
-                                self.imgJ2.adjustSize()
-                                self.imgJ2.move(int(self.x/2), int(self.y/3.5))
-
-                                self.imgJ3.adjustSize()
-                                self.imgJ3.move(int(self.x/1.5), int(self.y/3.5))
+                                self.letraModalidadeDificilJ.adjustSize()
+                                self.letraModalidadeDificilJ.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'k':
-                                self.imgK1.adjustSize()
-                                self.imgK1.move(int(self.x/3), int(self.y/3.5))
-
-                                self.imgK2.adjustSize()
-                                self.imgK2.move(int(self.x/2), int(self.y/3.5))
-
-                                self.imgK3.adjustSize()
-                                self.imgK3.move(int(self.x/1.5), int(self.y/3.5))
+                                self.letraModalidadeDificilK.adjustSize()
+                                self.letraModalidadeDificilK.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'l':
-                                self.imgL.adjustSize()
-                                self.imgL.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilL.adjustSize()
+                                self.letraModalidadeDificilL.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'm':
-                                self.imgM.adjustSize()
-                                self.imgM.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilM.adjustSize()
+                                self.letraModalidadeDificilM.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'n':
-                                self.imgN.adjustSize()
-                                self.imgN.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilN.adjustSize()
+                                self.letraModalidadeDificilN.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'o':
-                                self.imgO.adjustSize()
-                                self.imgO.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilO.adjustSize()
+                                self.letraModalidadeDificilO.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'p':
-                                self.imgP.adjustSize()
-                                self.imgP.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilP.adjustSize()
+                                self.letraModalidadeDificilP.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'q':
-                                self.imgQ.adjustSize()
-                                self.imgQ.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilQ.adjustSize()
+                                self.letraModalidadeDificilQ.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'r':
-                                self.imgR.adjustSize()
-                                self.imgR.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilR.adjustSize()
+                                self.letraModalidadeDificilR.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 's':
-                                self.imgS.adjustSize()
-                                self.imgS.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilS.adjustSize()
+                                self.letraModalidadeDificilS.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 't':
-                                self.imgT.adjustSize()
-                                self.imgT.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilT.adjustSize()
+                                self.letraModalidadeDificilT.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'u':
-                                self.imgU.adjustSize()
-                                self.imgU.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilU.adjustSize()
+                                self.letraModalidadeDificilU.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'v':
-                                self.imgV.adjustSize()
-                                self.imgV.move(int(self.x/2), int(self.y/3.5))
+                                self.letraModalidadeDificilV.adjustSize()
+                                self.letraModalidadeDificilV.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'w':
-                                self.imgW1.adjustSize()
-                                self.imgW1.move(int(self.x/3), int(self.y/3.5))
-
-                                self.imgW2.adjustSize()
-                                self.imgW2.move(int(self.x/2), int(self.y/3.5))
-
-                                self.imgW3.adjustSize()
-                                self.imgW3.move(int(self.x/1.5), int(self.y/3.5))
+                                self.letraModalidadeDificilW.adjustSize()
+                                self.letraModalidadeDificilW.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'x':
-                                self.imgX3.adjustSize()
-                                self.imgX3.move(int(self.x/3), int(self.y/3.5))
-
-                                self.imgX2.adjustSize()
-                                self.imgX2.move(int(self.x/2), int(self.y/3.5))
-
-                                self.imgX1.adjustSize()
-                                self.imgX1.move(int(self.x/1.5), int(self.y/3.5))
+                                self.letraModalidadeDificilX.adjustSize()
+                                self.letraModalidadeDificilX.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'y':
-                                self.imgY1.adjustSize()
-                                self.imgY1.move(int(self.x/3), int(self.y/3.5))
-
-                                self.imgY2.adjustSize()
-                                self.imgY2.move(int(self.x/2), int(self.y/3.5))
-
-                                self.imgY3.adjustSize()
-                                self.imgY3.move(int(self.x/1.5), int(self.y/3.5))
+                                self.letraModalidadeDificilY.adjustSize()
+                                self.letraModalidadeDificilY.move(int(self.x/1.6), int(self.y/3.5))
                             elif letraPrintar == 'z': 
-                                self.imgZ1.adjustSize()
-                                self.imgZ1.move(int(self.x/1.7), int(self.y/3.5))
-
-                                self.imgZ2.adjustSize()
-                                self.imgZ2.move(int(self.x/2.25), int(self.y/3.5))
-
-                                self.imgZ4.adjustSize()
-                                self.imgZ4.move(int(self.x/2.25), int(self.y/1.65))
-
-                                self.imgZ3.adjustSize()
-                                self.imgZ3.move(int(self.x/1.7), int(self.y/1.65))
+                                self.letraModalidadeDificilZ.adjustSize()
+                                self.letraModalidadeDificilZ.move(int(self.x/1.6), int(self.y/3.5))
                     if menu_opc3 == 'sair':
                         menu_opc3 = 0
                         entr1vez = 0
@@ -6753,7 +6871,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 2                                     
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                                                 
                                 contador = 0
@@ -6830,7 +6948,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 3 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
                                
@@ -6918,7 +7036,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 4 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
 
                                 contador = 0
@@ -7016,7 +7134,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 5 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
 
                                 contador = 0
@@ -7104,7 +7222,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 6 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
                                 #########################################################################
@@ -7179,7 +7297,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 7 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
 
                                 contador = 0
@@ -7260,7 +7378,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 8 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
 
                                 contador = 0
@@ -7343,7 +7461,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 9 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
 
                                 contador = 0
@@ -7413,7 +7531,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 10 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
 
                                 contador = 0
@@ -7497,7 +7615,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 11
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
 
                                 contador = 0
@@ -7589,7 +7707,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 12 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
 
@@ -7657,7 +7775,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 13 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
                                
@@ -7720,7 +7838,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 14 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
 
@@ -7783,7 +7901,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 15
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
 
@@ -7862,7 +7980,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 16
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
 
                                 contador = 0
@@ -7924,7 +8042,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 17
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
 
@@ -7981,7 +8099,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 18
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
 
@@ -8058,7 +8176,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 19 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
 
@@ -8139,7 +8257,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 20
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
                                 #########################################################################
@@ -8213,7 +8331,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 21 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
 
@@ -8281,7 +8399,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 22
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
 
                                 contador = 0
@@ -8350,7 +8468,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 23 
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
 
                                 contador = 0
@@ -8420,7 +8538,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 24
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
                                 if con == 2:
@@ -8531,7 +8649,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 25
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
                                 if con == 2:
@@ -8621,7 +8739,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 26
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
                                 if con == 2:
@@ -8707,7 +8825,7 @@ class Worker1(QThread):
                                     letra = 'next'
                                     trocaLetra = 1
                                     menu_opc2_soletra  = 27
-                                    time.sleep(1)
+                                    time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
                                 #########################################################################
