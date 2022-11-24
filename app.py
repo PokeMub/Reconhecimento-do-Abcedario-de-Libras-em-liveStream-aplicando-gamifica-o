@@ -1026,6 +1026,14 @@ class MyWindow(QWidget):
             self.ranks.adjustSize()
             self.ranks.move(-500, -500)  
         ## Instanciando as Imagens das Letras do Alfabeto
+
+        ## Instanciando Letras Modalidade Dificil
+        self.letraModalidadeDificilA = QLabel("A", self)
+        self.largura = self.letraModalidadeDificilA.frameGeometry().width()
+        self.altura = self.letraModalidadeDificilA.frameGeometry().height()
+        self.letraModalidadeDificilA.setFont(QFont('Arial Black', 150))
+        self.letraModalidadeDificilA.adjustSize()
+        self.letraModalidadeDificilA.move(int(self.x/1.55), int(self.y/3.5))
         if True:
             #Gif Letra A
             self.labelA = QLabel(self)
