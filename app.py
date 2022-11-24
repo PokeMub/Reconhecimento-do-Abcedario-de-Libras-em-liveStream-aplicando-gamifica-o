@@ -912,7 +912,7 @@ class MyWindow(QWidget):
             print(string_ordenada)
             
             self.tabelaRanks = QLabel(string_ordenada, self)
-            self.tabelaRanks.setFont(QFont('Arial Black', 18))
+            self.tabelaRanks.setFont(QFont('Arial Black', 14))
             self.tabelaRanks.adjustSize()
             self.tabelaRanks.move(-5000, -5000)
             ###########################################################################################################################
