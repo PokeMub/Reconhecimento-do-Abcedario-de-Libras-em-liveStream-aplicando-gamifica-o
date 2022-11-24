@@ -920,47 +920,60 @@ class MyWindow(QWidget):
 
             ## Label Principal Explicando pra que serve os sinais
             self.labelPricipalMovimentaoBotes = QLabel("Sinais para Movimentação dos Botões", self)
-            self.labelPricipalMovimentaoBotes.setFont(QFont('Arial Black', 30))
+            self.labelPricipalMovimentaoBotes.setFont(QFont('Arial Black', 40))
             self.labelPricipalMovimentaoBotes.adjustSize()
             self.labelPricipalMovimentaoBotes.move(-500, -500)
 
 
             ### Adicionando uma imagem
             ## Label da Imagem Proximo
-            self.labelImagProximo = QLabel("Proximo", self)
+            self.labelImagProximo = QLabel("Avançar", self)
             self.labelImagProximo.setFont(QFont('Arial Black', 20))
             self.labelImagProximo.adjustSize()
             self.labelImagProximo.move(-500, -500)
-            ## Imagem Proximo
-            self.imgProximo = QLabel(self)
-            self.enderecoImgProx = QPixmap('imagens/proximo.jpg')
-            self.imgProximo.setPixmap(self.enderecoImgProx)
-            self.imgProximo.setGeometry(0, 0,0, 0)
-
+            
 
             ## Label da Imagem Selecionar
-            self.labelImagSelecionar = QLabel("Selecionar", self)
+            self.labelImagSelecionar = QLabel("Confirmar", self)
             self.labelImagSelecionar.setFont(QFont('Arial Black', 20))
             self.labelImagSelecionar.adjustSize()
             self.labelImagSelecionar.move(-500, -500)
             ## Imagem Selecionar
 
+
+
+
+            # self.labelA = QLabel(self)
+            # self.movieA = QMovie('gif/a.gif')
+            # self.labelA.setGeometry(QtCore.QRect(int(self.x/1.2), int(self.y/3.5), 600, 600))
+            # self.labelA.setMovie(self.movieA)
+
             self.imgSelecionar = QLabel(self)
-            self.enderecoImgSel = QPixmap('imagens/selecionar.jpg')
-            self.imgSelecionar.setPixmap(self.enderecoImgSel)
-            self.imgSelecionar.setGeometry(0, 0,0, 0)
+            self.enderecoImgSel = QMovie('gif/c.gif')
+            #self.imgSelecionar.setGeometry(QtCore.QRect(int(self.x/1.2), int(self.y/3.5), 600, 600))
+            self.imgSelecionar.setGeometry(QtCore.QRect(-1000, -1000, -1000, -1000))
+            self.imgSelecionar.setMovie(self.enderecoImgSel)
+
+            ## Imagem Proximo
+            self.imgProximo = QLabel(self)
+            self.enderecoImgProx = QMovie('gif/a.gif')
+            self.imgProximo.setGeometry(QtCore.QRect(-1000, -1000, -1000, -1000))
+            self.imgProximo.setMovie(self.enderecoImgProx)
+            #self.imgProximo.setGeometry(QtCore.QRect(int(self.x/1.2), int(self.y/3.5), 600, 600))
 
 
-            ## Label da Imagem Voltar
-            self.labelImagVoltar = QLabel("Voltar", self)
-            self.labelImagVoltar.setFont(QFont('Arial Black', 20))
-            self.labelImagVoltar.adjustSize()
-            self.labelImagVoltar.move(-500, -500)
-            ## Imagem Voltar
-            self.imgVoltar = QLabel(self)
-            self.enderecoImVolt = QPixmap('imagens/voltar.jpg')
-            self.imgVoltar.setPixmap(self.enderecoImVolt)
-            self.imgVoltar.setGeometry(0, 0,0, 0)
+
+
+            # ## Label da Imagem Voltar
+            # self.labelImagVoltar = QLabel("Voltar", self)
+            # self.labelImagVoltar.setFont(QFont('Arial Black', 20))
+            # self.labelImagVoltar.adjustSize()
+            # self.labelImagVoltar.move(-500, -500)
+            # ## Imagem Voltar
+            # self.imgVoltar = QLabel(self)
+            # self.enderecoImVolt = QPixmap('imagens/voltar.jpg')
+            # self.imgVoltar.setPixmap(self.enderecoImVolt)
+            # self.imgVoltar.setGeometry(0, 0,0, 0)
             
             self.op1MenuVisualizarAlfabeto = QPushButton(self)
             self.op1MenuVisualizarAlfabeto.setText("Visualizar Alfabeto")
@@ -2160,26 +2173,36 @@ class MyWindow(QWidget):
 
                     ## Label Principal Explicando pra que serve os sinais
                     self.labelPricipalMovimentaoBotes.adjustSize()
-                    self.labelPricipalMovimentaoBotes.move(int(self.x/2.3), int(self.y/2.6))
+                    self.labelPricipalMovimentaoBotes.move(int(self.x/5), 50)
 
                     ### Adicionando uma imagem
                     ## Label da Imagem Proximo
                     self.labelImagProximo.adjustSize()
                     self.labelImagProximo.move(int(self.x/3 + 150), int(self.y/1.9))
+                    self.imgProximo.setGeometry(QtCore.QRect(int(self.x/2.8), int(self.y/3.5), 600, 600))
+                    self.enderecoImgProx.start()
                     ## Imagem Proximo
-                    self.imgProximo.setGeometry(int(self.x/3), int(self.y/1.7),400,300)
+                    #self.imgProximo.setGeometry(int(self.x/3), int(self.y/1.7),400,300)
+                    # self.imgProximo.adjustSize()
+                    # self.imgProximo.setGeometry(QtCore.QRect(int(self.x/1.2), int(self.y/3.5), 600, 600))
+                    
 
+                    
                     ## Label da Imagem Selecionar
                     self.labelImagSelecionar.adjustSize()
                     self.labelImagSelecionar.move(int(self.x/1.8 + 130), int(self.y/1.9))
+                    self.imgSelecionar.setGeometry(QtCore.QRect(int(self.x/1.5), int(self.y/3.5), 600, 600))
+                    self.enderecoImgSel.start()
                     ## Imagem Selecionar
-                    self.imgSelecionar.setGeometry(int(self.x/1.8), int(self.y/1.7),400,300)
+                    #self.imgSelecionar.setGeometry(int(self.x/1.8), int(self.y/1.7),400,300)
+                    # self.imgSelecionar.adjustSize()
+                    # self.imgSelecionar.setGeometry(QtCore.QRect(int(self.x/1.2), int(self.y/3.5), 600, 600))
 
                     ## Label da Imagem Voltar
-                    self.labelImagVoltar.adjustSize()
-                    self.labelImagVoltar.move(int(self.x/1.284 + 135), int(self.y/1.9))
+                    # self.labelImagVoltar.adjustSize()
+                    # self.labelImagVoltar.move(int(self.x/1.284 + 135), int(self.y/1.9))
                     ## Imagem Voltar
-                    self.imgVoltar.setGeometry(int(self.x/1.284), int(self.y/1.7),400,300)
+                    # self.imgVoltar.setGeometry(int(self.x/1.284), int(self.y/1.7),400,300)
                 if(troca_opc == 0):
                     letra = 'proximo'
                 if troca_opc == 1:
@@ -2188,17 +2211,23 @@ class MyWindow(QWidget):
                     pass
                 if menu_opc2 == 1:
                     QApplication.processEvents()
-                    self.labelImagVoltar.adjustSize()
-                    self.labelImagVoltar.move(-500, -500)
-                    self.imgVoltar.setGeometry(int(-500), int(self.y/1.7),400,300)
+                    # self.labelImagVoltar.adjustSize()
+                    # self.labelImagVoltar.move(-500, -500)
+                    # self.imgVoltar.setGeometry(int(-500), int(self.y/1.7),400,300)
 
                     self.labelImagSelecionar.adjustSize()
                     self.labelImagSelecionar.move(-500, -500)
-                    self.imgSelecionar.setGeometry(int(-500), int(self.y/1.7),400,300)
+                    #self.imgSelecionar.setGeometry(int(-500), int(self.y/1.7),400,300)
 
                     self.labelImagProximo.adjustSize()
                     self.labelImagProximo.move(-500, -500)
-                    self.imgProximo.setGeometry(int(-500), int(self.y/1.7),400,300)
+                    #self.imgProximo.setGeometry(int(-500), int(self.y/1.7),400,300)
+
+                    self.enderecoImgProx.stop()
+                    self.imgProximo.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
+                    self.enderecoImgSel.stop()
+                    self.imgSelecionar.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
 
                     self.labelPricipalMovimentaoBotes.move(-500, -500)
                     
@@ -2263,9 +2292,7 @@ class MyWindow(QWidget):
                         self.botaoProx.setGeometry(20, 20, int(200), 40) 
                         self.botaoProx.move(int(self.x/1.07), int(self.y/1.03))
                     elif visualizarLetra == 2:
-                        self.movieA.stop()
-                        self.labelA.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
-
+                        
                         self.labelExcLetA.adjustSize()
                         self.labelExcLetA.move(int(self.x/1.15), int(-1000))
 
