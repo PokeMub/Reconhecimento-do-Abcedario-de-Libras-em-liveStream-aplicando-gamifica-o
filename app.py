@@ -9117,9 +9117,7 @@ class Worker1(QThread):
                                         COLOR3, 2, cv2.LINE_AA)
                                 cv2.circle(image, indicador_8, 4,
                                         (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-
-                                
+                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)                              
                             elif letra_Momento == 'voltar':
                                 COLOR = (0, 255, 0)
                                 COLOR2 = (0, 0, 0)
@@ -9273,10 +9271,7 @@ class Worker1(QThread):
                                         COLOR5, 2, cv2.LINE_AA)
                                 cv2.circle(image, indicador_20, 4,
                                         (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                               
-                                
-                                
+                                cv2.circle(image, indicador_16, 4, (0, 0, 0), 2, cv2.LINE_AA)                               
                             elif letra_Momento == 'selecionar':
 
                                 COLOR = (0, 255, 0)
