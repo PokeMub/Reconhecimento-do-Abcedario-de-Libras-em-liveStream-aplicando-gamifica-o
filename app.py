@@ -1473,6 +1473,8 @@ class MyWindow(QWidget):
             self.labelLetG.setFont(QFont('Arial Black', 20))
             self.labelLetG.adjustSize()
             self.labelLetG.move(-500, -500)
+            trsG = QTransform().rotate(90)
+            self.imgG.setPixmap(QPixmap(self.imageG).transformed(trsG))
             ############################################################################################################################
 
             ###################################################################################################################################    
@@ -1815,6 +1817,9 @@ class MyWindow(QWidget):
             self.enderecoH1 = QPixmap('letras/H1.jpg')
             self.imgH1.setPixmap(self.enderecoH1)  
             self.imgH1.setGeometry(0, 0,0, 0)
+            # trsH1 = QTransform().rotate(90)
+            # self.imgH1.setPixmap(QPixmap(self.imageS).transformed(trsH1))
+
     
             ## Imagem Letra H2
             self.imageH2 = QImage('letras/H2.jpg') 
@@ -1822,6 +1827,8 @@ class MyWindow(QWidget):
             self.enderecoH2 = QPixmap('letras/H2.jpg')
             self.imgH2.setPixmap(self.enderecoH2)  
             self.imgH2.setGeometry(0, 0,0, 0)
+            # trsH2 = QTransform().rotate(90)
+            # self.imgH2.setPixmap(QPixmap(self.imageS).transformed(trsH2))
 
             ## Imagem Letra H3
             self.imageH3 = QImage('letras/H3.jpg') 
@@ -1829,6 +1836,8 @@ class MyWindow(QWidget):
             self.enderecoH3 = QPixmap('letras/H3.jpg')
             self.imgH3.setPixmap(self.enderecoH3)  
             self.imgH3.setGeometry(0, 0,0, 0)
+            # trsH3 = QTransform().rotate(90)
+            # self.imgH3.setPixmap(QPixmap(self.imageS).transformed(trsH3))
 
             ## Label Letra H
             self.labelLetH = QLabel("Letra H", self)
@@ -2070,6 +2079,8 @@ class MyWindow(QWidget):
             self.enderecoZ1 = QPixmap('letras/Z1.jpg')
             self.imgZ1.setPixmap(self.enderecoZ1)  
             self.imgZ1.setGeometry(0, 0,0, 0)
+            trsZ1 = QTransform().rotate(90)
+            self.imgZ1.setPixmap(QPixmap(self.imageZ1).transformed(trsZ1))
 
             ## Imagem Letra Z2
             self.imageZ2 = QImage('letras/Z2.jpg') 
@@ -2077,6 +2088,8 @@ class MyWindow(QWidget):
             self.enderecoZ2 = QPixmap('letras/Z2.jpg')
             self.imgZ2.setPixmap(self.enderecoZ2)  
             self.imgZ2.setGeometry(0, 0,0, 0)
+            trsZ2 = QTransform().rotate(90)
+            self.imgZ2.setPixmap(QPixmap(self.imageZ2).transformed(trsZ2))
 
             ## Imagem Letra Z3
             self.imageZ3 = QImage('letras/Z3.jpg') 
@@ -2084,6 +2097,8 @@ class MyWindow(QWidget):
             self.enderecoZ3 = QPixmap('letras/Z3.jpg')
             self.imgZ3.setPixmap(self.enderecoZ3)  
             self.imgZ3.setGeometry(0, 0,0, 0)
+            trsZ3 = QTransform().rotate(90)
+            self.imgZ3.setPixmap(QPixmap(self.imageZ3).transformed(trsZ3))
 
             ## Imagem Letra Z4
             self.imageZ4 = QImage('letras/Z4.jpg') 
@@ -2091,6 +2106,8 @@ class MyWindow(QWidget):
             self.enderecoZ4 = QPixmap('letras/Z4.jpg')
             self.imgZ4.setPixmap(self.enderecoZ4)  
             self.imgZ4.setGeometry(0, 0,0, 0)
+            trsZ4 = QTransform().rotate(90)
+            self.imgZ4.setPixmap(QPixmap(self.imageZ4).transformed(trsZ4))
 
             ## Label Letra Z
             self.labelLetZ = QLabel("Letra Z", self)
@@ -2118,6 +2135,8 @@ class MyWindow(QWidget):
             self.enderecoK1 = QPixmap('letras/K1.jpg')
             self.imgK1.setPixmap(self.enderecoK1)  
             self.imgK1.setGeometry(0, 0,0, 0)
+            trsK1 = QTransform().rotate(90)
+            self.imgK1.setPixmap(QPixmap(self.imageK1).transformed(trsK1))
 
             ## Imagem Letra K2
             self.imageK2 = QImage('letras/K2.jpg') 
@@ -2125,6 +2144,8 @@ class MyWindow(QWidget):
             self.enderecoK2 = QPixmap('letras/K2.jpg')
             self.imgK2.setPixmap(self.enderecoK2)  
             self.imgK2.setGeometry(0, 0,0, 0)
+            trsK2 = QTransform().rotate(90)
+            self.imgK2.setPixmap(QPixmap(self.imageK2).transformed(trsK2))
 
             ## Imagem Letra K3
             self.imageK3 = QImage('letras/K3.jpg') 
@@ -2132,6 +2153,8 @@ class MyWindow(QWidget):
             self.enderecoK3 = QPixmap('letras/K3.jpg')
             self.imgK3.setPixmap(self.enderecoK3)  
             self.imgK3.setGeometry(0, 0,0, 0)
+            trsK3 = QTransform().rotate(90)
+            self.imgK3.setPixmap(QPixmap(self.imageK3).transformed(trsK3))
 
             ## Label Letra K
             self.labelLetK = QLabel("Letra K", self)
@@ -2294,6 +2317,10 @@ class MyWindow(QWidget):
                         self.botaoProx.move(int(self.x/1.07), int(self.y/1.03))
                     elif visualizarLetra == 2:
                         
+
+                        self.movieA.stop()
+                        self.labelA.setGeometry(QtCore.QRect(int(self.x/1.2), int(-1000), 600, 600))
+
                         self.labelExcLetA.adjustSize()
                         self.labelExcLetA.move(int(self.x/1.15), int(-1000))
 
