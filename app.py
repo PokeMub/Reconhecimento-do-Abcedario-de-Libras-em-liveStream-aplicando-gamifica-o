@@ -2079,8 +2079,8 @@ class MyWindow(QWidget):
             self.enderecoZ1 = QPixmap('letras/Z1.jpg')
             self.imgZ1.setPixmap(self.enderecoZ1)  
             self.imgZ1.setGeometry(0, 0,0, 0)
-            trsZ1 = QTransform().rotate(90)
-            self.imgZ1.setPixmap(QPixmap(self.imageZ1).transformed(trsZ1))
+            # trsZ1 = QTransform().rotate(90)
+            # self.imgZ1.setPixmap(QPixmap(self.imageZ1).transformed(trsZ1))
 
             ## Imagem Letra Z2
             self.imageZ2 = QImage('letras/Z2.jpg') 
@@ -2088,8 +2088,8 @@ class MyWindow(QWidget):
             self.enderecoZ2 = QPixmap('letras/Z2.jpg')
             self.imgZ2.setPixmap(self.enderecoZ2)  
             self.imgZ2.setGeometry(0, 0,0, 0)
-            trsZ2 = QTransform().rotate(90)
-            self.imgZ2.setPixmap(QPixmap(self.imageZ2).transformed(trsZ2))
+            # trsZ2 = QTransform().rotate(90)
+            # self.imgZ2.setPixmap(QPixmap(self.imageZ2).transformed(trsZ2))
 
             ## Imagem Letra Z3
             self.imageZ3 = QImage('letras/Z3.jpg') 
@@ -2097,8 +2097,8 @@ class MyWindow(QWidget):
             self.enderecoZ3 = QPixmap('letras/Z3.jpg')
             self.imgZ3.setPixmap(self.enderecoZ3)  
             self.imgZ3.setGeometry(0, 0,0, 0)
-            trsZ3 = QTransform().rotate(90)
-            self.imgZ3.setPixmap(QPixmap(self.imageZ3).transformed(trsZ3))
+            # trsZ3 = QTransform().rotate(90)
+            # self.imgZ3.setPixmap(QPixmap(self.imageZ3).transformed(trsZ3))
 
             ## Imagem Letra Z4
             self.imageZ4 = QImage('letras/Z4.jpg') 
@@ -2135,8 +2135,8 @@ class MyWindow(QWidget):
             self.enderecoK1 = QPixmap('letras/K1.jpg')
             self.imgK1.setPixmap(self.enderecoK1)  
             self.imgK1.setGeometry(0, 0,0, 0)
-            trsK1 = QTransform().rotate(90)
-            self.imgK1.setPixmap(QPixmap(self.imageK1).transformed(trsK1))
+            # trsK1 = QTransform().rotate(90)
+            # self.imgK1.setPixmap(QPixmap(self.imageK1).transformed(trsK1))
 
             ## Imagem Letra K2
             self.imageK2 = QImage('letras/K2.jpg') 
@@ -2144,8 +2144,8 @@ class MyWindow(QWidget):
             self.enderecoK2 = QPixmap('letras/K2.jpg')
             self.imgK2.setPixmap(self.enderecoK2)  
             self.imgK2.setGeometry(0, 0,0, 0)
-            trsK2 = QTransform().rotate(90)
-            self.imgK2.setPixmap(QPixmap(self.imageK2).transformed(trsK2))
+            # trsK2 = QTransform().rotate(90)
+            # self.imgK2.setPixmap(QPixmap(self.imageK2).transformed(trsK2))
 
             ## Imagem Letra K3
             self.imageK3 = QImage('letras/K3.jpg') 
@@ -2153,8 +2153,8 @@ class MyWindow(QWidget):
             self.enderecoK3 = QPixmap('letras/K3.jpg')
             self.imgK3.setPixmap(self.enderecoK3)  
             self.imgK3.setGeometry(0, 0,0, 0)
-            trsK3 = QTransform().rotate(90)
-            self.imgK3.setPixmap(QPixmap(self.imageK3).transformed(trsK3))
+            # trsK3 = QTransform().rotate(90)
+            # self.imgK3.setPixmap(QPixmap(self.imageK3).transformed(trsK3))
 
             ## Label Letra K
             self.labelLetK = QLabel("Letra K", self)
@@ -6703,6 +6703,18 @@ class Worker1(QThread):
     def run(self):
         contador = 0
         reducao = 1
+        cont = 0
+        validade = 0
+        posicao1 = 0
+        posicao2 = 0
+        posicao3 = 0
+        posicao4 = 0
+        validade2 = 0
+        validade3 = 0
+        entrada = 0
+        entrada1 = 0
+        entrada2 = 0
+        entrada4 = 0
         global menu_opc1 , menu_opc2 , dentro_menu_opc2, entrar_opc , troca_opc, visualizarLetra,menu_opc2_soletra, letra , voltarMenu,menu_opc3, confirmacaoMenuOpcNivel,trocaLetra,contadorPonto 
         letra_Momento = 'Iniciando'
         mp_drawing = mp.solutions.drawing_utils
@@ -6738,6 +6750,18 @@ class Worker1(QThread):
                                 ladinho = 0
                                 contar = 0
                                 x = 0
+                                cont = 0
+                                validade = 0
+                                posicao1 = 0
+                                posicao2 = 0
+                                posicao3 = 0
+                                posicao4 = 0
+                                validade2 = 0
+                                validade3 = 0
+                                entrada = 0
+                                entrada1 = 0
+                                entrada2 = 0
+                                entrada4 = 0
                             if reducao == 1:
                                 ###################################################################################
                                 # Ponto 4 do dedao
@@ -7233,42 +7257,26 @@ class Worker1(QThread):
                                 cv2.circle(image, indicador_16, 4, (0, 0, 0), 2, cv2.LINE_AA)                            
                             elif letra_Momento == 'e':
 
-                                COLOR = (0, 0, 0)
-                                COLOR2 = (0, 0, 0)
-                                COLOR3 = (0, 0, 0)
-                                COLOR4 = (0, 0, 0)
-                                COLOR5 = (0, 0, 0)
-                                COLOR6 = (0, 0, 0)
-
-                                if(dedao_x_4 > indicador_x_16):
-                                    f = (dedao_x_4 - indicador_x_16)
-                                if (dedao_x_4 < indicador_x_16):
-                                    f = (indicador_x_16 - dedao_x_4)
-
-                                if(dedao_x_3 > indicador_x_8):
-                                    g = (dedao_x_3 - indicador_x_8)
-                                if (dedao_x_3 < indicador_x_8):
-                                    g = (indicador_x_8 - dedao_x_3)
-
-                                if f < 10:
-                                    COLOR = (0, 255, 0)
-                                    contador = 1 + contador
-                                if g < 10:
-                                    COLOR2 = (0, 255, 0)
-                                    contador = 1 + contador
-
-                                if indicador_y_13 < indicador_y_16:
+                                if indicador_y_14 < indicador_y_16:
                                     COLOR3 = (0, 255, 0)
                                     contador = 1 + contador
-                                if indicador_y_9 < indicador_y_12:
+
+                                if indicador_y_10 < indicador_y_12:
                                     COLOR4 = (0, 255, 0)
                                     contador = 1 + contador
-                                if indicador_y_17 < indicador_y_20:
+
+                                if indicador_y_18 < indicador_y_20:
                                     COLOR5 = (0, 255, 0)
                                     contador = 1 + contador
 
-                                if indicador_y_5 < indicador_y_8:
+                                if indicador_y_6 < indicador_y_8:
                                     COLOR6 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if(dedao_y_3 > (indicador_y_5) and dedao_y_4 > (indicador_y_5)):
+                                    contador = 1 + contador
+
+                                if((dedao_x_4 > indicador_x_20 and dedao_x_4 < indicador_x_8) or (dedao_x_4 < indicador_x_20 and dedao_x_4 > indicador_x_8)):
                                     contador = 1 + contador
 
                                 if contador >= 6:
@@ -7280,73 +7288,35 @@ class Worker1(QThread):
                                     time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
-                                #########################################################################
-                                cv2.line(image, (dedao_4), (indicador_16),
-                                        COLOR, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_4, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                #########################################################################
-                                cv2.line(image, (dedao_3), (indicador_8),
-                                        COLOR2, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_8, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_3, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_16),
-                                        COLOR5, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_12),
-                                        COLOR4, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_12, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_20),
-                                        COLOR6, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_20, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_8),
-                                        COLOR3, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_8, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                               
                             elif letra_Momento == 'f':
-                                COLOR = (0, 255, 0)
-                                COLOR2 = (0, 0, 0)
-                                COLOR3 = (0, 0, 0)
-                                COLOR4 = (0, 0, 0)
-                                COLOR5 = (0, 0, 0)
-                                COLOR6 = (0, 0, 0)
                                 
-                                f = indicador_y_8 - dedao_y_4
-                                if(f < 0):
-                                    f = f * -1
-
-                                if f < 15:
-                                    COLOR2 = (0, 255, 0)
+                                if indicador_y_15 > indicador_y_16:
+                                    COLOR3 = (0, 255, 0)
+                                    contador = 1 + contador
+                                    # print("opa")
+                                    # print("t")
+                                if indicador_y_11 > indicador_y_12:
+                                    COLOR4 = (0, 255, 0)
+                                    contador = 1 + contador
+                                    # print("opa")
+                                    # print("t")
+                                if indicador_y_19 > indicador_y_20:
+                                    COLOR5 = (0, 255, 0)
                                     contador = 1 + contador
 
-                                if indicador_y_16 > indicador_y_12 and indicador_y_20 > indicador_y_12:
 
-                                    if indicador_y_15 > indicador_y_16:
-                                        COLOR3 = (0, 255, 0)
+                                if(indicador_x_17 > indicador_x_5):
+                                    if(dedao_x_4 < indicador_x_5):
                                         contador = 1 + contador
 
-                                    if indicador_y_11 > indicador_y_12:
-                                        COLOR4 = (0, 255, 0)
-                                        contador = 1 + contador
- 
-                                    if indicador_y_19 > indicador_y_20:
-                                        COLOR5 = (0, 255, 0)
+                                if(indicador_x_17 < indicador_x_5):
+                                    if(dedao_x_4 > indicador_x_5):
                                         contador = 1 + contador
 
-                                if contador >= 4:
+                                if indicador_y_8 > dedao_y_4:
+                                    contador = 1 + contador
+                                if contador >= 5:
                                     print("Letra F")
                                     print("vc Acertou")
                                     letra = 'next'
@@ -7357,75 +7327,33 @@ class Worker1(QThread):
 
                                 contador = 0
 
-                                cv2.line(image, (dedao_4), (indicador_8),
-                                        COLOR2, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_8, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_4, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_20),
-                                        COLOR5, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_20, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_12),
-                                        COLOR4, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_12, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################                       
-                                cv2.line(image, (mao_0), (indicador_16),
-                                        COLOR3, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)                               
+                                                             
                             elif letra_Momento == 'g':
-                                COLOR = (0, 0, 0)
-                                COLOR2 = (0, 0, 0)
-                                COLOR3 = (0, 0, 0)
-                                COLOR4 = (0, 0, 0)
-                                COLOR5 = (0, 0, 0)
-                                COLOR6 = (0, 0, 0)
+                               
 
-                                f = (dedao_x_3 - indicador_x_6)
-                                g = (indicador_y_6 - dedao_y_4)
-
-                                if indicador_y_13 < indicador_y_16:
+                                if indicador_y_14 < indicador_y_16:
                                     COLOR3 = (0, 255, 0)
                                     contador = 1 + contador
 
-                                    if indicador_y_9 < indicador_y_12:
-                                        COLOR4 = (0, 255, 0)
-                                        contador = 1 + contador
-
-                                    if indicador_y_17 < indicador_y_20:
-                                        COLOR5 = (0, 255, 0)
-                                        contador = 1 + contador
-                                else:
-                                    if indicador_y_16 > indicador_y_12:
-                                        COLOR4 = (0, 255, 0)
-                                        contador = 1 + contador
-
-                                        if indicador_y_20 > indicador_y_16:
-
-                                            COLOR5 = (0, 255, 0)
-                                            contador = 1 + contador
-
-                                            COLOR3 = (0, 255, 0)
-                                            contador = 1 + contador
-
-                                f = indicador_y_10 - dedao_y_4
-                                if(f < 0):
-                                    f = f * -1
-
-                                if f < 20:
-                                    COLOR = (0, 255, 0)
+                                if indicador_y_10 < indicador_y_12:
+                                    COLOR4 = (0, 255, 0)
                                     contador = 1 + contador
 
-                                if(indicador_y_6 < dedao_y_4):
-                                    COLOR2 = (0, 255, 0)
+                                if indicador_y_18 < indicador_y_20:
+                                    COLOR5 = (0, 255, 0)
                                     contador = 1 + contador
+
+                                if indicador_y_6 > indicador_y_7 and indicador_y_7 > indicador_y_8 and indicador_y_5 > indicador_y_6:
+                                    COLOR6 = (0, 255, 0)
+                                    contador = 1 + contador
+                                    # print("teste")
+
+                                if(indicador_x_17 > indicador_x_5):
+                                    if dedao_y_1 > dedao_y_2 and dedao_y_2 > dedao_y_3 and dedao_y_3 > dedao_y_4:
+                                        contador = 1 + contador
+                                if(indicador_x_17 < indicador_x_5):
+                                    if dedao_y_1 > dedao_y_2 and dedao_y_2 > dedao_y_3 and dedao_y_3 > dedao_y_4:
+                                        contador = 1 + contador
 
                                 if contador >= 5:
                                     print("Letra G")
@@ -7438,36 +7366,7 @@ class Worker1(QThread):
 
                                 contador = 0
 
-                                cv2.line(image, (indicador_6), (dedao_4),
-                                        COLOR, 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_4, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_6, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (indicador_10), (dedao_4),
-                                        COLOR, 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_4, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_10, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_16),
-                                        COLOR3, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_12),
-                                        COLOR4, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_12, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-
-                                cv2.line(image, (mao_0), (indicador_20),
-                                        COLOR5, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_20, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                
                             elif letra_Momento == 'h':
                                 COLOR = (0, 0, 0)
                                 COLOR2 = (0, 0, 0)
@@ -7712,48 +7611,31 @@ class Worker1(QThread):
                                         (0, 0, 0), 2, cv2.LINE_AA)
                                 cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
                             elif letra_Momento == 'k':
-                                COLOR = (0, 0, 0)
-                                COLOR2 = (0, 0, 0)
-                                COLOR3 = (0, 0, 0)
-                                COLOR4 = (0, 0, 0)
-                                COLOR5 = (0, 0, 0)
-                                COLOR6 = (0, 0, 0)
 
-                                f = indicador_y_6 - dedao_y_4
-                                g = indicador_y_10 - dedao_y_4
+                                if((dedao_x_4 > indicador_x_10 and dedao_x_4 < indicador_x_6) or (dedao_x_4 < indicador_x_10 and dedao_x_4 > indicador_x_6)):
+                                    contador = 1 + contador
 
-                                if indicador_x_8 > indicador_x_12:
-                                    virar = 1
-                                if indicador_x_8 < indicador_x_12:
-                                    vira = 2
-                                if virar == 1:
-                                    if indicador_x_12 > indicador_x_8:
-                                        COLO6 = (0, 255, 0)
-                                        contador = 1 + contador
-                                if vira == 2:
-                                    if indicador_x_12 < indicador_x_8:
-                                        contador = 1 + contador
-                                        COLOR6 = (0, 255, 0)
-                                if(f < 0):
-                                    f = f * -1
-                                if(g < 0):
-                                    g = g * -1
-                                if f < 20:
-                                    COLOR = (0, 255, 0)
+                                if indicador_y_6 > indicador_y_7 and indicador_y_7 > indicador_y_8 and indicador_y_5 > indicador_y_6:
+                                    COLOR6 = (0, 255, 0)
                                     contador = 1 + contador
-                                if g < 20:
-                                    COLOR2 = (0, 255, 0)
+
+                                if indicador_y_9 > indicador_y_10 and indicador_y_10 > indicador_y_11 and indicador_y_11 > indicador_y_12:
+                                    COLOR6 = (0, 255, 0)
                                     contador = 1 + contador
-                                    if subir == 0:
-                                        subir = dedao_y_4
-                                if (subir + 50 < dedao_y_4):
-                                    contador = 1 + contador
+
                                 if indicador_y_13 < indicador_y_16:
                                     COLOR3 = (0, 255, 0)
                                     contador = 1 + contador
 
                                 if indicador_y_17 < indicador_y_20:
                                     COLOR5 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if contador == 5 and validade != 1:
+                                    subir = dedao_y_4
+                                    validade = 1
+
+                                if subir > (dedao_y_4 + 30):
                                     contador = 1 + contador
 
                                 if contador >= 6:
@@ -7765,66 +7647,45 @@ class Worker1(QThread):
                                     time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
+                                
+                                cont = cont + 1
 
-                                cv2.line(image, (indicador_6), (dedao_4),
-                                        COLOR, 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_4, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_6, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (indicador_10), (dedao_4),
-                                        COLOR2, 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_4, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_10, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_16),
-                                        COLOR3, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (indicador_12), (indicador_8),
-                                        COLOR6, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_8, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_12, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-
-                                cv2.line(image, (mao_0), (indicador_20),
-                                        COLOR5, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_20, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                if cont == 125:
+                                    cont = 0
+                                    validade = 0
+                                    # subir = 0
+                                
                             elif letra_Momento == 'l':
-                                COLOR = (0, 255, 0)
-                                COLOR2 = (0, 0, 0)
-                                COLOR3 = (0, 0, 0)
-                                COLOR4 = (0, 0, 0)
-                                COLOR5 = (0, 0, 0)
-                                COLOR6 = (0, 0, 0)
-                               
-                                f = (dedao_y_4 - indicador_y_8)
-                                g = (dedao_y_2 - indicador_y_6)
-
-                                if ((f) > (g + (g*0.22))):
-                                    contador = 1 + contador
-                                    COLOR2 = (0, 255, 0)
-                                s = dedao_y_2 - indicador_y_6
-
                                 if indicador_y_13 < indicador_y_16:
                                     COLOR4 = (0, 255, 0)
                                     contador = 1 + contador
-                                  
+                                    # print("opa")
+                                    # print("t")
                                 if indicador_y_9 < indicador_y_12:
                                     COLOR5 = (0, 255, 0)
                                     contador = 1 + contador
-
+                                    # print("opa")
+                                    # print("t")
                                 if indicador_y_17 < indicador_y_20:
                                     COLOR6 = (0, 255, 0)
                                     contador = 1 + contador
 
-                                if contador >= 4:
+                                if indicador_y_5 < dedao_y_4:
+                                    COLOR6 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if indicador_y_6 > indicador_y_7 and indicador_y_7 > indicador_y_8 and indicador_y_5 > indicador_y_6:
+                                    COLOR6 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if(indicador_x_17 > indicador_x_5):
+                                    if dedao_x_1 > dedao_x_2 and dedao_x_2 > dedao_x_3 and dedao_x_3 > dedao_x_4:
+                                        contador = 1 + contador
+                                if(indicador_x_17 < indicador_x_5):
+                                    if dedao_x_1 < dedao_x_2 and dedao_x_2 < dedao_x_3 and dedao_x_3 < dedao_x_4:
+                                        contador = 1 + contador
+
+                                if contador >= 6:
                                     print("Letra L")
                                     print("vc Acertou")
                                     letra = 'next'
@@ -7834,31 +7695,7 @@ class Worker1(QThread):
                                     contadorPonto = 0
                                 contador = 0
                                
-                                #########################################################################
-                                cv2.line(image, (dedao_3), (indicador_7),
-                                        COLOR2, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_7, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_3, 4, (0, 0, 0), 2, cv2.LINE_AA)
-
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_12),
-                                        COLOR4, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_12, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_16),
-                                        COLOR5, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_20),
-                                        COLOR6, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_20, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                               
                             elif letra_Momento == 'm':
                                 COLOR = (0, 255, 0)
                                 COLOR2 = (0, 0, 0)
@@ -8120,35 +7957,30 @@ class Worker1(QThread):
                                         (0, 0, 0), 2, cv2.LINE_AA)
                                 cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
                             elif letra_Momento == 'q':
-                                COLOR = (0, 0, 0)
-                                COLOR2 = (0, 0, 0)
-                                COLOR3 = (0, 0, 0)
-                                COLOR4 = (0, 0, 0)
-                                COLOR5 = (0, 0, 0)
-                                COLOR6 = (0, 0, 0)
-
-                                if(dedao_x_4 > indicador_x_8):
-                                    f = (dedao_x_4 - indicador_x_8)
-                                if (dedao_x_4 < indicador_x_8):
-                                    f = (indicador_x_8 - dedao_x_4)
-
-                                if f < 45:
-                                    COLOR2 = (0, 255, 0)
-                                    contador = 1 + contador
-
-                                if indicador_y_13 < indicador_y_16:
+                                if indicador_y_14 > indicador_y_16:
                                     COLOR3 = (0, 255, 0)
                                     contador = 1 + contador
 
-                                if indicador_y_9 < indicador_y_12:
+                                if indicador_y_10 > indicador_y_12:
                                     COLOR4 = (0, 255, 0)
                                     contador = 1 + contador
 
-                                if indicador_y_17 < indicador_y_20:
+                                if indicador_y_18 > indicador_y_20:
                                     COLOR5 = (0, 255, 0)
                                     contador = 1 + contador
 
-                                if contador >= 4:
+
+                                if indicador_y_6 < indicador_y_7 and indicador_y_7 < indicador_y_8 and indicador_y_5 < indicador_y_6:
+                                    COLOR6 = (0, 255, 0)
+                                    contador = 1 + contador
+                                    # print("teste")
+                                
+                                if dedao_y_1 < dedao_y_2 and dedao_y_2 < dedao_y_3 and dedao_y_3 < dedao_y_4:
+                                    COLOR6 = (0, 255, 0)
+                                    contador = 1 + contador
+                                    # print("teste")
+
+                                if contador >= 5:
                                     print("Letra Q")
                                     print("vc Acertou")
                                     letra = 'next'
@@ -8158,30 +7990,6 @@ class Worker1(QThread):
                                     contadorPonto = 0
                                 contador = 0
 
-                                #########################################################################
-                                cv2.line(image, (dedao_4), (indicador_8),
-                                        COLOR2, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_8, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_4, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_16),
-                                        COLOR3, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_12),
-                                        COLOR4, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_12, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_20),
-                                        COLOR5, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_20, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
                             elif letra_Momento == 'r':
                                 COLOR = (0, 0, 0)
                                 COLOR2 = (0, 0, 0)
@@ -8266,44 +8074,30 @@ class Worker1(QThread):
                                         (0, 0, 0), 2, cv2.LINE_AA)
                                 cv2.circle(image, indicador_12, 4, (0, 0, 0), 2, cv2.LINE_AA)
                             elif letra_Momento == 's':
-                                COLOR = (0, 0, 0)
-                                COLOR2 = (0, 0, 0)
-                                COLOR3 = (0, 0, 0)
-                                COLOR4 = (0, 0, 0)
-                                COLOR5 = (0, 0, 0)
-                                COLOR6 = (0, 0, 0)
-
-                                if(dedao_x_4 > indicador_x_16):
-                                    f = (dedao_x_4 - indicador_x_16)
-                                if (dedao_x_4 < indicador_x_16):
-                                    f = (indicador_x_16 - dedao_x_4)
-
-                                if(dedao_x_3 > indicador_x_8):
-                                    g = (dedao_x_3 - indicador_x_8)
-                                if (dedao_x_3 < indicador_x_8):
-                                    g = (indicador_x_8 - dedao_x_3)
-
-                                if f < 10:
-                                    COLOR = (0, 255, 0)
-                                    contador = 1 + contador
-                                if g < 10:
-                                    COLOR2 = (0, 255, 0)
-                                    contador = 1 + contador
-
-                                if indicador_y_13 < indicador_y_16:
+                                if indicador_y_14 < indicador_y_16:
                                     COLOR3 = (0, 255, 0)
                                     contador = 1 + contador
-
-                                if indicador_y_9 < indicador_y_12:
+                                    # print("opa1")
+                                    # print("t")
+                                if indicador_y_10 < indicador_y_12:
                                     COLOR4 = (0, 255, 0)
                                     contador = 1 + contador
-
-                                if indicador_y_17 < indicador_y_20:
+                                    # print("opa")
+                                    # print("t")
+                                    # print("opa2")
+                                if indicador_y_18 < indicador_y_20:
                                     COLOR5 = (0, 255, 0)
                                     contador = 1 + contador
-
-                                if indicador_y_5 < indicador_y_8:
+                                    # print("opa3")
+                                if indicador_y_6 < indicador_y_8:
                                     COLOR6 = (0, 255, 0)
+                                    contador = 1 + contador
+
+
+                                if(dedao_y_3 < (indicador_y_5) and dedao_y_4 < (indicador_y_5)):
+                                    contador = 1 + contador
+
+                                if((dedao_x_4 > indicador_x_20 and dedao_x_4 < indicador_x_8) or (dedao_x_4 < indicador_x_20 and dedao_x_4 > indicador_x_8)):
                                     contador = 1 + contador
 
                                 if contador >= 6:
@@ -8315,58 +8109,9 @@ class Worker1(QThread):
                                     time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
-                                #########################################################################
-                                cv2.line(image, (dedao_4), (indicador_16),
-                                        COLOR, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_4, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                #########################################################################
-                                cv2.line(image, (dedao_3), (indicador_8),
-                                        COLOR2, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_8, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_3, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_16),
-                                        COLOR5, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_12),
-                                        COLOR4, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_12, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_20),
-                                        COLOR6, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_20, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_8),
-                                        COLOR3, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_8, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                
                             elif letra_Momento == 't':
-                                COLOR = (0, 0, 0)
-                                COLOR2 = (0, 0, 0)
-                                COLOR3 = (0, 0, 0)
-                                COLOR4 = (0, 0, 0)
-                                COLOR5 = (0, 0, 0)
-                                COLOR6 = (0, 0, 0)
-
-                                if(dedao_x_4 > indicador_x_8):
-                                    f = (dedao_x_4 - indicador_x_8)
-                                if (dedao_x_4 < indicador_x_8):
-                                    f = (indicador_x_8 - dedao_x_4)
-
-                                if f < 10:
-                                    COLOR2 = (0, 255, 0)
-                                    contador = 1 + contador
+                                
 
                                 if indicador_y_15 > indicador_y_16:
                                     COLOR3 = (0, 255, 0)
@@ -8380,7 +8125,18 @@ class Worker1(QThread):
                                     COLOR5 = (0, 255, 0)
                                     contador = 1 + contador
 
-                                if contador >= 4:
+                                if(indicador_x_17 > indicador_x_5):
+                                    if(dedao_x_4 > indicador_x_5):
+                                        contador = 1 + contador
+
+                                if(indicador_x_17 < indicador_x_5):
+                                    if(dedao_x_4 < indicador_x_5):
+                                        contador = 1 + contador
+
+                                if indicador_y_8 > dedao_y_4:
+                                    contador = 1 + contador
+
+                                if contador >= 5:
                                     print("Letra T")
                                     print("vc Acertou")
                                     letra = 'next'
@@ -8390,30 +8146,7 @@ class Worker1(QThread):
                                     contadorPonto = 0
                                 contador = 0
 
-                                #########################################################################
-                                cv2.line(image, (dedao_4), (indicador_8),
-                                        COLOR2, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_8, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_4, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_16),
-                                        COLOR3, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_12),
-                                        COLOR4, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_12, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_20),
-                                        COLOR5, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_20, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
+                                
                             elif letra_Momento == 'u':
                                 COLOR = (0, 0, 0)
                                 COLOR2 = (0, 0, 0)
@@ -8825,54 +8558,53 @@ class Worker1(QThread):
                                         (0, 0, 0), 2, cv2.LINE_AA)
                                 cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)                            
                             elif letra_Momento == 'z':
-                                COLOR = (0, 0, 0)
-                                COLOR2 = (0, 0, 0)
-                                COLOR3 = (0, 0, 0)
-                                COLOR4 = (0, 0, 0)
-                                COLOR5 = (0, 0, 0)
-                                COLOR6 = (0, 0, 0)
-
-                                if(dedao_x_4 > indicador_x_16):
-                                    f = (dedao_x_4 - indicador_x_16)
-                                if (dedao_x_4 < indicador_x_16):
-                                    f = (indicador_x_16 - dedao_x_4)
-
-                                if f < 15:
-
-                                    COLOR = (0, 255, 0)
-                                    contador = 1 + contador
-                                    if contar == 0:
-                                        contar = 1
-                                    if ladinho == 0:
-                                        ladinho = indicador_x_8
-                                    if (ladinho > indicador_x_8 + 40):
-
-                                        if contar == 1:
-                                            y = indicador_y_8
-                                            x = indicador_x_8
-                                        contar = 2
-
-                                if contar == 2:
-                                    if (x + 40 < indicador_x_8 and indicador_y_8 > y + 30):
-                                        contar = 3
-                                        xx = indicador_x_8
-                                if contar == 3:
-
-                                    if (xx > indicador_x_8 + 15):
-                                        contar = 4
-
-                                if indicador_y_13 < indicador_y_16:
+                                if indicador_y_14 < indicador_y_16:
                                     COLOR3 = (0, 255, 0)
                                     contador = 1 + contador
 
-                                if indicador_y_9 < indicador_y_12:
+                                if indicador_y_10 < indicador_y_12:
                                     COLOR4 = (0, 255, 0)
                                     contador = 1 + contador
-                                if indicador_y_17 < indicador_y_20:
+
+                                if indicador_y_18 < indicador_y_20:
                                     COLOR5 = (0, 255, 0)
                                     contador = 1 + contador
 
-                                if contar == 4:
+                                if((dedao_x_4 > indicador_x_20 and dedao_x_4 < indicador_x_8) or (dedao_x_4 < indicador_x_20 and dedao_x_4 > indicador_x_8)):
+                                    contador = 1 + contador
+
+                                if indicador_y_6 > indicador_y_7 and indicador_y_7 > indicador_y_8 and indicador_y_5 > indicador_y_6:
+                                    COLOR6 = (0, 255, 0)
+                                    contador = 1 + contador
+
+                                if contador == 5 and validade != 1:
+                                    posicao1 = dedao_x_4
+                                    validade = 1
+
+                                if posicao1 + 15 < (dedao_x_4) or entrada == 1:
+                                    contador = 1 + contador
+                                    entrada = 1
+                                    # print("opa")
+
+                                if contador == 6 and validade2 != 1:
+                                    posicao2 = dedao_x_4
+                                    posicao3 = dedao_y_4
+                                    validade = 1
+                                #a
+                                if (posicao2 > (dedao_x_4 + 15)  and posicao3 + 10 < (dedao_y_4 ))or entrada2 == 1:
+                                    contador = 1 + contador
+                                    entrada2 = 1
+                                    # print("entrou")
+
+                                if contador == 7 and validade3 != 1:
+                                    posicao4 = posicao1
+                                    validade = 1
+
+                                if posicao4 + 15 < (dedao_x_4) and entrada2 == 1:
+                                    contador = 1 + contador
+                                    # print("teste3")
+
+                                if contar == 8:
                                     contador = 1 + contador
                                 if contador >= 5:
                                     print("Letra Z")
@@ -8883,30 +8615,15 @@ class Worker1(QThread):
                                     time.sleep(2)
                                     contadorPonto = 0
                                 contador = 0
-                                #########################################################################
-                                cv2.line(image, (dedao_4), (indicador_16),
-                                        COLOR, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, dedao_4, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                #########################################################################
-                                cv2.line(image, (mao_0), (indicador_16),
-                                        COLOR3, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_16, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_12),
-                                        COLOR4, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_12, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)
-                                ###################################################################
-                                cv2.line(image, (mao_0), (indicador_20),
-                                        COLOR5, 2, cv2.LINE_AA)
-                                cv2.circle(image, indicador_20, 4,
-                                        (0, 0, 0), 2, cv2.LINE_AA)
-                                cv2.circle(image, mao_0, 4, (0, 0, 0), 2, cv2.LINE_AA)                               
+                                cont = cont + 1
+
+                                if cont == 140:
+                                    cont = 0
+                                    validade = 0
+                                    validade2 = 0
+                                    validade3 = 0
+                                    # subir = 0
+                          
                             elif letra_Momento == 'proximo':
                                 COLOR = (0, 255, 0)
                                 COLOR2 = (0, 0, 0)
