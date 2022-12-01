@@ -1,8 +1,11 @@
-Nome: lucas guizzi , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 08/11/2022 09:31
-Nome: lucas , Fase: Princesa , Modalidade: Facil , Pontos: 342 , Dia: 15/11/2022 10:04
-Nome: Jorgin , Fase: Princesa , Modalidade: Medio , Pontos: 1062 , Dia: 15/11/2022 10:12
-Nome: Bernado , Fase: Princesa , Modalidade: Dificil , Pontos: -1456 , Dia: 15/11/2022 10:39
-Nome: Nicolas , Fase: Princesa , Modalidade: Facil , Pontos: 320 , Dia: 15/11/2022 12:23
-Nome: PokeMub , Fase: Princesa , Modalidade: Medio , Pontos: 1092 , Dia: 15/11/2022 12:25
-Nome: PokeMub , Fase: Princesa , Modalidade: Dificil , Pontos: 2532 , Dia: 15/11/2022 12:29
-Nome: Marlon , Fase: Princesa , Modalidade: Facil , Pontos: 322 , Dia: 15/11/2022 12:34
+Nome: PokeMub , Fase: Princesa , Modalidade: Facil , Pontos: 100 , Dia: 08/11/2022 09:31
+Nome: NightNinja , Fase: Princesa , Modalidade: Facil , Pontos: 120 , Dia: 01/12/2022 10:04
+Nome: NightNinja , Fase: Princesa , Modalidade: Facil , Pontos: 142 , Dia: 01/12/2022 10:10
+Nome: NightNinja , Fase: Princesa , Modalidade: Facil , Pontos: 166 , Dia: 01/12/2022 10:15
+Nome: NightNinja , Fase: Princesa , Modalidade: Facil , Pontos: 174 , Dia: 01/12/2022 12:21
+Nome: NightNinja , Fase: Princesa , Modalidade: Facil , Pontos: 212 , Dia: 01/12/2022 12:25
+Nome: Bernado , Fase: Princesa , Modalidade: Facil , Pontos: 184 , Dia: 01/12/2022 12:33
+Nome: Bernado , Fase: Princesa , Modalidade: Facil , Pontos: 212 , Dia: 01/12/2022 12:38
+Nome: Bernado , Fase: Princesa , Modalidade: Facil , Pontos: 240 , Dia: 01/12/2022 12:44
+Nome: Bernado , Fase: Princesa , Modalidade: Facil , Pontos: 278 , Dia: 01/12/2022 12:50
+Nome: Bernado , Fase: Princesa , Modalidade: Facil , Pontos: 302 , Dia: 01/12/2022 12:54
